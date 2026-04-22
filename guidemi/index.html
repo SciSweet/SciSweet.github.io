@@ -127,14 +127,11 @@
             background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
         }
         .feat-item {
-            display: flex; align-items: flex-start; gap: 16px;
+            display: flex; align-items: flex-start;
             padding: 22px 28px; background: var(--c-bg-card);
             transition: background var(--ease);
         }
         .feat-item:hover { background: var(--c-bg-card-hover); }
-        .feat-icon {
-            color: var(--c-accent-light); font-size: 14px; margin-top: 2px; flex-shrink: 0;
-        }
         .feat-content {
             display: flex; flex-direction: column; gap: 4px;
         }
@@ -213,42 +210,36 @@
         <h2 class="features-title">Features</h2>
         <div class="feat-grid">
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Quick Actions</strong>
                         <span>Quick access to common functions including single-edge guides, grid presets, golden ratio, and aspect ratio guides.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Margin-Go-Round</strong>
                         <span>Margin guide tool for creating guides with margins around target areas.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Grid-and-Go</strong>
                         <span>Grid guide tool for creating custom row/column grids with gutters.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Some Guides Like You</strong>
                         <span>Layout snapshot tool for capturing, saving, importing, and reapplying guide layouts across documents.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Geek-Set-Go</strong>
                         <span>Advanced unequal grid tool for creating guides with custom ratios or absolute values.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Smart Boundary Detection</strong>
                         <span>All guide functions support smart detection: selection bounds → layer bounds → document bounds.</span>
@@ -266,6 +257,8 @@
             <li><a data-panel="contact">Contact Bo</a></li>
             <li><a data-panel="cite">Cite Us</a></li>
             <li><a data-panel="join">Join Us</a></li>
+            <li><a href="../terms/index.html">Terms</a></li>
+            <li><a href="../privacy/index.html">Privacy</a></li>
         </ul>
     </div>
     <div class="footer-panel" id="panel-contact">

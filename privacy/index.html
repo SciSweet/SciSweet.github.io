@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#09090b">
-    <title>Installation Guide — SciSuite</title>
+    <title>Privacy Policy — SciSuite</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Installation Guide — SciSuite">
-    <meta property="og:description" content="Step-by-step installation instructions for SciSuite plugins for Adobe Photoshop & Illustrator.">
+    <meta property="og:title" content="Privacy Policy — SciSuite">
+    <meta property="og:description" content="Privacy Policy for SciSuite plugins for Adobe Photoshop & Illustrator.">
     <meta property="og:image" content="https://scisuite.github.io/img/og-image.png">
-    <meta property="og:url" content="https://scisuite.github.io/install/">
+    <meta property="og:url" content="https://scisuite.github.io/privacy/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Installation Guide — SciSuite">
-    <meta name="twitter:description" content="Step-by-step installation instructions for SciSuite plugins for Adobe Photoshop & Illustrator.">
+    <meta name="twitter:title" content="Privacy Policy — SciSuite">
+    <meta name="twitter:description" content="Privacy Policy for SciSuite plugins for Adobe Photoshop & Illustrator.">
     <meta name="twitter:image" content="https://scisuite.github.io/img/og-image.png">
     <style>
         :root {
@@ -95,48 +95,33 @@
             max-width: 780px;
         }
 
-        /* FAQ items */
-        .faq-list {
-            display: flex; flex-direction: column; gap: 12px;
+        /* Legal document */
+        .legal-doc h2 {
+            font-family: var(--font-display); font-size: 20px; font-weight: 600;
+            color: var(--c-text); margin: 36px 0 14px; line-height: 1.3;
         }
-        .faq-item {
+        .legal-doc h2:first-of-type { margin-top: 0; }
+        .legal-doc p {
+            font-size: 14px; color: var(--c-text-secondary); line-height: 1.8; margin-bottom: 14px;
+        }
+        .legal-doc ul, .legal-doc ol {
+            font-size: 14px; color: var(--c-text-secondary); line-height: 1.8;
+            margin: 0 0 14px 20px; padding: 0;
+        }
+        .legal-doc li { margin-bottom: 6px; }
+        .legal-doc a { color: var(--c-accent-light); text-decoration: underline; text-underline-offset: 2px; }
+        .legal-doc a:hover { color: var(--c-text); }
+        .legal-doc strong { color: var(--c-text); font-weight: 600; }
+        .legal-doc em { font-style: italic; }
+        .legal-doc .legal-updated {
+            font-size: 13px; color: var(--c-text-muted); font-style: italic; margin-bottom: 24px;
+        }
+        .legal-doc .legal-card {
             background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
-            transition: background var(--ease);
+            padding: 32px 36px; margin-top: 8px;
         }
-        .faq-item:hover { background: var(--c-bg-card-hover); }
-        .faq-q {
-            display: flex; align-items: flex-start; gap: 12px;
-            padding: 18px 28px; cursor: pointer; user-select: none;
-        }
-        .faq-label {
-            flex-shrink: 0; width: 32px;
-            font-size: 14px; font-weight: 700; color: var(--c-accent-light); line-height: 1.5;
-        }
-        .faq-q .faq-text {
-            flex: 1; font-size: 15px; font-weight: 600; color: var(--c-text); line-height: 1.5;
-        }
-        .faq-q .faq-arrow {
-            flex-shrink: 0; width: 20px; height: 20px; color: var(--c-text-muted);
-            transition: transform var(--ease), color var(--ease); margin-top: 2px;
-        }
-        .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); color: var(--c-accent-light); }
-        .faq-a {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-            padding: 0 28px;
-        }
-        .faq-item.open .faq-a {
-            max-height: 1200px;
-            padding: 0 28px 20px;
-        }
-        .faq-a-inner {
-            display: flex; align-items: flex-start; gap: 12px;
-        }
-        .faq-a-inner .faq-label {
-            color: var(--c-accent-2);
-        }
-        .faq-a-inner p {
-            flex: 1; font-size: 14px; color: var(--c-text-secondary); line-height: 1.75;
+        @media (max-width: 480px) {
+            .legal-doc .legal-card { padding: 24px 18px; }
         }
 
         /* Footer */
@@ -158,11 +143,6 @@
             font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
         }
 
-        @media (max-width: 480px) {
-            .faq-q { padding: 16px 18px; }
-            .faq-a { padding-left: 18px; padding-right: 18px; }
-            .faq-item.open .faq-a { padding: 0 18px 16px; }
-        }
     </style>
 </head>
 <body>
@@ -213,87 +193,115 @@
 
 <main style="padding: 0 clamp(20px, 5vw, 48px);"><div class="page-content">
     <div class="page-header">
-        <h1>Installation Guide</h1>
-        <p>Choose your preferred installation method below. Each section walks you through the process step by step.</p>
+        <h1>Privacy Policy</h1>
+        <p>How we collect, use, and protect your information when you use the SciSuite website and software.</p>
     </div>
 
-    <div class="faq-list">
+    <div class="legal-doc">
+        <div class="legal-card">
+            <p class="legal-updated">Last updated: April 2026</p>
+            <p>This Privacy Policy explains how Bo Lv ("we", "us", "our") collects, uses, and protects your information when you visit the SciSuite website or use SciSuite software (GuideMi, WesternBo, ImageXi, ChartEr, SciPanel). By using our website or software, you agree to the practices described below.</p>
 
-        <!-- Method 1: ZXP Installer -->
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M1:</span>
-                <span class="faq-text">Install via ZXP Installer (Recommended)</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p><strong>Close Adobe applications.</strong> Quit Photoshop and/or Illustrator if they are currently running. Installing while the host app is open may cause the installation to fail.</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S2:</span>
-                    <p><strong>Enable developer mode for CEP extensions (one-time setup).</strong> SciSuite plugins are self-signed, so Adobe requires developer mode to be enabled before they can run.<br><br><strong>Windows (quick):</strong> Download <a href="EnableCEPDevMode.zip" download style="color:var(--c-accent-light);">EnableCEPDevMode.zip</a>, extract it, double-click the .reg file inside, and click "Yes" when prompted.<br><br><strong>Windows (manual):</strong> Press Win+R, type regedit and press Enter. Navigate to HKEY_CURRENT_USER\SOFTWARE\Adobe\CSXS.11 (create the key if it doesn't exist), create a new String Value named PlayerDebugMode and set its value to 1. Repeat for CSXS.9, CSXS.10, and CSXS.12 to cover all versions.<br><br><strong>macOS:</strong> Open Terminal (Finder &gt; Applications &gt; Utilities &gt; Terminal), paste the following command and press Enter: for v in 9 10 11 12; do defaults write com.adobe.CSXS.$v PlayerDebugMode 1; done — then log out and log back in (or restart your Mac) for the changes to take effect.</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S3:</span>
-                    <p><strong>Download &amp; install a ZXP installer.</strong> Any of the following will work: <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">Anastasiy's Extension Manager</a> (recommended — supports drag-and-drop, managing, and uninstalling extensions), <a href="https://aescripts.com/learn/post/zxp-installer" target="_blank" rel="noopener" style="color:var(--c-accent-light);">aescripts ZXP/UXP Installer</a> (free, lightweight, supports drag-and-drop on macOS and double-click on Windows), or <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">ZXPInstaller</a> (supports drag-and-drop, but does not support managing or uninstalling extensions).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S4:</span>
-                    <p><strong>Load the .zxp file into the installer.</strong> Drag the .zxp file into the installer window, or use the File menu to browse and select it (depending on which installer you chose).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S5:</span>
-                    <p><strong>Launch Photoshop or Illustrator.</strong> Open the host application. The plugin should now appear under <strong>Window &gt; Extensions</strong>. If it does not appear, try restarting your computer. On macOS, you may also need to allow the extension in <strong>System Settings &gt; Privacy &amp; Security</strong>.</p>
-                </div>
-            </div>
+            <h2>1. Overview</h2>
+            <p>SciSuite is a collection of plugins for Adobe Photoshop and Illustrator designed for scientific figure preparation. We are committed to protecting your privacy and handling your data transparently and responsibly.</p>
+
+            <h2>2. Information We Collect</h2>
+            <p>We collect only the minimum information needed to operate the service:</p>
+            <ul>
+                <li><strong>Purchase information:</strong> name, email address, and billing details, collected through our payment processor when you purchase a license.</li>
+                <li><strong>License activation data:</strong> your email address and registration key, transmitted to our verification server over a secure connection to validate your license.</li>
+                <li><strong>Communication data:</strong> any information you provide when contacting us via email.</li>
+                <li><strong>Website usage data:</strong> basic server logs (IP address, browser type, pages visited, timestamps) collected automatically when you visit our website.</li>
+            </ul>
+            <p>The plugins themselves store all settings and preferences locally within Adobe Photoshop's or Illustrator's application data. No user-generated content (images, figures, or artwork) is transmitted to us.</p>
+
+            <h2>3. How We Use Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Process purchases and deliver license keys</li>
+                <li>Validate license activation</li>
+                <li>Provide technical support</li>
+                <li>Send important service announcements (e.g., security updates, terms changes)</li>
+                <li>Comply with legal and tax obligations</li>
+                <li>Detect and prevent fraud or abuse</li>
+            </ul>
+            <p>We do not use your information for advertising or sell it to third parties.</p>
+
+            <h2>4. Legal Basis for Processing (GDPR)</h2>
+            <p>If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, we process your personal data on the following legal bases:</p>
+            <ul>
+                <li><strong>Contract:</strong> to fulfill our obligations when you purchase a license</li>
+                <li><strong>Legitimate interests:</strong> to operate and improve our service, prevent fraud, and provide support</li>
+                <li><strong>Legal obligation:</strong> to comply with tax, accounting, and other applicable laws</li>
+                <li><strong>Consent:</strong> where we rely on your consent, you may withdraw it at any time</li>
+            </ul>
+
+            <h2>5. Data Sharing</h2>
+            <p>We do not sell your personal data. We share information only with:</p>
+            <ul>
+                <li><strong>Payment processors</strong> who process transactions and handle tax compliance on our behalf</li>
+                <li><strong>Service providers</strong> (e.g., hosting, email delivery) strictly for operating the service</li>
+                <li><strong>Legal and regulatory authorities</strong> where required by law</li>
+            </ul>
+
+            <h2>6. Third-Party Services</h2>
+            <p>We rely on the following third-party services, each with its own privacy policy:</p>
+            <ul>
+                <li><strong>Creem (Armitage Labs OÜ):</strong> our payment processor and Merchant of Record, which handles checkout, tax compliance, and payment data.</li>
+                <li><strong>GitHub Pages:</strong> hosts our website and collects standard server logs.</li>
+            </ul>
+            <p>When you make a purchase, your payment information is collected and processed directly by our payment processor. We do not store your full credit card details on our servers.</p>
+
+            <h2>7. Cookies and Similar Technologies</h2>
+            <p>Our website does not set advertising or tracking cookies. Third-party services (such as the payment processor's checkout page) may set essential cookies required for their functionality. You can manage cookies through your browser settings.</p>
+
+            <h2>8. Data Retention</h2>
+            <p>We retain personal data only as long as necessary to provide the service and comply with legal obligations:</p>
+            <ul>
+                <li>Purchase and license records are retained for as long as required by tax and accounting laws (typically 7 years)</li>
+                <li>Support communications are retained for up to 3 years</li>
+                <li>Server logs are retained for up to 12 months</li>
+            </ul>
+            <p>After these periods, data is deleted or anonymized.</p>
+
+            <h2>9. Your Rights</h2>
+            <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+            <ul>
+                <li><strong>Access:</strong> request a copy of the personal data we hold about you</li>
+                <li><strong>Rectification:</strong> correct inaccurate or incomplete data</li>
+                <li><strong>Erasure:</strong> request deletion of your data ("right to be forgotten")</li>
+                <li><strong>Restriction:</strong> limit how we process your data</li>
+                <li><strong>Portability:</strong> receive your data in a structured, machine-readable format</li>
+                <li><strong>Objection:</strong> object to processing based on legitimate interests</li>
+                <li><strong>Withdraw consent:</strong> where processing is based on consent</li>
+                <li><strong>Lodge a complaint:</strong> with a supervisory authority in your country</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at the email address below.</p>
+
+            <h2>10. California Residents (CCPA)</h2>
+            <p>If you are a California resident, you have the right to:</p>
+            <ul>
+                <li>Know what personal information is collected, used, or disclosed</li>
+                <li>Request deletion of your personal information</li>
+                <li>Opt out of the sale of personal information (we do not sell personal information)</li>
+                <li>Non-discrimination for exercising your privacy rights</li>
+            </ul>
+
+            <h2>11. Children's Privacy</h2>
+            <p>SciSuite is not directed to children under 16. We do not knowingly collect personal information from children under 16. If you believe we have inadvertently collected such information, please contact us and we will delete it.</p>
+
+            <h2>12. Security</h2>
+            <p>We use reasonable administrative, technical, and physical safeguards to protect personal data from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+            <h2>13. International Data Transfers</h2>
+            <p>Your personal data may be transferred to and processed in countries other than your own, including the United States and the European Union. Where required, we ensure appropriate safeguards are in place (such as Standard Contractual Clauses) to protect your data.</p>
+
+            <h2>14. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page will reflect the latest revision. Material changes will be communicated through our website or by email.</p>
+
+            <h2>15. Contact</h2>
+            <p><strong>Bo Lv</strong><br>Email: <a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a><br>Website: <a href="https://scisweet.github.io/">https://scisweet.github.io/</a></p>
         </div>
-
-        <!-- Method 2: Manual Installation -->
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M2:</span>
-                <span class="faq-text">Manual Installation (extract and copy files)</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p><strong>Enable developer mode</strong> if you haven't already (see Method 1, Step 2 above).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S2:</span>
-                    <p><strong>Rename and extract.</strong> Change the .zxp file extension to .zip, then extract it with any archive tool. Make sure the extracted folder contains manifest.xml directly inside it (not nested in an extra subfolder).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S3:</span>
-                    <p><strong>Copy the folder to the extensions directory.</strong><br><br><strong>Windows:</strong> Copy the extracted folder to either of the following paths:<br>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\ (system-level, may require administrator permission)<br>C:\Users\&lt;your username&gt;\AppData\Roaming\Adobe\CEP\extensions\ (user-level, no admin needed; create the folders if they don't exist)<br><br><strong>macOS:</strong> Copy the extracted folder to either of the following paths:<br>/Library/Application Support/Adobe/CEP/extensions/ (system-level, may require admin password)<br>~/Library/Application Support/Adobe/CEP/extensions/ (user-level, no admin needed; create the folders if they don't exist. To access ~/Library in Finder, press Shift+Command+G and paste the path)</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S4:</span>
-                    <p><strong>Launch Photoshop or Illustrator.</strong> The plugin should now appear under <strong>Window &gt; Extensions</strong>.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Placeholder for future methods -->
-        <!--
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M3:</span>
-                <span class="faq-text">Your method title here</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p>Step content here.</p>
-                </div>
-            </div>
-        </div>
-        -->
-
     </div>
 </div></main>
 

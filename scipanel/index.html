@@ -125,14 +125,11 @@
             background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
         }
         .feat-item {
-            display: flex; align-items: flex-start; gap: 16px;
+            display: flex; align-items: flex-start;
             padding: 22px 28px; background: var(--c-bg-card);
             transition: background var(--ease);
         }
         .feat-item:hover { background: var(--c-bg-card-hover); }
-        .feat-icon {
-            color: var(--c-accent-light); font-size: 14px; margin-top: 2px; flex-shrink: 0;
-        }
         .feat-content {
             display: flex; flex-direction: column; gap: 4px;
         }
@@ -211,49 +208,42 @@
         <h2 class="features-title">Features</h2>
         <div class="feat-grid">
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Better Resize</strong>
                         <span>Resize layers to nearest guides, match size to a target layer, or resize to exact pixel dimensions.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Better Alignment</strong>
                         <span>Advanced alignment tools with linked layer group alignment and anchor layer alignment.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Better Distribution</strong>
                         <span>Edge, center, top/left, and bottom/right distribution tools.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Better Move</strong>
                         <span>8-direction movement, gap mode, guide snapping, and row/column spreading/shrinking.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>ABC Label</strong>
                         <span>Batch-add labels to layer groups with automatic layout detection and preset support.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Figure Label</strong>
                         <span>Add figure labels (e.g. "Figure 1", "Fig. S2") with configurable position and font.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Export Panels</strong>
                         <span>Export each top-level layer group as PNG, TIFF, JPEG, PSD, or PDF.</span>
@@ -271,6 +261,8 @@
             <li><a data-panel="contact">Contact Bo</a></li>
             <li><a data-panel="cite">Cite Us</a></li>
             <li><a data-panel="join">Join Us</a></li>
+            <li><a href="../terms/index.html">Terms</a></li>
+            <li><a href="../privacy/index.html">Privacy</a></li>
         </ul>
     </div>
     <div class="footer-panel" id="panel-contact">

@@ -125,14 +125,11 @@
             background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
         }
         .feat-item {
-            display: flex; align-items: flex-start; gap: 16px;
+            display: flex; align-items: flex-start;
             padding: 22px 28px; background: var(--c-bg-card);
             transition: background var(--ease);
         }
         .feat-item:hover { background: var(--c-bg-card-hover); }
-        .feat-icon {
-            color: var(--c-accent-light); font-size: 14px; margin-top: 2px; flex-shrink: 0;
-        }
         .feat-content {
             display: flex; flex-direction: column; gap: 4px;
         }
@@ -211,49 +208,42 @@
         <h2 class="features-title">Features</h2>
         <div class="feat-grid">
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Quick Actions</strong>
                         <span>Document merging, layer swapping, channel splitting, gap measurement, and guide management.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Scale Bar</strong>
                         <span>Scale bar creation supporting both simple mode and professional mode.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Inset</strong>
                         <span>Magnified inset creation tool for duplicating and scaling selected regions with optional strokes and connector lines.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Pseudo Color</strong>
                         <span>Apply pseudo-color LUTs to grayscale images for channel visualization.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Add Label</strong>
                         <span>Automatic sequential labeling (A, B, C or 1, 2, 3) for multiple layers with replace mode.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Resize Layers</strong>
                         <span>Batch scale layers to specified dimensions.</span>
                     </div>
                 </div>
                 <div class="feat-item">
-                    <div class="feat-icon">→</div>
                     <div class="feat-content">
                         <strong>Adv Line Marker</strong>
                         <span>Advanced multi-row annotation tool with cell merging and automatic line splitting.</span>
@@ -271,6 +261,8 @@
             <li><a data-panel="contact">Contact Bo</a></li>
             <li><a data-panel="cite">Cite Us</a></li>
             <li><a data-panel="join">Join Us</a></li>
+            <li><a href="../terms/index.html">Terms</a></li>
+            <li><a href="../privacy/index.html">Privacy</a></li>
         </ul>
     </div>
     <div class="footer-panel" id="panel-contact">

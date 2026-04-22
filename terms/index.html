@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#09090b">
-    <title>Installation Guide — SciSuite</title>
+    <title>Terms of Service — SciSuite</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Installation Guide — SciSuite">
-    <meta property="og:description" content="Step-by-step installation instructions for SciSuite plugins for Adobe Photoshop & Illustrator.">
+    <meta property="og:title" content="Terms of Service — SciSuite">
+    <meta property="og:description" content="Terms of Service for SciSuite plugins for Adobe Photoshop & Illustrator.">
     <meta property="og:image" content="https://scisuite.github.io/img/og-image.png">
-    <meta property="og:url" content="https://scisuite.github.io/install/">
+    <meta property="og:url" content="https://scisuite.github.io/terms/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Installation Guide — SciSuite">
-    <meta name="twitter:description" content="Step-by-step installation instructions for SciSuite plugins for Adobe Photoshop & Illustrator.">
+    <meta name="twitter:title" content="Terms of Service — SciSuite">
+    <meta name="twitter:description" content="Terms of Service for SciSuite plugins for Adobe Photoshop & Illustrator.">
     <meta name="twitter:image" content="https://scisuite.github.io/img/og-image.png">
     <style>
         :root {
@@ -95,48 +95,33 @@
             max-width: 780px;
         }
 
-        /* FAQ items */
-        .faq-list {
-            display: flex; flex-direction: column; gap: 12px;
+        /* Legal document */
+        .legal-doc h2 {
+            font-family: var(--font-display); font-size: 20px; font-weight: 600;
+            color: var(--c-text); margin: 36px 0 14px; line-height: 1.3;
         }
-        .faq-item {
+        .legal-doc h2:first-of-type { margin-top: 0; }
+        .legal-doc p {
+            font-size: 14px; color: var(--c-text-secondary); line-height: 1.8; margin-bottom: 14px;
+        }
+        .legal-doc ul, .legal-doc ol {
+            font-size: 14px; color: var(--c-text-secondary); line-height: 1.8;
+            margin: 0 0 14px 20px; padding: 0;
+        }
+        .legal-doc li { margin-bottom: 6px; }
+        .legal-doc a { color: var(--c-accent-light); text-decoration: underline; text-underline-offset: 2px; }
+        .legal-doc a:hover { color: var(--c-text); }
+        .legal-doc strong { color: var(--c-text); font-weight: 600; }
+        .legal-doc em { font-style: italic; }
+        .legal-doc .legal-updated {
+            font-size: 13px; color: var(--c-text-muted); font-style: italic; margin-bottom: 24px;
+        }
+        .legal-doc .legal-card {
             background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
-            transition: background var(--ease);
+            padding: 32px 36px; margin-top: 8px;
         }
-        .faq-item:hover { background: var(--c-bg-card-hover); }
-        .faq-q {
-            display: flex; align-items: flex-start; gap: 12px;
-            padding: 18px 28px; cursor: pointer; user-select: none;
-        }
-        .faq-label {
-            flex-shrink: 0; width: 32px;
-            font-size: 14px; font-weight: 700; color: var(--c-accent-light); line-height: 1.5;
-        }
-        .faq-q .faq-text {
-            flex: 1; font-size: 15px; font-weight: 600; color: var(--c-text); line-height: 1.5;
-        }
-        .faq-q .faq-arrow {
-            flex-shrink: 0; width: 20px; height: 20px; color: var(--c-text-muted);
-            transition: transform var(--ease), color var(--ease); margin-top: 2px;
-        }
-        .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); color: var(--c-accent-light); }
-        .faq-a {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-            padding: 0 28px;
-        }
-        .faq-item.open .faq-a {
-            max-height: 1200px;
-            padding: 0 28px 20px;
-        }
-        .faq-a-inner {
-            display: flex; align-items: flex-start; gap: 12px;
-        }
-        .faq-a-inner .faq-label {
-            color: var(--c-accent-2);
-        }
-        .faq-a-inner p {
-            flex: 1; font-size: 14px; color: var(--c-text-secondary); line-height: 1.75;
+        @media (max-width: 480px) {
+            .legal-doc .legal-card { padding: 24px 18px; }
         }
 
         /* Footer */
@@ -158,11 +143,6 @@
             font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
         }
 
-        @media (max-width: 480px) {
-            .faq-q { padding: 16px 18px; }
-            .faq-a { padding-left: 18px; padding-right: 18px; }
-            .faq-item.open .faq-a { padding: 0 18px 16px; }
-        }
     </style>
 </head>
 <body>
@@ -213,87 +193,92 @@
 
 <main style="padding: 0 clamp(20px, 5vw, 48px);"><div class="page-content">
     <div class="page-header">
-        <h1>Installation Guide</h1>
-        <p>Choose your preferred installation method below. Each section walks you through the process step by step.</p>
+        <h1>Terms of Service</h1>
+        <p>Please read these terms carefully before purchasing or using SciSuite software.</p>
     </div>
 
-    <div class="faq-list">
+    <div class="legal-doc">
+        <div class="legal-card">
+            <p class="legal-updated">Last updated: April 2026</p>
+            <p>These Terms of Service ("Terms") govern your purchase and use of SciSuite software (GuideMi, WesternBo, ImageXi, ChartEr, SciPanel) and the SciSuite website, provided by Bo Lv ("we", "us", "our"). By purchasing, installing, or using SciSuite, you agree to these Terms. If you do not agree, do not use the software or website.</p>
 
-        <!-- Method 1: ZXP Installer -->
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M1:</span>
-                <span class="faq-text">Install via ZXP Installer (Recommended)</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p><strong>Close Adobe applications.</strong> Quit Photoshop and/or Illustrator if they are currently running. Installing while the host app is open may cause the installation to fail.</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S2:</span>
-                    <p><strong>Enable developer mode for CEP extensions (one-time setup).</strong> SciSuite plugins are self-signed, so Adobe requires developer mode to be enabled before they can run.<br><br><strong>Windows (quick):</strong> Download <a href="EnableCEPDevMode.zip" download style="color:var(--c-accent-light);">EnableCEPDevMode.zip</a>, extract it, double-click the .reg file inside, and click "Yes" when prompted.<br><br><strong>Windows (manual):</strong> Press Win+R, type regedit and press Enter. Navigate to HKEY_CURRENT_USER\SOFTWARE\Adobe\CSXS.11 (create the key if it doesn't exist), create a new String Value named PlayerDebugMode and set its value to 1. Repeat for CSXS.9, CSXS.10, and CSXS.12 to cover all versions.<br><br><strong>macOS:</strong> Open Terminal (Finder &gt; Applications &gt; Utilities &gt; Terminal), paste the following command and press Enter: for v in 9 10 11 12; do defaults write com.adobe.CSXS.$v PlayerDebugMode 1; done — then log out and log back in (or restart your Mac) for the changes to take effect.</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S3:</span>
-                    <p><strong>Download &amp; install a ZXP installer.</strong> Any of the following will work: <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">Anastasiy's Extension Manager</a> (recommended — supports drag-and-drop, managing, and uninstalling extensions), <a href="https://aescripts.com/learn/post/zxp-installer" target="_blank" rel="noopener" style="color:var(--c-accent-light);">aescripts ZXP/UXP Installer</a> (free, lightweight, supports drag-and-drop on macOS and double-click on Windows), or <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">ZXPInstaller</a> (supports drag-and-drop, but does not support managing or uninstalling extensions).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S4:</span>
-                    <p><strong>Load the .zxp file into the installer.</strong> Drag the .zxp file into the installer window, or use the File menu to browse and select it (depending on which installer you chose).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S5:</span>
-                    <p><strong>Launch Photoshop or Illustrator.</strong> Open the host application. The plugin should now appear under <strong>Window &gt; Extensions</strong>. If it does not appear, try restarting your computer. On macOS, you may also need to allow the extension in <strong>System Settings &gt; Privacy &amp; Security</strong>.</p>
-                </div>
-            </div>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By purchasing, downloading, installing, or using any SciSuite product, you confirm that you have read, understood, and agree to be bound by these Terms and our <a href="../privacy/index.html">Privacy Policy</a>. If you are using the software on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+
+            <h2>2. Product Description</h2>
+            <p>SciSuite is a collection of proprietary plugins for Adobe Photoshop and Illustrator designed for scientific figure preparation. The software is delivered as a digital product via electronic download. Products may be updated, modified, or discontinued at our discretion.</p>
+
+            <h2>3. License Grant</h2>
+            <p>Upon purchase, we grant you a non-exclusive, non-transferable, non-sublicensable license to install and use the software for personal or commercial purposes, subject to these Terms. Each license is intended for a single user unless otherwise specified at the time of purchase.</p>
+
+            <h2>4. Restrictions</h2>
+            <p>You may not:</p>
+            <ul>
+                <li>Reverse engineer, decompile, or disassemble the software</li>
+                <li>Modify, adapt, or create derivative works based on the software</li>
+                <li>Redistribute, sublicense, rent, lease, or lend the software to any third party</li>
+                <li>Remove or alter any copyright notices, trademarks, or other proprietary markings</li>
+                <li>Use the software in any way that violates applicable laws or third-party rights</li>
+                <li>Share, transfer, or resell your license key to any other person</li>
+            </ul>
+
+            <h2>5. Ownership</h2>
+            <p>The software and all copies thereof, including all intellectual property rights, remain the exclusive property of Bo Lv. These Terms grant you a license, not ownership, of the software.</p>
+
+            <h2>6. Payment and Pricing</h2>
+            <p>All prices are displayed on our website at the time of purchase. Payments are processed securely by our payment processor (Creem, operated by Armitage Labs OÜ), which acts as Merchant of Record. By making a purchase, you also agree to the payment processor's terms.</p>
+            <p>Prices may include applicable taxes, or taxes may be calculated and added at checkout based on your billing location. All charges are final except as provided in our refund policy below.</p>
+
+            <h2>7. Refund Policy</h2>
+            <p>We offer a <strong>14-day refund policy</strong> for SciSuite purchases, subject to the following conditions:</p>
+            <ul>
+                <li>Refund requests must be submitted within 14 days of the original purchase date</li>
+                <li>Refunds are available if the software does not function as described, or if you are unable to use the product for technical reasons we cannot resolve</li>
+                <li>To request a refund, contact us at <a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a> with your order number and a brief explanation</li>
+                <li>Approved refunds will be processed to the original payment method within 5–10 business days</li>
+                <li>Upon refund, your license will be deactivated and you must uninstall and destroy all copies of the software</li>
+            </ul>
+            <p>Refund requests submitted after 14 days may be considered on a case-by-case basis but are not guaranteed.</p>
+
+            <h2>8. Delivery</h2>
+            <p>SciSuite is delivered electronically. Upon successful payment, you will receive a confirmation email containing your license key and download instructions. Delivery is typically immediate; if you do not receive your license within 24 hours, please contact us.</p>
+
+            <h2>9. Customer Support</h2>
+            <p>We provide technical support via email at <a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a>. We aim to respond to support requests within 3 business days. Support is provided on a reasonable-efforts basis and does not guarantee resolution of every issue.</p>
+
+            <h2>10. Updates</h2>
+            <p>We may release updates, patches, or new versions of SciSuite from time to time. Updates are subject to these Terms. We are not obligated to provide updates, and we may discontinue support for older versions at our discretion.</p>
+
+            <h2>11. Third-Party Services and Software</h2>
+            <p>SciSuite integrates with Adobe Photoshop and Illustrator, which require separate licenses from Adobe Inc. We are not affiliated with, endorsed by, or sponsored by Adobe.</p>
+            <p>SciSuite incorporates the following third-party software:</p>
+            <ul>
+                <li><strong>CSInterface.js</strong> — © Adobe Systems Incorporated, licensed under the Apache License, Version 2.0 (<a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">https://www.apache.org/licenses/LICENSE-2.0</a>)</li>
+            </ul>
+
+            <h2>12. Disclaimer of Warranty</h2>
+            <p>THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. WE DO NOT WARRANT THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS, OPERATE WITHOUT INTERRUPTION, OR BE ERROR-FREE.</p>
+
+            <h2>13. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, in no event shall Bo Lv be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, loss of research results, or business interruption, arising out of or in connection with the use of the software, however caused and on any theory of liability.</p>
+            <p>Our total aggregate liability to you for any claim arising out of these Terms or the software shall not exceed the amount you paid for the software in the twelve (12) months preceding the claim.</p>
+
+            <h2>14. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Bo Lv from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys' fees) arising out of your use of the software in violation of these Terms or applicable law.</p>
+
+            <h2>15. Termination</h2>
+            <p>These Terms remain in effect until terminated. Your license will automatically terminate without notice if you fail to comply with any provision of these Terms. Upon termination, you must cease all use of the software and destroy all copies in your possession. Sections relating to ownership, warranty disclaimers, liability limits, and governing law survive termination.</p>
+
+            <h2>16. Governing Law and Dispute Resolution</h2>
+            <p>These Terms are governed by the laws of the Commonwealth of Pennsylvania, United States, without regard to its conflict of laws principles. Any dispute arising out of or related to these Terms shall be resolved in the state or federal courts located in Pennsylvania, and you consent to the personal jurisdiction of such courts.</p>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+            <h2>17. Changes to Terms</h2>
+            <p>We may update these Terms from time to time. The "Last updated" date at the top of this page will reflect the latest revision. Your continued use of the software after changes take effect constitutes acceptance of the updated Terms.</p>
+
+            <h2>18. Contact</h2>
+            <p><strong>Bo Lv</strong><br>Email: <a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a><br>Website: <a href="https://scisweet.github.io/">https://scisweet.github.io/</a></p>
         </div>
-
-        <!-- Method 2: Manual Installation -->
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M2:</span>
-                <span class="faq-text">Manual Installation (extract and copy files)</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p><strong>Enable developer mode</strong> if you haven't already (see Method 1, Step 2 above).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S2:</span>
-                    <p><strong>Rename and extract.</strong> Change the .zxp file extension to .zip, then extract it with any archive tool. Make sure the extracted folder contains manifest.xml directly inside it (not nested in an extra subfolder).</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S3:</span>
-                    <p><strong>Copy the folder to the extensions directory.</strong><br><br><strong>Windows:</strong> Copy the extracted folder to either of the following paths:<br>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\ (system-level, may require administrator permission)<br>C:\Users\&lt;your username&gt;\AppData\Roaming\Adobe\CEP\extensions\ (user-level, no admin needed; create the folders if they don't exist)<br><br><strong>macOS:</strong> Copy the extracted folder to either of the following paths:<br>/Library/Application Support/Adobe/CEP/extensions/ (system-level, may require admin password)<br>~/Library/Application Support/Adobe/CEP/extensions/ (user-level, no admin needed; create the folders if they don't exist. To access ~/Library in Finder, press Shift+Command+G and paste the path)</p>
-                </div>
-                <div class="faq-a-inner">
-                    <span class="faq-label">S4:</span>
-                    <p><strong>Launch Photoshop or Illustrator.</strong> The plugin should now appear under <strong>Window &gt; Extensions</strong>.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Placeholder for future methods -->
-        <!--
-        <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                <span class="faq-label">M3:</span>
-                <span class="faq-text">Your method title here</span>
-                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="faq-a">
-                <div class="faq-a-inner">
-                    <span class="faq-label">S1:</span>
-                    <p>Step content here.</p>
-                </div>
-            </div>
-        </div>
-        -->
-
     </div>
 </div></main>
 
