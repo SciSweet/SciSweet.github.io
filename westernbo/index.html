@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>WesternBo — SciSuite Plugin</title>
+    <meta property="og:title" content="WesternBo — SciSuite Plugin">
+    <meta property="og:description" content="Western Blot &amp; Gel annotation tools for Adobe Photoshop">
+    <meta property="og:image" content="https://scisuite.github.io/img/og-image.png">
+    <meta property="og:url" content="https://scisuite.github.io/westernbo/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WesternBo — SciSuite Plugin">
+    <meta name="twitter:description" content="Western Blot &amp; Gel annotation tools for Adobe Photoshop">
+    <meta name="twitter:image" content="https://scisuite.github.io/img/og-image.png">
+    <style>
+        :root {
+            --c-bg: #09090b;
+            --c-bg-elevated: #111113;
+            --c-bg-card: #141417;
+            --c-bg-card-hover: #1a1a1e;
+            --c-border: #222228;
+            --c-border-subtle: #18181c;
+            --c-text: #ededf0;
+            --c-text-secondary: #8b8b97;
+            --c-text-muted: #55555f;
+            --c-accent: #3b82f6;
+            --c-accent-glow: rgba(59, 130, 246, 0.10);
+            --c-accent-light: #60a5fa;
+            --c-accent-2: #10b981;
+            --c-ps: #31a8ff;
+            --c-ai: #ff9a00;
+            --c-ps-glow: rgba(49, 168, 255, 0.10);
+            --c-ai-glow: rgba(255, 154, 0, 0.10);
+            --font-display: Arial, Helvetica, sans-serif;
+            --font-body: Arial, Helvetica, sans-serif;
+            --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+            --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            touch-action: manipulation;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            padding: 0 clamp(20px, 5vw, 48px);
+            background: rgba(9,9,11,0.82);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border-bottom: 1px solid var(--c-border-subtle);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 10px; }
+        .nav-brand img { height: 26px; width: 26px; }
+        .nav-brand span { font-size: 16px; font-weight: 600; color: var(--c-text); }
+        .nav-mid { display: flex; gap: 28px; list-style: none; }
+        .nav-mid a { font-size: 13.5px; color: var(--c-text-secondary); transition: color var(--ease); }
+        .nav-mid a:hover { color: var(--c-text); }
+        .nav-mid a.active { color: var(--c-text); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-gh {
+            display: flex; align-items: center; gap: 7px;
+            padding: 7px 14px; border: 1px solid var(--c-border); border-radius: var(--r-sm);
+            font-size: 13px; font-weight: 500; color: var(--c-text); transition: all var(--ease);
+        }
+        .nav-gh:hover { border-color: var(--c-text-muted); background: var(--c-bg-elevated); }
+        .nav-gh svg { width: 16px; height: 16px; }
+        @media (max-width: 768px) { .nav-mid { display: none; } }
+
+        /* Page content */
+        .page-content {
+            max-width: 1200px; margin: 0 auto;
+            padding: 100px 0 60px;
+        }
+        .plugin-header {
+            margin-bottom: 48px;
+        }
+        .plugin-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .plugin-tagline {
+            font-size: 18px; color: var(--c-accent-light); font-weight: 500; margin-bottom: 20px;
+        }
+        .plugin-platforms {
+            display: flex; gap: 8px; margin-bottom: 28px;
+        }
+        .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; }
+        .p-plat.ps { background: var(--c-ps-glow); color: var(--c-ps); border: 1px solid rgba(49,168,255,0.12); }
+        .p-plat.ai { background: var(--c-ai-glow); color: var(--c-ai); border: 1px solid rgba(255,154,0,0.12); }
+        .plugin-overview {
+            font-size: 16px; color: var(--c-text-secondary); line-height: 1.8;
+            max-width: 780px;
+        }
+
+        /* Features */
+        .features-section {
+            margin-top: 48px;
+        }
+        .features-title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 400; letter-spacing: -0.02em;
+            margin-bottom: 28px;
+        }
+        .feat-grid {
+            display: flex; flex-direction: column; gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .feat-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 22px 28px; background: var(--c-bg-card);
+            transition: background var(--ease);
+        }
+        .feat-item:hover { background: var(--c-bg-card-hover); }
+        .feat-icon {
+            color: var(--c-accent-light); font-size: 14px; margin-top: 2px; flex-shrink: 0;
+        }
+        .feat-content {
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .feat-content strong {
+            font-size: 15px; color: var(--c-text); font-weight: 600;
+        }
+        .feat-content span {
+            font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.6;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 48px; padding: 12px 24px;
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
+            font-size: 14px; color: var(--c-text-secondary); transition: all var(--ease);
+        }
+        .back-link:hover { border-color: var(--c-text-muted); color: var(--c-text); }
+        .back-link svg { width: 15px; height: 15px; }
+
+        /* Footer */
+        .footer { padding: 32px clamp(20px, 5vw, 48px); border-top: 1px solid var(--c-border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-copy { font-size: 12.5px; color: var(--c-text-muted); }
+        .footer-links { display: flex; gap: 20px; list-style: none; }
+        .footer-links a { font-size: 12.5px; color: var(--c-text-muted); transition: color var(--ease); cursor: pointer; }
+        .footer-links a:hover { color: var(--c-text-secondary); }
+        .footer-links a.active { color: var(--c-accent-light); }
+        @media (max-width: 480px) { .footer { padding: 24px 16px; } .footer-inner { flex-direction: column; text-align: center; } .footer-links { gap: 16px; } .footer-links a { font-size: 12px; } .footer-panel.open { padding: 16px 0 0; } .footer-panel p { font-size: 12px; } }
+        .footer-panel {
+            max-width: 1200px; margin: 0 auto;
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 0;
+        }
+        .footer-panel.open { max-height: 200px; padding: 20px 0 0; }
+        .footer-panel p {
+            font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
+        }
+
+        @media (max-width: 480px) {
+            .feat-item { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+    <a href="#" class="nav-brand">
+        <img src="../img/westernbo-icon.png" alt="WesternBo">
+        <span>WesternBo</span>
+    </a>
+    <ul class="nav-mid">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../guidemi/index.html">GuideMi</a></li>
+        <li><a href="../westernbo/index.html" class="active">WesternBo</a></li>
+        <li><a href="../imagexi/index.html">ImageXi</a></li>
+        <li><a href="../charter/index.html">ChartEr</a></li>
+        <li><a href="../scipanel/index.html">SciPanel</a></li>
+        <li><a href="../faqs/index.html">FAQs</a></li>
+        <li><a href="../credits/index.html">Credits</a></li>
+        <li><a href="#">Try Now</a></li>
+    </ul>
+    </div>
+</nav>
+
+<main style="padding: 0 clamp(20px, 5vw, 48px);"><div class="page-content">
+    <div class="plugin-header">
+        <h1>WesternBo</h1>
+        <div class="plugin-tagline">Western Blot &amp; Gel Tools</div>
+        <div class="plugin-platforms"><span class="p-plat ps" style="font-size:12px;padding:5px 10px;">Ps</span><span class="p-plat ai" style="font-size:12px;padding:5px 10px;">Ai</span></div>
+        <p class="plugin-overview">WesternBo is a Photoshop CEP plugin specifically designed for Western Blot image processing. It helps researchers quickly and accurately annotate, layout, and beautify WB images. All graphic elements are implemented as vector shape layers, ensuring crisp rendering at any zoom level.</p>
+    </div>
+
+    <div class="features-section">
+        <h2 class="features-title">Features</h2>
+        <div class="feat-grid">
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Quick Actions</strong>
+                        <span>Quick access to document merging, layer copying, special characters, and guide management.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Phrase Bank</strong>
+                        <span>Common phrase library for quickly inserting experiment annotation text.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Band Resizer</strong>
+                        <span>Precisely scale band layers based on target dimensions with long-press averaging.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Line Marker</strong>
+                        <span>Add marker lines with customizable position, length, thickness, text labels, and end caps.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Adv Line Marker</strong>
+                        <span>Advanced multi-row annotation tool with cell merging and per-cell style overrides.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>MinusPlus Matrix</strong>
+                        <span>Generate plus/minus treatment condition matrices for experimental figures.</span>
+                    </div>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">→</div>
+                    <div class="feat-content">
+                        <strong>Lane Number &amp; MW Marker</strong>
+                        <span>Add lane numbers and molecular weight markers to blot images.</span>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div></main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">&copy; 2026 Bo Lv. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a data-panel="contact">Contact Bo</a></li>
+            <li><a data-panel="cite">Cite Us</a></li>
+            <li><a data-panel="join">Join Us</a></li>
+        </ul>
+    </div>
+    <div class="footer-panel" id="panel-contact">
+        <p>Please contact Bo Lv with this email address: bolyu(at)pitt.edu</p>
+    </div>
+    <div class="footer-panel" id="panel-cite">
+        <p>Cite the plugins for your legends and Materials &amp; Methods sections:<br><em>Figures were prepared with SciSuite plugins (GuideMi, WesternBo, ImageXi, ChartEr, and SciPanel).</em></p>
+    </div>
+    <div class="footer-panel" id="panel-join">
+        <p>We welcome contributions of all kinds — feature ideas, bug reports, translations, or code. Please contact Bo Lv (bolyu(at)pitt.edu) if you would like to contribute to this project. Significant contributors will be credited as developers.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
+    a.addEventListener('click', function(){
+        var id = 'panel-' + this.getAttribute('data-panel');
+        var panel = document.getElementById(id);
+        var isOpen = panel.classList.contains('open');
+        document.querySelectorAll('.footer-panel').forEach(function(p){ p.classList.remove('open'); });
+        document.querySelectorAll('.footer-links a').forEach(function(l){ l.classList.remove('active'); });
+        if (!isOpen) { panel.classList.add('open'); this.classList.add('active'); setTimeout(function(){
+                    var scrollBottom = window.innerHeight + window.scrollY;
+                    if (document.body.scrollHeight - scrollBottom > 50) {
+                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    }
+                }, 420); }
+    });
+});
+</script>
+</body>
+</html>

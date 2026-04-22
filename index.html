@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>SciSuite — Scientific Image &amp; Figure Plugins for Adobe Photoshop &amp; Illustrator</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SciSuite — Science should be sweet.">
+    <meta property="og:description" content="200+ specialized tools across 5 plugins for scientific image processing and typesetting in Adobe Photoshop & Illustrator.">
+    <meta property="og:image" content="https://scisuite.github.io/img/og-image.png">
+    <meta property="og:url" content="https://scisuite.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SciSuite — Science should be sweet.">
+    <meta name="twitter:description" content="200+ specialized tools across 5 plugins for scientific image processing and typesetting in Adobe Photoshop & Illustrator.">
+    <meta name="twitter:image" content="https://scisuite.github.io/img/og-image.png">
+
+    <style>
+        :root {
+            --c-bg: #09090b;
+            --c-bg-elevated: #111113;
+            --c-bg-card: #141417;
+            --c-bg-card-hover: #1a1a1e;
+            --c-border: #222228;
+            --c-border-subtle: #18181c;
+            --c-text: #ededf0;
+            --c-text-secondary: #8b8b97;
+            --c-text-muted: #55555f;
+            --c-accent: #3b82f6;
+            --c-accent-glow: rgba(59, 130, 246, 0.10);
+            --c-accent-light: #60a5fa;
+            --c-accent-2: #10b981;
+            --c-accent-2-glow: rgba(16, 185, 129, 0.10);
+            --c-ps: #31a8ff;
+            --c-ai: #ff9a00;
+            --c-ps-glow: rgba(49, 168, 255, 0.10);
+            --c-ai-glow: rgba(255, 154, 0, 0.10);
+            --c-tag-bg: #1a1a20;
+            --font-display: Arial, Helvetica, sans-serif;
+            --font-body: Arial, Helvetica, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+            --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+            --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            touch-action: manipulation;
+        }
+        a { color: inherit; text-decoration: none; }
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999;
+        }
+
+        /* ===== Nav ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            padding: 0 clamp(20px, 5vw, 48px);
+            background: rgba(9,9,11,0.82);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border-bottom: 1px solid var(--c-border-subtle);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 6px; }
+        .nav-brand .brand-logo { height: 28px; width: auto; }
+        .nav-brand .brand-text { height: 16px; width: auto; }
+        .nav-mid { display: flex; gap: 28px; list-style: none; }
+        .nav-mid a { font-size: 13.5px; color: var(--c-text-secondary); transition: color var(--ease); }
+        .nav-mid a:hover { color: var(--c-text); }
+        .nav-mid a.active { color: var(--c-text); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-gh {
+            display: flex; align-items: center; gap: 7px;
+            padding: 7px 14px; border: 1px solid var(--c-border); border-radius: var(--r-sm);
+            font-size: 13px; font-weight: 500; color: var(--c-text); transition: all var(--ease);
+        }
+        .nav-gh:hover { border-color: var(--c-text-muted); background: var(--c-bg-elevated); }
+        .nav-gh svg { width: 16px; height: 16px; }
+        @media (max-width: 768px) { .nav-mid { display: none; } }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative; min-height: auto;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 100px clamp(20px, 5vw, 48px) 10px; text-align: center; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 35%, black 10%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 35%, black 10%, transparent 70%);
+        }
+        .hero-glow {
+            position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 520px; border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(59,130,246,0.08), rgba(16,185,129,0.04) 50%, transparent 70%);
+            pointer-events: none; animation: gp 6s ease-in-out infinite alternate;
+        }
+        @keyframes gp { 0%{opacity:.6;transform:translateX(-50%) scale(1)} 100%{opacity:1;transform:translateX(-50%) scale(1.08)} }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 5px 14px 5px 10px; border-radius: 100px;
+            background: var(--c-bg-card); border: 1px solid var(--c-border);
+            font-size: 12.5px; font-weight: 500; color: var(--c-text-secondary);
+            margin-bottom: 20px; position: relative; animation: fu 0.7s ease backwards;
+        }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-accent-2); animation: dp 2s ease-in-out infinite; }
+        @keyframes dp { 0%,100%{opacity:1} 50%{opacity:.35} }
+        @keyframes fu { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(44px, 7.5vw, 88px);
+            font-weight: 400; line-height: 1.06; letter-spacing: -0.03em;
+            margin-bottom: 24px; position: relative; animation: fu 0.7s ease 0.08s backwards;
+        }
+        .hero h1 em {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--c-accent-light), var(--c-accent-2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-sub {
+            font-size: clamp(15px, 1.8vw, 19px); color: var(--c-text-secondary);
+            max-width: 620px; line-height: 1.7; margin-bottom: 0; position: relative;
+            animation: fu 0.7s ease 0.16s backwards;
+        }
+        .hero-actions { display: flex; gap: 14px; position: relative; animation: fu 0.7s ease 0.24s backwards; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            padding: 13px 26px; border-radius: var(--r-md);
+            font-size: 14.5px; font-weight: 500; font-family: var(--font-body);
+            border: none; cursor: pointer; transition: all var(--ease);
+        }
+        .btn-primary {
+            background: var(--c-accent); color: #fff;
+            box-shadow: 0 0 0 0 var(--c-accent-glow), 0 4px 20px rgba(59,130,246,0.25);
+        }
+        .btn-primary:hover { background: #4b8ef7; box-shadow: 0 0 0 4px var(--c-accent-glow), 0 8px 28px rgba(59,130,246,0.35); transform: translateY(-2px); }
+        .btn-ghost { background: transparent; color: var(--c-text); border: 1px solid var(--c-border); }
+        .btn-ghost:hover { border-color: var(--c-text-muted); background: var(--c-bg-card); transform: translateY(-2px); }
+        .btn svg { width: 17px; height: 17px; }
+        /* Hero split layout — Carousel */
+        .hero-carousel {
+            position: relative; max-width: 1200px; width: 100%;
+            margin: 0 auto; overflow: hidden;
+            animation: fu 0.7s ease 0.04s backwards;
+        }
+        .hero-carousel-track {
+            display: flex; transition: transform 0.6s ease;
+        }
+        .hero-carousel-track > .hero-slide {
+            min-width: 100%; flex-shrink: 0;
+        }
+        /* Slide 1: original split layout */
+        .hero-slide-split {
+            display: flex; align-items: center; gap: 60px;
+            width: 100%; justify-content: center;
+        }
+        .hero-left { flex-shrink: 0; }
+        .hero-left svg { width: 420px; height: auto; }
+        .hero-right {
+            flex: 0 1 auto; display: flex; flex-direction: column; justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 9px; padding-bottom: 90px;
+            height: 420px; box-sizing: border-box;
+        }
+        .hero-right .fp {
+            display: flex; align-items: center; gap: 14px;
+        }
+        .hero-right .fp .fp-dot {
+            flex-shrink: 0; flex-grow: 0; width: 11px; height: 11px; border-radius: 50%;
+            background: #f44; margin-top: 0;
+        }
+        .hero-right .fp .fp-text {
+            flex: 1; min-width: 0;
+            font-size: 14.5px; color: var(--c-text-secondary); line-height: 1.55;
+        }
+        .hero-right .fp .fp-text strong {
+            color: var(--c-text); font-weight: 600;
+        }
+        /* Slide 2: image */
+        .hero-slide-img {
+            display: flex; align-items: flex-start; justify-content: center;
+            height: 420px;
+        }
+        .hero-slide-img img {
+            max-height: 320px; width: auto; display: block;
+            border-radius: 0; border: 1px solid var(--c-border);
+        }
+        /* Dots */
+        .hero-carousel { position: relative; }
+        .hero-dots {
+            position: absolute; bottom: 16px; right: 24px;
+            display: flex; gap: 8px; z-index: 2;
+        }
+        .hero-dot {
+            width: 24px; height: 4px; border-radius: 2px; border: none; cursor: pointer;
+            background: rgba(255,255,255,0.25); transition: all var(--ease); padding: 0;
+        }
+        .hero-dot.active { background: var(--c-accent-light); width: 36px; }
+        @media (max-width: 900px) {
+            .hero-slide-split { flex-direction: column; gap: 32px; }
+            .hero-left svg { width: 300px; }
+            .hero-right {
+                height: auto; padding-top: 0; padding-bottom: 0;
+                gap: 18px; width: 100%;
+            }
+            .hero-right .fp { text-align: left; }
+        }
+        @media (max-width: 480px) {
+            .hero-left svg { width: 240px; }
+            .hero-right { gap: 14px; }
+            .hero-right .fp .fp-text { font-size: 13px; }
+            .hero-title { margin-bottom: 24px; }
+            .p-card { padding: 24px 18px; }
+            .p-card h3 { font-size: 18px; }
+        }
+        .hero-platforms {
+            display: flex; align-items: center; gap: 20px; margin-top: 56px;
+            position: relative; animation: fu 0.7s ease 0.32s backwards; flex-wrap: wrap; justify-content: center;
+        }
+        .plat-badge {
+            display: flex; align-items: center; gap: 8px;
+            padding: 9px 16px; background: var(--c-bg-card); border: 1px solid var(--c-border);
+            border-radius: var(--r-md); font-size: 12.5px; font-weight: 500; color: var(--c-text-secondary); transition: all var(--ease);
+        }
+        .plat-badge:hover { border-color: var(--c-text-muted); }
+        .plat-icon { width: 22px; height: 22px; border-radius: 4px; display: grid; place-items: center; font-weight: 700; font-size: 10px; color: #fff; }
+        .plat-icon.ps { background: var(--c-ps); }
+        .plat-icon.ai { background: var(--c-ai); }
+
+        /* ===== Section commons ===== */
+        .section { padding: 40px clamp(20px, 5vw, 48px); }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .sec-label { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c-accent-light); margin-bottom: 14px; }
+        .sec-title { font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .hero-title {
+            margin-bottom: 40px; position: relative; animation: fu 0.7s ease backwards;
+            max-width: 1200px; width: 100%; text-align: left;
+        }
+        .sec-desc { font-size: 16px; color: var(--c-text-secondary); line-height: 1.7; margin-bottom: 32px; }
+
+        /* ===== Plugin Cards — Astute Graphics inspired 5-col strip ===== */
+        .plugins-strip {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .p-card {
+            background: var(--c-bg-card); padding: 32px 24px; display: flex; flex-direction: column;
+            transition: background var(--ease); position: relative;
+        }
+        .p-card:hover { background: var(--c-bg-card-hover); }
+        .p-card-icon { font-size: 28px; margin-bottom: 18px; width: 52px; height: 52px; border-radius: var(--r-md); display: grid; place-items: center; }
+        .p-card h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 5px; }
+        .p-card .p-card-tagline { font-size: 12px; color: var(--c-accent-light); font-weight: 500; margin-bottom: 14px; }
+        .p-card p { font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; flex: 1; margin-bottom: 18px; }
+        
+        .p-card-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--c-border-subtle); }
+        .p-card-platforms { display: flex; gap: 5px; }
+        .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; }
+        .p-plat.ps { background: var(--c-ps-glow); color: var(--c-ps); border: 1px solid rgba(49,168,255,0.12); }
+        .p-plat.ai { background: var(--c-ai-glow); color: var(--c-ai); border: 1px solid rgba(255,154,0,0.12); }
+        .p-card-link { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: var(--c-accent-light); transition: gap var(--ease); }
+        .p-card-link:hover { gap: 9px; }
+        .p-card-link svg { width: 13px; height: 13px; }
+        @media (max-width: 1100px) { .plugins-strip { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 700px) { .plugins-strip { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .plugins-strip { grid-template-columns: 1fr; } }
+
+        /* ===== Showcase ===== */
+        .showcase { padding: 60px clamp(20px, 5vw, 48px); }
+        .showcase-inner {
+            max-width: 1200px; margin: 0 auto;
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-xl);
+            padding: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .showcase-inner::before {
+            content: ''; position: absolute; top: -80px; right: -80px;
+            width: 360px; height: 360px; border-radius: 50%;
+            background: radial-gradient(circle, var(--c-accent-glow), transparent 70%); pointer-events: none;
+        }
+        .sc-content { position: relative; z-index: 1; }
+        .sc-content h2 { font-family: var(--font-display); font-size: 38px; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .sc-content > p { font-size: 15px; color: var(--c-text-secondary); line-height: 1.7; margin-bottom: 28px; }
+        .feat-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+        .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.5; }
+        .feat-list .ck {
+            flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+            background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.18);
+            display: grid; place-items: center; margin-top: 1px;
+        }
+        .feat-list .ck svg { width: 11px; height: 11px; color: var(--c-accent-2); }
+        .sc-preview { position: relative; z-index: 1; }
+        .pw { background: #535353; border-radius: var(--r-md); border: 1px solid #666; overflow: hidden; box-shadow: 0 20px 64px rgba(0,0,0,0.45); }
+        .pw-bar { height: 26px; background: #3d3d3d; display: flex; align-items: center; padding: 0 9px; gap: 5px; border-bottom: 1px solid #2a2a2a; }
+        .pw-bar .d { width: 9px; height: 9px; border-radius: 50%; background: #666; }
+        .pw-bar .d:nth-child(1){background:#ff5f57} .pw-bar .d:nth-child(2){background:#ffbd2e} .pw-bar .d:nth-child(3){background:#28c840}
+        .pw-bar span { margin-left: 7px; font-size: 10.5px; color: #999; font-weight: 500; }
+        .pw-body { padding: 14px; display: flex; flex-direction: column; gap: 7px; }
+        .pw-sec { background: #3d3d3d; border-radius: 4px; border: 1px solid #2a2a2a; overflow: hidden; }
+        .pw-sec-h { padding: 7px 9px; font-size: 10.5px; font-weight: 500; color: #e8e8e8; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: space-between; }
+        .pw-sec-b { padding: 9px; display: flex; flex-wrap: wrap; gap: 4px; }
+        .pw-btn { width: 26px; height: 26px; background: #4a4a4a; border: 1px solid #555; border-radius: 3px; display: grid; place-items: center; }
+        .pw-btn svg { width: 13px; height: 13px; stroke: #b8b8b8; fill: none; stroke-width: 2; }
+        .pw-inp { height: 24px; background: #2e2e2e; border: 1px solid #444; border-radius: 3px; flex: 1; min-width: 36px; }
+        @media (max-width: 900px) { .showcase-inner { grid-template-columns: 1fr; padding: 28px; gap: 36px; } }
+
+        /* ===== Why SciSuite ===== */
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--c-border); border-radius: var(--r-lg); overflow: hidden; }
+        .why-card { padding: 32px 24px; background: var(--c-bg-card); transition: background var(--ease); }
+        .why-card:hover { background: var(--c-bg-card-hover); }
+        .why-card .wi { width: 44px; height: 44px; border-radius: var(--r-md); display: grid; place-items: center; margin-bottom: 18px; }
+        .why-card .wi svg { width: 22px; height: 22px; }
+        .why-card h3 { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; }
+        .why-card p { font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; }
+        @media (max-width: 700px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }
+
+        /* ===== CTA ===== */
+        .cta { padding: 60px clamp(20px, 5vw, 48px); text-align: center; position: relative; }
+        .cta::before {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 700px; height: 350px; border-radius: 50%;
+            background: radial-gradient(ellipse, var(--c-accent-glow), transparent 70%); pointer-events: none;
+        }
+        .cta h2 { font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 48px); margin-bottom: 14px; position: relative; }
+        .cta p { font-size: 16px; color: var(--c-text-secondary); margin-bottom: 24px; position: relative; }
+        .cta .btn { position: relative; }
+
+        /* ===== Footer ===== */
+        .footer { padding: 32px clamp(20px, 5vw, 48px); border-top: 1px solid var(--c-border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-copy { font-size: 12.5px; color: var(--c-text-muted); }
+        .footer-links { display: flex; gap: 20px; list-style: none; }
+        .footer-links a { font-size: 12.5px; color: var(--c-text-muted); transition: color var(--ease); cursor: pointer; }
+        .footer-links a:hover { color: var(--c-text-secondary); }
+        .footer-links a.active { color: var(--c-accent-light); }
+        @media (max-width: 480px) { .footer { padding: 24px 16px; } .footer-inner { flex-direction: column; text-align: center; } .footer-links { gap: 16px; } .footer-links a { font-size: 12px; } .footer-panel.open { padding: 16px 0 0; } .footer-panel p { font-size: 12px; } }
+        .footer-panel {
+            max-width: 1200px; margin: 0 auto;
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 0;
+        }
+        .footer-panel.open { max-height: 200px; padding: 20px 0 0; }
+        .footer-panel p {
+            font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
+        }
+
+        /* ===== Download & Install ===== */
+        .download-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .dl-card {
+            padding: 32px 24px; background: var(--c-bg-card); transition: background var(--ease);
+            display: flex; flex-direction: column;
+        }
+        .dl-card:hover { background: var(--c-bg-card-hover); }
+        .dl-card .wi { width: 44px; height: 44px; border-radius: var(--r-md); display: grid; place-items: center; margin-bottom: 18px; }
+        .dl-card .wi svg { width: 22px; height: 22px; }
+        .dl-card h3 { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; }
+        .dl-card p { font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; margin-bottom: 18px; flex: 1; }
+        .coming-soon-badge {
+            display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+            padding: 8px 16px; border-radius: var(--r-sm);
+            background: var(--c-bg-elevated); border: 1px dashed var(--c-border);
+            font-size: 12.5px; font-weight: 500; color: var(--c-text-muted);
+        }
+        .coming-soon-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--c-accent); animation: dp 2s ease-in-out infinite; }
+        @media (max-width: 700px) { .download-grid { grid-template-columns: 1fr; } }
+
+        /* ===== Testimonials ===== */
+        .testimonials-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .t-card {
+            background: var(--c-bg-card); padding: 32px 28px; display: flex; flex-direction: column;
+            transition: background var(--ease);
+        }
+        .t-card:hover { background: var(--c-bg-card-hover); }
+        .t-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+        .t-stars svg { width: 16px; height: 16px; fill: #fbbf24; }
+        .t-quote { font-size: 14px; color: var(--c-text-secondary); line-height: 1.7; flex: 1; margin-bottom: 20px; font-style: italic; }
+        .t-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--c-border-subtle); }
+        .t-avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--c-bg-elevated); border: 1px solid var(--c-border);
+            display: grid; place-items: center;
+            font-size: 14px; font-weight: 600; color: var(--c-text-muted);
+        }
+        .t-author-info { display: flex; flex-direction: column; }
+        .t-author-name { font-size: 13px; font-weight: 600; color: var(--c-text); }
+        .t-author-role { font-size: 11.5px; color: var(--c-text-muted); }
+        @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+        /* ===== Pricing Table ===== */
+        .pricing-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .pricing-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+            min-width: 640px;
+        }
+        .pricing-table thead th {
+            padding: 12px 16px; font-family: var(--font-display); font-size: 14px; font-weight: 600;
+            color: var(--c-text); background: var(--c-bg-elevated); border-bottom: 1px solid var(--c-border);
+            text-align: center; white-space: nowrap;
+        }
+        .pricing-table thead th:first-child { text-align: left; width: 160px; }
+        .pricing-table thead th .th-sub { display: block; font-size: 11px; font-weight: 400; color: var(--c-text-muted); margin-top: 3px; }
+        .pricing-table tbody td {
+            padding: 8px 16px; font-size: 13.5px; color: var(--c-text-secondary);
+            border-bottom: 1px solid var(--c-border-subtle); text-align: center; transition: background var(--ease);
+        }
+        /* Plugin group striping: every other plugin pair */
+        .pricing-table tbody tr:nth-child(4n+3) td,
+        .pricing-table tbody tr:nth-child(4n+4) td { background-color: rgba(255,255,255,0.025); }
+        .pricing-table tbody tr:hover td { background: var(--c-bg-card-hover); }
+        .pricing-table tbody td:first-child {
+            text-align: left; font-weight: 500; color: var(--c-text);
+        }
+        .pricing-table tbody td:nth-child(2),
+        .pricing-table thead th:nth-child(2) { text-align: left; }
+        .pricing-table .tbd {
+            display: inline-block; padding: 4px 14px; border-radius: var(--r-sm);
+            background: var(--c-bg-elevated); border: 1px dashed var(--c-border);
+            font-size: 12px; font-weight: 500; color: var(--c-text-muted); letter-spacing: 0.04em;
+        }
+        .pricing-table tbody td.plugin-name {
+            font-weight: 600; color: var(--c-text); vertical-align: middle;
+        }
+        .pricing-table tbody tr.row-ai td.plugin-name { border-bottom: 1px solid var(--c-border); }
+        .pricing-table tbody tr.row-ps td { border-bottom: 1px solid var(--c-border-subtle); }
+        .pricing-table tbody tr.row-ai td { border-bottom: 1px solid var(--c-border); }
+        .pricing-table tbody tr:last-child td,
+        .pricing-table tbody tr:last-child td.plugin-name { border-bottom: none; }
+        @media (max-width: 700px) {
+            .pricing-table { min-width: 560px; }
+            .pricing-table thead th, .pricing-table tbody td { padding: 12px 10px; font-size: 12.5px; }
+        }
+
+        /* ===== Scroll reveal ===== */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .stagger .reveal:nth-child(1){transition-delay:0s} .stagger .reveal:nth-child(2){transition-delay:.06s}
+        .stagger .reveal:nth-child(3){transition-delay:.12s} .stagger .reveal:nth-child(4){transition-delay:.18s}
+        .stagger .reveal:nth-child(5){transition-delay:.24s} .stagger .reveal:nth-child(6){transition-delay:.3s}
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+        <!-- Icon -->
+        <svg class="brand-logo" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="64" x2="50" y2="115" stroke="#e0e0e0" stroke-width="5" stroke-linecap="round"/>
+            <polygon points="50,12 73,25 73,50 50,63 27,50 27,25" fill="none" stroke="#e0e0e0" stroke-width="3"/>
+            <ellipse cx="50" cy="37.5" rx="16" ry="7" stroke="#e0e0e0" stroke-width="1.8" fill="none" transform="rotate(-45 50 37.5)"/>
+            <ellipse cx="50" cy="37.5" rx="16" ry="7" stroke="#e0e0e0" stroke-width="1.8" fill="none" transform="rotate(45 50 37.5)"/>
+            <circle cx="50" cy="37.5" r="3.5" fill="#e0e0e0"/>
+            <circle cx="50" cy="12" r="4.5" fill="#f44"/>
+            <circle cx="73" cy="25" r="4.5" fill="#f44"/>
+            <circle cx="73" cy="50" r="4.5" fill="#f44"/>
+            <circle cx="27" cy="50" r="4.5" fill="#f44"/>
+            <circle cx="27" cy="25" r="4.5" fill="#f44"/>
+        </svg>
+        <!-- Text logo (no subtitle) -->
+        <svg class="brand-text" viewBox="80 210 440 105" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#e0e0e0" d="M125.22,270.11c-5.6-1.67-11.07-2.96-16.2-5.35-8.62-4.03-13.52-10.69-13.58-20.24-.05-9.08,3.85-16.46,11.9-20.92,11.8-6.54,24.03-6.77,36.24-1.04,8.23,3.86,12.32,10.84,13.99,19.5.33,1.7-.26,2.54-1.99,2.75-3.17.39-6.35.74-9.48,1.38-1.93.39-2.56-.34-3.05-2.01-3.38-11.34-14.42-16.11-25.35-11.01-4.39,2.04-6.72,5.55-6.85,10.29-.13,4.4,2.53,7.07,6.29,8.93,4.12,2.04,8.57,3.04,12.94,4.26,5.22,1.46,10.47,2.8,15.41,5.11,8.94,4.19,13.82,11.17,13.83,21.04,0,9.82-4.1,17.52-12.91,22.48-11.08,6.24-33.75,6.21-44.76-3.99-5.03-4.66-7.57-10.4-8.75-16.94-.29-1.61.3-2.54,2.07-2.77,3.26-.43,6.5-1,9.75-1.52,1.5-.24,2.34.26,2.62,1.87,2.62,15.08,19.64,17.3,29.26,12.95,4.3-1.94,7.23-5.09,7.41-10.21.19-5.26-2.49-8.53-6.99-10.68-3.7-1.76-7.65-2.73-11.79-3.88Z"/>
+            <path fill="#e0e0e0" d="M276.43,219.83c10.24-2.18,19.89-1.47,28.85,3.83,7.17,4.25,10.79,10.84,12.04,18.93.23,1.52-.58,1.95-1.69,2.13-3.53.57-7.08,1.03-10.62,1.59-1.49.24-1.81-.74-2.13-1.8-3.61-11.67-13.71-16.37-24.78-11.59-4.64,2-7.39,5.56-7.44,10.5-.04,4.6,2.88,7.61,7.03,9.44,5.26,2.32,10.9,3.37,16.35,5.05,3.42,1.05,6.84,2.14,10.14,3.52,11.72,4.9,16.73,14.44,14.36,26.88-1.68,8.85-6.79,15.02-15.09,18.06-13.78,5.04-27.39,4.9-40-3.51-6.47-4.32-9.7-10.86-10.88-18.48-.26-1.66.11-2.53,1.93-2.77,3.26-.44,6.49-1.05,9.73-1.62,1.72-.3,2.47.2,2.95,2.09,3.56,14.01,21.45,19.75,32.78,10.62,5.43-4.38,5.36-12.62-.19-16.87-2.73-2.1-5.93-3.22-9.2-4.19-6.21-1.84-12.6-3.09-18.65-5.46-11.15-4.36-16.91-11.9-16.75-21.93.17-10.99,6.86-19.76,17.95-23.52,1.01-.34,2.05-.56,3.31-.91Z"/>
+            <path fill="#e0e0e0" d="M508.44,280.89c-1.53,1.14-3.12.92-4.65.92-11.43.02-22.86.01-34.28.01-1.14,0-2.28,0-3.36,0-1.1,6.89,4.65,14.41,11.7,15.51,6.89,1.07,12.76-.47,16.37-7.03.84-1.52,1.82-1.72,3.34-1.19,2.56.89,5.15,1.71,7.75,2.43,1.94.54,2.14,1.53,1.33,3.23-3.09,6.47-7.97,11.07-14.8,13.06-11.42,3.33-22.27,2.43-31.49-6.05-4.98-4.58-7.51-10.51-8.52-17.08-1.52-9.88-.6-19.42,5.6-27.65,7.25-9.64,17.32-12.74,28.86-10.68,11.2,1.99,18.09,9.04,21.07,19.95,1.28,4.7,1.89,9.48,1.08,14.58M484.92,258.1c-9.33-2.48-18.08,2.69-18.66,12.94h28.1c-.77-6.15-3.37-10.53-9.44-12.94Z"/>
+            <path fill="#e0e0e0" d="M333.37,303.7c-5.49-5.88-6.46-13.08-6.6-20.41-.19-10.84-.02-21.69-.09-32.53-.02-2.52.59-3.77,3.46-3.48,2.68.27,5.44.24,8.12-.03,2.57-.26,3.18.78,3.16,3.11-.08,10.36-.07,20.72-.05,31.08,0,1.83-.05,3.71.32,5.49,1.46,7.01,6.04,10.48,12.8,9.89,6.29-.55,11.36-5.75,11.53-12.52.26-10.64.14-21.3.18-31.95,0-.87.02-1.74.03-2.61.03-1.65.77-2.43,2.52-2.39,3.19.07,6.39.07,9.58-.05,1.77-.07,2.5.61,2.46,2.33-.04,1.84-.04,3.68-.04,5.52-.01,16.16-.02,32.33-.04,48.49,0,4.54-.06,4.56-4.49,4.57-1.94,0-3.89-.14-5.81.03-2.85.25-3.87-1.02-3.67-3.72.07-1.03.2-2.11-.54-3.56-5.34,6.96-12.52,9.22-20.79,8.36-4.54-.47-8.62-2.13-12.03-5.61Z"/>
+            <path fill="#e0e0e0" d="M168.47,292.33c-3.85-10.04-4.08-19.87.12-29.61,8.05-18.66,34.96-23.02,48.41-7.91,2.63,2.96,4.21,6.46,5.41,10.18.48,1.49,0,2.21-1.44,2.48-3.33.62-6.67,1.19-9.99,1.87-1.6.33-2.23-.44-2.79-1.78-3.11-7.54-6.4-9.71-14.1-9.41-5.92.23-10.39,3.84-12.52,10.39-2.17,6.69-1.91,13.37.69,19.89,2.2,5.53,7.49,8.98,13.15,8.85,6.29-.15,10.84-3.3,12.87-9.43.78-2.35,1.8-2.77,3.99-2.14,2.69.77,5.46,1.32,8.22,1.82,2.07.38,2.41,1.34,1.83,3.28-3.1,10.36-12.11,17.74-22.97,18.53-6.35.46-12.56-.03-18.37-3.07-5.86-3.06-9.78-7.8-12.52-13.92Z"/>
+            <path fill="#e0e0e0" d="M448.27,255.57c.15,2.43-.96,3.18-3,3.13-2.71-.07-5.42.02-8.13,0-1.58-.01-2.28.69-2.28,2.27.04,10.06-.02,20.13.13,30.19.05,3.6,2.06,5.38,5.69,5.68.77.06,1.55.05,2.32.01q5.32-.24,5.31,5.31c-.01,6.24-.23,6.49-6.46,6.66-2.22.06-4.46.08-6.68-.03-8.52-.39-14.1-6.16-14.52-14.68-.5-10.45-.28-20.9-.32-31.35-.02-4.05-.06-4.12-3.98-4.12-.68,0-1.36-.04-2.03.02-2.06.18-3.15-.61-2.94-2.8.05-.48,0-.97,0-1.45-.02-6.59-.02-6.68,6.45-7.03,2.38-.13,2.71-1.54,2.6-3.29-.21-3.39.05-6.77.16-10.15.06-1.7.51-2.69,2.29-3.07,3.12-.67,6.22-1.45,9.29-2.31,2.05-.57,2.66.34,2.66,2.15,0,4.55.1,9.1-.01,13.65-.06,2.27.75,3.14,3.04,3.01,2.7-.15,5.42.03,8.13-.07,1.63-.06,2.32.61,2.3,2.19-.03,1.94,0,3.87-.02,6.08Z"/>
+            <path fill="#e0e0e0" d="M230.61,277.81c0-9.4.07-18.5-.05-27.6-.03-2.46.88-3.3,3.21-3.17,2.7.15,5.43.29,8.13.15,2.51-.13,3.07.94,3.06,3.24-.08,16.27-.05,32.55-.06,48.82,0,2.13-.07,4.26.01,6.39.07,1.88-.76,2.61-2.59,2.57-2.9-.07-5.82-.12-8.72,0-2.29.09-3.03-.86-3.02-3.09.08-9.01.03-18.02.02-27.31Z"/>
+            <path fill="#e0e0e0" d="M405.34,255.73c0,15.68,0,31.07-.02,46.46-.01,6.74.6,5.95-6.14,6.01-1.94.02-3.87-.03-5.81,0-1.51.02-2.34-.51-2.33-2.18.04-19.16.04-38.33.07-57.49,0-.27.16-.53.38-1.21,4.03,0,8.17-.02,12.3,0,1.32,0,1.52.98,1.53,2.02.02,2.03.02,4.07.02,6.39Z"/>
+            <path fill="#f44" d="M405.36,222.46c2.73,3.64,3.08,7.31.8,11-2.34,3.8-5.91,5.08-10.25,4.37-3.51-.58-6.48-3.5-7.41-7.33-1.62-6.65,5.22-13.14,11.83-11.18,1.88.56,3.6,1.43,5.04,3.14Z"/>
+            <path fill="#f44" d="M242.58,236.89c-6.12,2.67-11.83.58-13.84-4.9-2-5.46.99-11.08,6.74-12.67,4.19-1.15,8.96,1.08,10.9,5.09,2.2,4.56.86,9.18-3.8,12.47Z"/>
+        </svg>
+    </a>
+    <ul class="nav-mid">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="guidemi/index.html">GuideMi</a></li>
+        <li><a href="westernbo/index.html">WesternBo</a></li>
+        <li><a href="imagexi/index.html">ImageXi</a></li>
+        <li><a href="charter/index.html">ChartEr</a></li>
+        <li><a href="scipanel/index.html">SciPanel</a></li>
+        <li><a href="faqs/index.html">FAQs</a></li>
+        <li><a href="credits/index.html">Credits</a></li>
+        <li><a style="visibility:hidden;">Try Now</a></li>
+    </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-glow"></div>
+    <h2 class="sec-title hero-title">SciSuite. Science should be sweet.</h2>
+
+    <div class="hero-carousel">
+        <div class="hero-carousel-track" id="carouselTrack">
+            <!-- Slide 1: Logo + Feature Points -->
+            <div class="hero-slide">
+                <div class="hero-slide-split">
+                    <div class="hero-left">
+                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 480 480" width="420" height="420">
+  <defs><style>.st0{stroke-linecap:round;stroke-width:6.5px}.st0,.st1,.st2{fill:none;stroke:#e0e0e0}.st0,.st2{stroke-miterlimit:5.2}a{cursor:pointer}a:hover .st3{fill:#60a5fa}a:hover image{opacity:.8}.st3{font-family:Arial-BoldMT,Arial;font-size:13px;font-weight:700}.st3,.st4{fill:#e0e0e0}.st3,.st5,.st6{isolation:isolate}.st5{fill:#8b8b97;font-family:ArialMT,Arial;font-size:11.25px}.st7{fill:#f44}.st1{stroke-miterlimit:5.2;stroke-width:2.34px}.st2{stroke-width:3.9px}</style></defs>
+  <g><line class="st0" x1="240" y1="213.44" x2="240" y2="302.64"/><polygon class="st2" points="240 122.48 280.23 145.22 280.23 188.95 240 211.69 199.77 188.95 199.77 145.22 240 122.48"/><ellipse class="st1" cx="240" cy="167.08" rx="27.99" ry="12.24" transform="translate(-47.85 218.64) rotate(-45)"/><ellipse class="st1" cx="240" cy="167.08" rx="12.24" ry="27.99" transform="translate(-47.85 218.64) rotate(-45)"/><circle class="st4" cx="240" cy="167.08" r="6.12"/><circle class="st7" cx="240" cy="122.48" r="7.87"/><circle class="st7" cx="280.23" cy="145.22" r="7.87"/><circle class="st7" cx="280.23" cy="188.95" r="7.87"/><circle class="st7" cx="199.77" cy="188.95" r="7.87"/><circle class="st7" cx="199.77" cy="145.22" r="7.87"/></g>
+  <a href="imagexi/index.html"><image href="img/imagexi-icon.png" x="218" y="10" width="44" height="44"/></a>
+  <a href="westernbo/index.html"><image href="img/westernbo-icon.png" x="50" y="90" width="44" height="44"/></a>
+  <a href="charter/index.html"><image href="img/charter-icon.png" x="386" y="90" width="44" height="44"/></a>
+  <a href="guidemi/index.html"><image href="img/guidemi-icon.png" x="50" y="210" width="44" height="44"/></a>
+  <a href="scipanel/index.html"><image href="img/scipanel-icon.png" x="386" y="210" width="44" height="44"/></a>
+  <a href="imagexi/index.html"><g class="st6"><text class="st3" transform="translate(215.07 70)"><tspan x="0" y="0">ImageXi</tspan></text></g></a>
+  <a href="westernbo/index.html"><g class="st6"><text class="st3" transform="translate(37.81 150)"><tspan x="0" y="0">WesternBo</tspan></text></g></a>
+  <a href="charter/index.html"><g class="st6"><text class="st3" transform="translate(384.16 150)"><tspan x="0" y="0">ChartEr</tspan></text></g></a>
+  <a href="guidemi/index.html"><g class="st6"><text class="st3" transform="translate(46.36 270)"><tspan x="0" y="0">GuideMi</tspan></text></g></a>
+  <a href="scipanel/index.html"><g class="st6"><text class="st3" transform="translate(380.9 270)"><tspan x="0" y="0">SciPanel</tspan></text></g></a>
+  <g><path class="st4" d="M159.25,354.55c-2.52-.75-4.98-1.33-7.29-2.41-3.88-1.81-6.08-4.81-6.11-9.11-.02-4.09,1.73-7.41,5.36-9.41,5.31-2.94,10.81-3.05,16.31-.47,3.7,1.74,5.54,4.88,6.3,8.77.15.76-.12,1.14-.9,1.24-1.43.18-2.86.33-4.27.62-.87.18-1.15-.15-1.37-.9-1.52-5.1-6.49-7.25-11.41-4.95-1.98.92-3.02,2.5-3.08,4.63-.06,1.98,1.14,3.18,2.83,4.02,1.85.92,3.86,1.37,5.82,1.92,2.35.66,4.71,1.26,6.93,2.3,4.02,1.89,6.22,5.03,6.22,9.47s-1.85,7.88-5.81,10.12c-4.99,2.81-15.19,2.79-20.14-1.8-2.26-2.1-3.41-4.68-3.94-7.62-.13-.72.14-1.14.93-1.25,1.47-.19,2.92-.45,4.39-.68.67-.11,1.05.12,1.18.84,1.18,6.79,8.84,7.78,13.17,5.83,1.94-.87,3.25-2.29,3.33-4.59.09-2.37-1.12-3.84-3.15-4.81-1.66-.79-3.44-1.23-5.31-1.75h0Z"/><path class="st4" d="M227.29,331.92c4.61-.98,8.95-.66,12.98,1.72,3.23,1.91,4.86,4.88,5.42,8.52.1.68-.26.88-.76.96-1.59.26-3.19.46-4.78.72-.67.11-.81-.33-.96-.81-1.62-5.25-6.17-7.37-11.15-5.22-2.09.9-3.33,2.5-3.35,4.72-.02,2.07,1.3,3.42,3.16,4.25,2.37,1.04,4.9,1.52,7.36,2.27,1.54.47,3.08.96,4.56,1.58,5.27,2.2,7.53,6.5,6.46,12.1-.76,3.98-3.06,6.76-6.79,8.13-6.2,2.27-12.33,2.2-18-1.58-2.91-1.94-4.36-4.89-4.9-8.32-.12-.75.05-1.14.87-1.25,1.47-.2,2.92-.47,4.38-.73.77-.13,1.11.09,1.33.94,1.6,6.3,9.65,8.89,14.75,4.78,2.44-1.97,2.41-5.68-.09-7.59-1.23-.95-2.67-1.45-4.14-1.89-2.79-.83-5.67-1.39-8.39-2.46-5.02-1.96-7.61-5.35-7.54-9.87.08-4.95,3.09-8.89,8.08-10.58.45-.15.92-.25,1.49-.41h0v.02Z"/><path class="st4" d="M331.7,359.4c-.69.51-1.4.41-2.09.41h-16.94c-.5,3.1,2.09,6.48,5.27,6.98,3.1.48,5.74-.21,7.37-3.16.38-.68.82-.77,1.5-.54,1.15.4,2.32.77,3.49,1.09.87.24.96.69.6,1.45-1.39,2.91-3.59,4.98-6.66,5.88-5.14,1.5-10.02,1.09-14.17-2.72-2.24-2.06-3.38-4.73-3.83-7.69-.68-4.45-.27-8.74,2.52-12.44,3.26-4.34,7.79-5.73,12.99-4.81,5.04.9,8.14,4.07,9.48,8.98.58,2.12.85,4.27.49,6.56M321.11,349.14c-4.2-1.12-8.14,1.21-8.4,5.82h12.65c-.35-2.77-1.52-4.74-4.25-5.82Z"/><path class="st4" d="M252.92,369.67c-2.47-2.65-2.91-5.89-2.97-9.18-.09-4.88,0-9.76-.04-14.64,0-1.13.27-1.7,1.56-1.57,1.21.12,2.45.11,3.65-.01,1.16-.12,1.43.35,1.42,1.4-.04,4.66-.03,9.32-.02,13.99,0,.82-.02,1.67.14,2.47.66,3.15,2.72,4.72,5.76,4.45,2.83-.25,5.11-2.59,5.19-5.63.12-4.79.06-9.58.08-14.38,0-.39,0-.78.01-1.17.01-.74.35-1.09,1.13-1.08,1.44.03,2.88.03,4.31-.02.8-.03,1.12.27,1.11,1.05-.02.83-.02,1.66-.02,2.48,0,7.27,0,14.55-.02,21.82,0,2.04-.03,2.05-2.02,2.06-.87,0-1.75-.06-2.61.01-1.28.11-1.74-.46-1.65-1.67.03-.46.09-.95-.24-1.6-2.4,3.13-5.63,4.15-9.36,3.76-2.04-.21-3.88-.96-5.41-2.52h0v-.02Z"/><path class="st4" d="M178.71,364.55c-1.73-4.52-1.84-8.94.05-13.32,3.62-8.4,15.73-10.36,21.78-3.56,1.18,1.33,1.89,2.91,2.43,4.58.22.67,0,.99-.65,1.12-1.5.28-3,.54-4.5.84-.72.15-1-.2-1.26-.8-1.4-3.39-2.88-4.37-6.35-4.23-2.66.1-4.68,1.73-5.63,4.68-.98,3.01-.86,6.02.31,8.95.99,2.49,3.37,4.04,5.92,3.98,2.83-.07,4.88-1.48,5.79-4.24.35-1.06.81-1.25,1.8-.96,1.21.35,2.46.59,3.7.82.93.17,1.08.6.82,1.48-1.4,4.66-5.45,7.98-10.34,8.34-2.86.21-5.65-.01-8.27-1.38-2.64-1.38-4.4-3.51-5.63-6.26h0l.03-.04Z"/><path class="st4" d="M304.62,348.01c.07,1.09-.43,1.43-1.35,1.41-1.22-.03-2.44,0-3.66,0-.71,0-1.03.31-1.03,1.02.02,4.53,0,9.06.06,13.59.02,1.62.93,2.42,2.56,2.56.35.03.7.02,1.04,0,1.6-.07,2.39.72,2.39,2.39,0,2.81-.1,2.92-2.91,3-1,.03-2.01.04-3.01-.01-3.83-.18-6.35-2.77-6.53-6.61-.22-4.7-.13-9.4-.14-14.11,0-1.82-.03-1.85-1.79-1.85-.31,0-.61-.02-.91,0-.93.08-1.42-.27-1.32-1.26.02-.22,0-.44,0-.65,0-2.97,0-3.01,2.9-3.16,1.07-.06,1.22-.69,1.17-1.48-.09-1.53.02-3.05.07-4.57.03-.76.23-1.21,1.03-1.38,1.4-.3,2.8-.65,4.18-1.04.92-.26,1.2.15,1.2.97,0,2.05.05,4.1,0,6.14-.03,1.02.34,1.41,1.37,1.35,1.22-.07,2.44.01,3.66-.03.73-.03,1.04.27,1.03.99-.01.87,0,1.74,0,2.74h0Z"/><path class="st4" d="M206.67,358.01c0-4.23.03-8.32-.02-12.42,0-1.11.4-1.49,1.44-1.43,1.21.07,2.44.13,3.66.07,1.13-.06,1.38.42,1.38,1.46-.04,7.32-.02,14.65-.03,21.97,0,.96-.03,1.92,0,2.88.03.85-.34,1.17-1.17,1.16-1.3-.03-2.62-.05-3.92,0-1.03.04-1.36-.39-1.36-1.39.04-4.05,0-8.11,0-12.29h.02Z"/><path class="st4" d="M285.3,348.08v20.91c0,3.03.27,2.68-2.76,2.7-.87,0-1.74-.01-2.61,0-.68,0-1.05-.23-1.05-.98.02-8.62.02-17.25.03-25.87,0-.12.07-.24.17-.54h5.53c.59,0,.68.44.69.91v2.88h0Z"/><path class="st7" d="M285.31,333.11c1.23,1.64,1.39,3.29.36,4.95-1.05,1.71-2.66,2.29-4.61,1.97-1.58-.26-2.92-1.57-3.33-3.3-.73-2.99,2.35-5.91,5.32-5.03.85.25,1.62.64,2.27,1.41h-.01Z"/><path class="st7" d="M212.06,339.6c-2.75,1.2-5.32.26-6.23-2.2-.9-2.46.45-4.99,3.03-5.7,1.89-.52,4.03.49,4.9,2.29.99,2.05.39,4.13-1.71,5.61h.01Z"/><g class="st6"><text class="st5" transform="translate(144.43 385.76)"><tspan x="0" y="0">Scientific Image Processing &amp; Typeset</tspan></text></g></g>
+</svg>
+                    </div>
+                    <div class="hero-right">
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>200+ Specialized Tools</strong> (across 5 plugins for Ps &amp; Ai)</div></div>
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>Vector-Based Output</strong> (crisp shape layers at any resolution)</div></div>
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>Easy-to-Use</strong> (select target, set options, hit Go, done)</div></div>
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>17-Language Localization</strong> (global research team ready)</div></div>
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>Single-Step Undo</strong> (every operation, one Ctrl+Z)</div></div>
+                        <div class="fp"><div class="fp-dot"></div><div class="fp-text"><strong>Preset System</strong> (reuse, share &amp; unify your lab's style)</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2: UI Screenshot (Dark) -->
+            <div class="hero-slide">
+                <div class="hero-slide-img">
+                    <img src="img/UI.png" alt="SciSuite plugin interfaces (dark theme)">
+                </div>
+            </div>
+            <!-- Slide 3: UI Screenshot (Light) -->
+            <div class="hero-slide">
+                <div class="hero-slide-img">
+                    <img src="img/UI_light.png" alt="SciSuite plugin interfaces (light theme)">
+                </div>
+            </div>
+            <!-- Add more slides by adding hero-slide divs here -->
+        </div>
+        <div class="hero-dots" id="carouselDots">
+            <button class="hero-dot active" data-slide="0"></button>
+            <button class="hero-dot" data-slide="1"></button>
+            <button class="hero-dot" data-slide="2"></button>
+        </div>
+    </div>
+</section>
+
+<!-- Plugins — 5-column strip -->
+<section class="section" id="plugins">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">5 Plugins. One Mission.</h2>
+
+    <div class="plugins-strip reveal">
+        <!-- GuideMi -->
+        <div class="p-card">
+            <div class="p-card-icon"><img src="img/guidemi-icon.png" alt="GuideMi" style="width:28px;height:28px;"></div>
+            <h3>GuideMi</h3>
+            <div class="p-card-tagline">Guide &amp; Layout Management</div>
+            <p>Margins, grids, golden ratio, unequal divisions, and guide layout snapshots with smart boundary detection and live preview.</p>
+            <div class="p-card-foot">
+                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <a href="guidemi/index.html" class="p-card-link">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+        <!-- WesternBo -->
+        <div class="p-card">
+            <div class="p-card-icon"><img src="img/westernbo-icon.png" alt="WesternBo" style="width:28px;height:28px;"></div>
+            <h3>WesternBo</h3>
+            <div class="p-card-tagline">Western Blot &amp; Gel Tools</div>
+            <p>Lane labeling, molecular weight markers, band resizing, stroke borders, line markers, and plus/minus matrices for blot figures.</p>
+            <div class="p-card-foot">
+                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <a href="westernbo/index.html" class="p-card-link">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+        <!-- ImageXi -->
+        <div class="p-card">
+            <div class="p-card-icon"><img src="img/imagexi-icon.png" alt="ImageXi" style="width:28px;height:28px;"></div>
+            <h3>ImageXi</h3>
+            <div class="p-card-tagline">Microscopy Image Processing</div>
+            <p>Scale bars, channel split/merge, pseudo-color LUTs, magnified insets, sequential labeling, and batch layer resizing for microscopy figures.</p>
+            <div class="p-card-foot">
+                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <a href="imagexi/index.html" class="p-card-link">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+        <!-- ChartEr -->
+        <div class="p-card">
+            <div class="p-card-icon"><img src="img/charter-icon.png" alt="ChartEr" style="width:28px;height:28px;"></div>
+            <h3>ChartEr</h3>
+            <div class="p-card-tagline">Chart Annotation &amp; Tables</div>
+            <p>Significance marks, bar resizing, advanced line markers, table drawing, and phrase bank for annotating charts and graphs.</p>
+            <div class="p-card-foot">
+                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <a href="charter/index.html" class="p-card-link">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+        <!-- SciPanel -->
+        <div class="p-card">
+            <div class="p-card-icon"><img src="img/scipanel-icon.png" alt="SciPanel" style="width:28px;height:28px;"></div>
+            <h3>SciPanel</h3>
+            <div class="p-card-tagline">Figure Panel Assembly</div>
+            <p>Multi-panel layout with smart resize, alignment, distribution, ABC labeling, figure labels, dimension markers, and batch export to PNG/TIFF/PDF.</p>
+            <div class="p-card-foot">
+                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <a href="scipanel/index.html" class="p-card-link">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why SciSuite — 5-column strip -->
+<section class="section" id="why">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">Key Features</h2>
+
+    <div class="why-grid reveal">
+        <!-- 1. 200+ Specialized Tools → Stay in Your Workflow -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(59,130,246,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <path d="M8 21h8"/><path d="M12 17v4"/>
+                    <path d="M7 10l3 3 7-7"/>
+                </svg>
+            </div>
+            <h3>200+ Specialized Tools</h3>
+            <p>Grids and guides, blots cropping and annotations, scale bars, inset, channel split/merge and pseudo-color, significance marks and tables, panel layout with advanced alignment, distribution, and batch export.</p>
+        </div>
+        <!-- 2. Vector-Based Output -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(16,185,129,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h3>Vector-Based Output</h3>
+            <p>Stroke borders, line markers, scale bars, significance marks, tables, and dimension markers are all generated as vector shape layers. Crisp at any resolution, ready for journal submission without rasterization artifacts.</p>
+        </div>
+        <!-- 3. Easy-to-Use -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(251,191,36,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                    <line x1="9" y1="9" x2="9.01" y2="9"/>
+                    <line x1="15" y1="9" x2="15.01" y2="9"/>
+                </svg>
+            </div>
+            <h3>Easy-to-Use</h3>
+            <p>Select your target, set a few options, hit Go. If something isn't right, the plugin tells you exactly what to fix. Click, long-press, right-click, and scroll wheel give you full control without leaving the panel.</p>
+        </div>
+        <!-- 4. 17-Language Localization -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(244,68,68,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#f44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <h3>17-Language Localization</h3>
+            <p>中文, 日本語, 한국어, العربية, Deutsch, English, Español, Español (Latinoamérica), Français, Indonesia, Italiano, Português (Brasil), Português (Portugal), Русский, Türkçe. Your whole research team covered, worldwide.</p>
+        </div>
+        <!-- 5. Single-Step Undo -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(168,85,247,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="1 4 1 10 7 10"/>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                </svg>
+            </div>
+            <h3>Single-Step Undo</h3>
+            <p>In Photoshop, a single plugin action may modify dozens of layers, normally requiring many undo steps to revert. SciSuite wraps each operation into one history state, so one Ctrl+Z takes you right back.</p>
+        </div>
+        <!-- 6. Preset System -->
+        <div class="why-card">
+            <div class="wi" style="background: rgba(244,114,68,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#f47244" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+            </div>
+            <h3>Preset System</h3>
+            <p>Save your settings, export them as files, and share across your lab. Everyone gets the same style, consistent figures, zero setup when switching machines or onboarding new members.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">Pricing</h2>
+
+    <div class="pricing-table-wrap reveal">
+      <table class="pricing-table">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 80px;">
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Plugin</th>
+            <th>Platform</th>
+            <th>Future Ph.D.</th>
+            <th>Ph.D.</th>
+            <th>Professor</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- GuideMi: Ps & Ai both $9.9 -->
+          <tr class="row-ps">
+            <td class="plugin-name">GuideMi</td>
+            <td><span class="p-plat ps">Ps</span></td>
+            <td>$6.9</td>
+            <td>$11.9</td>
+            <td>$16.9</td>
+            <td>$36.9</td>
+          </tr>
+          <tr class="row-ai">
+            <td class="plugin-name"></td>
+            <td><span class="p-plat ai">Ai</span></td>
+            <td>$6.9</td>
+            <td>$11.9</td>
+            <td>$16.9</td>
+            <td>$36.9</td>
+          </tr>
+          <!-- WesternBo: Ps $26, Ai $26 -->
+          <tr class="row-ps">
+            <td class="plugin-name">WesternBo</td>
+            <td><span class="p-plat ps">Ps</span></td>
+            <td>$19.9</td>
+            <td>$24.9</td>
+            <td>$29.9</td>
+            <td>$49.9</td>
+          </tr>
+          <tr class="row-ai">
+            <td class="plugin-name"></td>
+            <td><span class="p-plat ai">Ai</span></td>
+            <td>$19.9</td>
+            <td>$24.9</td>
+            <td>$29.9</td>
+            <td>$49.9</td>
+          </tr>
+          <!-- ImageXi: Ps $28, Ai $18 -->
+          <tr class="row-ps">
+            <td class="plugin-name">ImageXi</td>
+            <td><span class="p-plat ps">Ps</span></td>
+            <td>$20.9</td>
+            <td>$25.9</td>
+            <td>$30.9</td>
+            <td>$50.9</td>
+          </tr>
+          <tr class="row-ai">
+            <td class="plugin-name"></td>
+            <td><span class="p-plat ai">Ai</span></td>
+            <td>$10.9</td>
+            <td>$15.9</td>
+            <td>$20.9</td>
+            <td>$40.9</td>
+          </tr>
+          <!-- ChartEr: Ps & Ai both $12 -->
+          <tr class="row-ps">
+            <td class="plugin-name">ChartEr</td>
+            <td><span class="p-plat ps">Ps</span></td>
+            <td>$9.9</td>
+            <td>$14.9</td>
+            <td>$19.9</td>
+            <td>$39.9</td>
+          </tr>
+          <tr class="row-ai">
+            <td class="plugin-name"></td>
+            <td><span class="p-plat ai">Ai</span></td>
+            <td>$9.9</td>
+            <td>$14.9</td>
+            <td>$19.9</td>
+            <td>$39.9</td>
+          </tr>
+          <!-- SciPanel: Ps & Ai both $27 -->
+          <tr class="row-ps">
+            <td class="plugin-name">SciPanel</td>
+            <td><span class="p-plat ps">Ps</span></td>
+            <td>$23.9</td>
+            <td>$28.9</td>
+            <td>$33.9</td>
+            <td>$53.9</td>
+          </tr>
+          <tr class="row-ai">
+            <td class="plugin-name"></td>
+            <td><span class="p-plat ai">Ai</span></td>
+            <td>$23.9</td>
+            <td>$28.9</td>
+            <td>$33.9</td>
+            <td>$53.9</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Download & Install -->
+<section class="section" id="download">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">Download &amp; Install</h2>
+
+    <div class="download-grid reveal">
+        <div class="dl-card">
+            <div class="wi" style="background: rgba(49,168,255,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#31a8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </div>
+            <h3>Photoshop Plugins</h3>
+            <p>GuideMi · WesternBo · ImageXi · ChartEr · SciPanel</p>
+            <div class="coming-soon-badge"><span class="pulse"></span> Coming Soon</div>
+        </div>
+        <div class="dl-card">
+            <div class="wi" style="background: rgba(255,154,0,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ff9a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </div>
+            <h3>Illustrator Plugins</h3>
+            <p>GuideMi · WesternBo · ImageXi · ChartEr · SciPanel</p>
+            <div class="coming-soon-badge"><span class="pulse"></span> Coming Soon</div>
+        </div>
+        <a href="install/index.html" class="dl-card" style="cursor:pointer;">
+            <div class="wi" style="background: rgba(16,185,129,0.10);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+            </div>
+            <h3>Installation Guide</h3>
+            <p>Step-by-step setup instructions for Photoshop &amp; Illustrator on Windows and macOS.</p>
+            <span class="p-card-link" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--c-border-subtle);">View Guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">What Researchers Say</h2>
+
+    <div class="testimonials-grid reveal">
+        <div class="t-card">
+            <div class="t-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <p class="t-quote">"SciSuite completely changed how our lab prepares figures. What used to take hours of manual alignment and labeling now takes minutes. The vector output is publication-ready right out of the box."</p>
+            <div class="t-author">
+                <div class="t-avatar">SM</div>
+                <div class="t-author-info">
+                    <span class="t-author-name">Sarah Mitchell</span>
+                    <span class="t-author-role">PhD Candidate, Neuroscience</span>
+                </div>
+            </div>
+        </div>
+        <div class="t-card">
+            <div class="t-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <p class="t-quote">"以前做 Western Blot 的图，光是对齐 label 和加 marker 就要折腾半天。现在用 WesternBo 几步就搞定了，导出的矢量图直接投稿，审稿人再也没挑过图的问题。"</p>
+            <div class="t-author">
+                <div class="t-avatar">陈</div>
+                <div class="t-author-info">
+                    <span class="t-author-name">陈明远</span>
+                    <span class="t-author-role">博士研究生，分子生物学</span>
+                </div>
+            </div>
+        </div>
+        <div class="t-card">
+            <div class="t-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <p class="t-quote">"プリセットを研究室全体で共有できるのが素晴らしい。新しいメンバーが来ても、同じスタイルですぐにFigure作成を始められます。論文間でFigureの統一感が格段に上がりました。"</p>
+            <div class="t-author">
+                <div class="t-avatar">田</div>
+                <div class="t-author-info">
+                    <span class="t-author-name">田中 悠太</span>
+                    <span class="t-author-role">助教，免疫学研究室</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">&copy; 2026 Bo Lv. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a data-panel="contact">Contact Bo</a></li>
+            <li><a data-panel="cite">Cite Us</a></li>
+            <li><a data-panel="join">Join Us</a></li>
+        </ul>
+    </div>
+    <div class="footer-panel" id="panel-contact">
+        <p>Please contact Bo Lv with this email address: bolyu(at)pitt.edu</p>
+    </div>
+    <div class="footer-panel" id="panel-cite">
+        <p>Cite the plugins for your legends and Materials &amp; Methods sections:<br><em>Figures were prepared with SciSuite plugins (GuideMi, WesternBo, ImageXi, ChartEr, and SciPanel).</em></p>
+    </div>
+    <div class="footer-panel" id="panel-join">
+        <p>We welcome contributions of all kinds — feature ideas, bug reports, translations, or code. Please contact Bo Lv (bolyu(at)pitt.edu) if you would like to contribute to this project. Significant contributors will be credited as developers.</p>
+    </div>
+</footer>
+
+<script>
+(function(){
+    var els = document.querySelectorAll('.reveal');
+    if (els.length) {
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+        els.forEach(function(el){ obs.observe(el); });
+    }
+
+    // Footer panel toggle
+    document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
+        a.addEventListener('click', function(){
+            var id = 'panel-' + this.getAttribute('data-panel');
+            var panel = document.getElementById(id);
+            var isOpen = panel.classList.contains('open');
+            // Close all panels and deactivate all links
+            document.querySelectorAll('.footer-panel').forEach(function(p){ p.classList.remove('open'); });
+            document.querySelectorAll('.footer-links a').forEach(function(l){ l.classList.remove('active'); });
+            // Toggle clicked panel
+            if (!isOpen) {
+                panel.classList.add('open');
+                this.classList.add('active');
+                setTimeout(function(){
+                    var scrollBottom = window.innerHeight + window.scrollY;
+                    if (document.body.scrollHeight - scrollBottom > 50) {
+                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    }
+                }, 420);
+            }
+        });
+    });
+    // Carousel
+    (function(){
+        var track = document.getElementById('carouselTrack');
+        var dots = document.querySelectorAll('.hero-dot');
+        var slides = document.querySelectorAll('.hero-slide');
+        var current = 0;
+        var total = slides.length;
+        function goTo(i) {
+            current = i;
+            slides.forEach(function(s){ s.style.transform = 'translateX(-' + (current * 100) + '%)'; });
+            dots.forEach(function(d, idx){ d.classList.toggle('active', idx === current); });
+        }
+        dots.forEach(function(d, idx){
+            d.addEventListener('click', function(){ goTo(idx); });
+        });
+        if (total > 1) {
+            setInterval(function(){ goTo((current + 1) % total); }, 3000);
+        }
+    })();
+})();
+</script>
+</body>
+</html>
