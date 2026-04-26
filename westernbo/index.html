@@ -140,6 +140,39 @@
             font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.6;
         }
 
+        /* Pricing */
+        .pricing-section {
+            margin-top: 48px;
+        }
+        .pricing-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .pricing-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+            min-width: 540px;
+        }
+        .pricing-table thead th {
+            padding: 12px 16px; font-family: var(--font-display); font-size: 14px; font-weight: 600;
+            color: var(--c-text); background: var(--c-bg-elevated); border-bottom: 1px solid var(--c-border);
+            text-align: center; white-space: nowrap;
+        }
+        .pricing-table thead th:first-child { text-align: left; width: 100px; }
+        .pricing-table tbody td {
+            padding: 8px 16px; font-size: 13.5px; color: var(--c-text-secondary);
+            border-bottom: 1px solid var(--c-border-subtle); text-align: center; transition: background var(--ease);
+        }
+        .pricing-table tbody tr:hover td { background: var(--c-bg-card-hover); }
+        .pricing-table tbody td:first-child {
+            text-align: left; font-weight: 500; color: var(--c-text);
+        }
+        .pricing-table tbody tr:last-child td { border-bottom: none; }
+        .pricing-note {
+            margin-top: 16px; font-size: 13px; color: var(--c-text-muted); line-height: 1.7;
+        }
+        @media (max-width: 700px) {
+            .pricing-table { min-width: 460px; }
+            .pricing-table thead th, .pricing-table tbody td { padding: 12px 10px; font-size: 12.5px; }
+        }
+
         /* Back link */
         .back-link {
             display: inline-flex; align-items: center; gap: 6px;
@@ -250,6 +283,47 @@
                     </div>
                 </div>
         </div>
+    </div>
+
+    <div class="pricing-section">
+        <h2 class="features-title">Pricing</h2>
+        <div class="pricing-table-wrap">
+          <table class="pricing-table">
+            <colgroup>
+              <col style="width: 100px;">
+              <col>
+              <col>
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Future Ph.D.</th>
+                <th>Ph.D.</th>
+                <th>Professor</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="p-plat ps">Ps</span></td>
+                <td>$19.9</td>
+                <td>$24.9</td>
+                <td>$29.9</td>
+                <td>$49.9</td>
+              </tr>
+              <tr>
+                <td><span class="p-plat ai">Ai</span></td>
+                <td>$19.9</td>
+                <td>$24.9</td>
+                <td>$29.9</td>
+                <td>$49.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">All licenses are one-time purchases with free minor updates. Ps and Ai versions are sold separately. Each license is tied to a single computer.</p>
     </div>
 </div></main>
 
