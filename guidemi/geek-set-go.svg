@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- 20s, 20 frames × 1s
+       Canvas 300×200
+       f0-f3:   Ratio "3" = equal thirds, vertical LTR →
+                300/3=100 each. Guides at 0,100,200,300.
+       f4-f7:   Ratio "1;2;1" = 25%/50%/25%, vertical LTR →
+                75,150,75. Guides at 0,75,225,300.
+       f8-f11:  Pixel "50" repeating, horizontal TTB ↓
+                200/50=4 segments. Guides at 0,50,100,150,200.
+       f12-f15: Pixel "50;*;50" vertical LTR →
+                fixed=100, wildcard=200. Guides at 0,50,250,300.
+       f16-f19: Pixel "100;*;*;100" horizontal TTB ↓
+                fixed=200, remaining=0... wait, 200px total, fixed=200, no room.
+                Use "40;*;*;40" → fixed=80, remain=120, each *=60. Guides at 0,40,100,160,200.
+  -->
+  <rect width="380" height="260" rx="8" fill="#141417" stroke="#222228" stroke-width="1"/>
+  <g transform="translate(40,32)">
+    <rect width="300" height="200" fill="#1a2332" rx="2"/>
+
+    <!-- === Step 1: Ratio "3" equal thirds, LTR → (f0-f3) === -->
+    <g><animate attributeName="opacity" values="0.9;0.9;0.9;0.9;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <rect x="1" y="1" width="98" height="198" fill="#00caff" opacity="0.04"/>
+      <rect x="101" y="1" width="98" height="198" fill="#00caff" opacity="0.07"/>
+      <rect x="201" y="1" width="98" height="198" fill="#00caff" opacity="0.04"/>
+      <text x="50" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">1</text>
+      <text x="150" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">1</text>
+      <text x="250" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">1</text>
+      <line x1="5" y1="190" x2="25" y2="190" stroke="#60a5fa" stroke-width="1.2"/>
+      <polygon points="23,187 28,190 23,193" fill="#60a5fa"/>
+    </g>
+
+    <!-- === Step 2: Ratio "1;2;1" = 75/150/75, LTR → (f4-f7) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0.9;0.9;0.9;0.9;0;0;0;0;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="75" y1="0" x2="75" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="225" y1="0" x2="225" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <rect x="1" y="1" width="73" height="198" fill="#00caff" opacity="0.04"/>
+      <rect x="76" y="1" width="148" height="198" fill="#00caff" opacity="0.07"/>
+      <rect x="226" y="1" width="73" height="198" fill="#00caff" opacity="0.04"/>
+      <text x="37.5" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">1</text>
+      <text x="150" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">2</text>
+      <text x="262.5" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#00caff" opacity="0.5">1</text>
+      <line x1="5" y1="190" x2="25" y2="190" stroke="#60a5fa" stroke-width="1.2"/>
+      <polygon points="23,187 28,190 23,193" fill="#60a5fa"/>
+    </g>
+
+    <!-- === Step 3: Pixel "50" repeating, TTB ↓ (f8-f11) === -->
+    <!-- 200/50=4 segments. Guides at 0,50,100,150,200 -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0.9;0.9;0.9;0.9;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="50" x2="300" y2="50" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="100" x2="300" y2="100" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="150" x2="300" y2="150" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <rect x="1" y="1" width="298" height="48" fill="#00caff" opacity="0.04"/>
+      <rect x="1" y="51" width="298" height="48" fill="#00caff" opacity="0.07"/>
+      <rect x="1" y="101" width="298" height="48" fill="#00caff" opacity="0.04"/>
+      <rect x="1" y="151" width="298" height="48" fill="#00caff" opacity="0.07"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <text x="150" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <text x="150" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <line x1="10" y1="5" x2="10" y2="25" stroke="#60a5fa" stroke-width="1.2"/>
+      <polygon points="7,23 10,28 13,23" fill="#60a5fa"/>
+    </g>
+
+    <!-- === Step 4: Pixel "50;*;50" LTR → (f12-f15) === -->
+    <!-- fixed=100, wildcard=200. Guides at 0,50,250,300 -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0.9;0.9;0.9;0.9;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="50" y1="0" x2="50" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="250" y1="0" x2="250" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <rect x="1" y="1" width="48" height="198" fill="#00caff" opacity="0.04"/>
+      <rect x="51" y="1" width="198" height="198" fill="#60a5fa" opacity="0.06"/>
+      <rect x="251" y="1" width="48" height="198" fill="#00caff" opacity="0.04"/>
+      <text x="25" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <text x="150" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#60a5fa" opacity="0.5">*</text>
+      <text x="275" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">50</text>
+      <line x1="5" y1="190" x2="25" y2="190" stroke="#60a5fa" stroke-width="1.2"/>
+      <polygon points="23,187 28,190 23,193" fill="#60a5fa"/>
+    </g>
+
+    <!-- === Step 5: Pixel "40;*;*;40" TTB ↓ (f16-f19) === -->
+    <!-- fixed=80, remain=120, each *=60. Guides at 0,40,100,160,200 -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0.9;0.9;0.9;0.9" dur="20s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="40" x2="300" y2="40" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="100" x2="300" y2="100" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="160" x2="300" y2="160" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <rect x="1" y="1" width="298" height="38" fill="#00caff" opacity="0.04"/>
+      <rect x="1" y="41" width="298" height="58" fill="#60a5fa" opacity="0.06"/>
+      <rect x="1" y="101" width="298" height="58" fill="#60a5fa" opacity="0.06"/>
+      <rect x="1" y="161" width="298" height="38" fill="#00caff" opacity="0.04"/>
+      <text x="150" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">40</text>
+      <text x="150" y="75" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#60a5fa" opacity="0.5">*</text>
+      <text x="150" y="135" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#60a5fa" opacity="0.5">*</text>
+      <text x="150" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#00caff" opacity="0.5">40</text>
+      <line x1="10" y1="5" x2="10" y2="25" stroke="#60a5fa" stroke-width="1.2"/>
+      <polygon points="7,23 10,28 13,23" fill="#60a5fa"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <g font-family="Arial,sans-serif" font-size="13.5" fill="#60a5fa" font-weight="600" text-anchor="middle">
+    <text x="190" y="248"><animate attributeName="opacity" values="1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>Ratio Mode: 3 (LR)</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>Ratio Mode: 1;2;1 (LR)</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;1;1;1;0;0;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>Pixel Mode: 50 (TB)</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;1;0;0;0;0" dur="20s" repeatCount="indefinite"/>Pixel Mode: 50;*;50 (LR)</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;1" dur="20s" repeatCount="indefinite"/>Pixel Mode: 40;*;*;40 (TB)</text>
+  </g>
+</svg>

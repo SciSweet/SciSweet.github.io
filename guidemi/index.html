@@ -123,23 +123,24 @@
             margin-bottom: 28px;
         }
         .feat-grid {
-            display: flex; flex-direction: column; gap: 1px;
-            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
         }
-        .feat-item {
-            display: flex; align-items: flex-start;
-            padding: 22px 28px; background: var(--c-bg-card);
-            transition: background var(--ease);
+        .feat-card {
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
+            overflow: hidden; transition: background var(--ease);
         }
-        .feat-item:hover { background: var(--c-bg-card-hover); }
-        .feat-content {
-            display: flex; flex-direction: column; gap: 4px;
+        .feat-card:hover { background: var(--c-bg-card-hover); }
+        .feat-card img {
+            width: 100%; height: auto; display: block;
         }
-        .feat-content strong {
-            font-size: 15px; color: var(--c-text); font-weight: 600;
+        .feat-card-title {
+            padding: 12px 16px; font-size: 13.5px; font-weight: 600; color: var(--c-text);
         }
-        .feat-content span {
-            font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.6;
+        @media (max-width: 768px) {
+            .feat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .feat-grid { grid-template-columns: 1fr; }
         }
 
         /* Pricing */
@@ -204,9 +205,7 @@
             font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
         }
 
-        @media (max-width: 480px) {
-            .feat-item { padding: 16px 18px; }
-        }
+
     </style>
 </head>
 <body>
@@ -240,43 +239,43 @@
     </div>
 
     <div class="features-section">
-        <h2 class="features-title">Features</h2>
+        <h2 class="features-title">Key Features</h2>
         <div class="feat-grid">
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Quick Actions</strong>
-                        <span>Quick access to common functions including single-edge guides, grid presets, golden ratio, and aspect ratio guides.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Edge Guides</div>
+                    <img src="qa1-edge-guides.svg" alt="Edge Guides">
                 </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Margin-Go-Round</strong>
-                        <span>Margin guide tool for creating guides with margins around target areas.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Quick Grids &amp; Ratios</div>
+                    <img src="qa2-grids-ratios.svg" alt="Quick Grids & Ratios">
                 </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Grid-and-Go</strong>
-                        <span>Grid guide tool for creating custom row/column grids with gutters.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Click Crosshair</div>
+                    <img src="qa3-crosshair.svg" alt="Click Crosshair">
                 </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Some Guides Like You</strong>
-                        <span>Layout snapshot tool for capturing, saving, importing, and reapplying guide layouts across documents.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Spotlight</div>
+                    <img src="qa4-spotlight.svg" alt="Spotlight">
                 </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Geek-Set-Go</strong>
-                        <span>Advanced unequal grid tool for creating guides with custom ratios or absolute values.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Guide Appearance</div>
+                    <img src="guide-appearance.svg" alt="Guide Appearance">
                 </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong>Smart Boundary Detection</strong>
-                        <span>All guide functions support smart detection: selection bounds → layer bounds → document bounds.</span>
-                    </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Margin-Go-Round</div>
+                    <img src="margin-go-round.svg" alt="Margin-Go-Round">
+                </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Grid-and-Go</div>
+                    <img src="grid-and-go.svg" alt="Grid-and-Go">
+                </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Some Guides Like You</div>
+                    <img src="some-guides-like-you.svg" alt="Some Guides Like You">
+                </div>
+                <div class="feat-card">
+                    <div class="feat-card-title">Geek-Set-Go</div>
+                    <img src="geek-set-go.svg" alt="Geek-Set-Go">
                 </div>
         </div>
     </div>

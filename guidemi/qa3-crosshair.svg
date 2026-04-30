@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="380" height="260" rx="8" fill="#141417" stroke="#222228" stroke-width="1"/>
+  <g transform="translate(40,32)">
+    <rect width="300" height="200" fill="#1a2332" rx="2"/>
+
+    <!-- Click 1: at (80, 60) -->
+    <!-- Cursor appears, clicks -->
+    <g>
+      <animate attributeName="opacity" values="0;0;0.9;0.9;0.9;0.9;0;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      <!-- Cursor arrow -->
+      <path d="M80 60 L80 72 L83 69 L86 74 L89 72 L86 67 L90 64 Z" fill="#fff" stroke="#333" stroke-width="0.6">
+        <animate attributeName="opacity" values="1;1;1;0;0;0;0;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      </path>
+      <!-- Click ripple -->
+      <circle cx="80" cy="60" r="0" fill="none" stroke="#ff4444" stroke-width="1.5">
+        <animate attributeName="r" values="0;0;0;8;12;12;12;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;0;0.8;0;0;0;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <!-- Crosshair guides from click 1 -->
+    <line x1="80" y1="0" x2="80" y2="200" stroke="#00caff" stroke-width="0.8">
+      <animate attributeName="opacity" values="0;0;0;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0;0" dur="10s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="60" x2="300" y2="60" stroke="#00caff" stroke-width="0.8">
+      <animate attributeName="opacity" values="0;0;0;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0.9;0;0" dur="10s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- Click 2: at (210, 140) -->
+    <g>
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0.9;0.9;0.9;0.9;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      <path d="M210 140 L210 152 L213 149 L216 154 L219 152 L216 147 L220 144 Z" fill="#fff" stroke="#333" stroke-width="0.6">
+        <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      </path>
+      <circle cx="210" cy="140" r="0" fill="none" stroke="#ff4444" stroke-width="1.5">
+        <animate attributeName="r" values="0;0;0;0;0;0;0;8;12;12;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;0;0;0;0;0;0.8;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <!-- Crosshair guides from click 2 -->
+    <line x1="210" y1="0" x2="210" y2="200" stroke="#00caff" stroke-width="0.8">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0.9;0.9;0.9;0.9;0.9;0;0" dur="10s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="140" x2="300" y2="140" stroke="#00caff" stroke-width="0.8">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0.9;0.9;0.9;0.9;0.9;0;0" dur="10s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="13.5" fill="#60a5fa" font-weight="600" text-anchor="middle">
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;1;1;1;1;0;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>Click anywhere to place crosshair guides</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1;1;1;1;0;0" dur="10s" repeatCount="indefinite"/>Click again — guides accumulate</text>
+  </g>
+</svg>

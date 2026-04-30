@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Source: 150×100, Target: 110×73
+       Irregular guides in source (% positions):
+       V: 18%, 42%, 75%  → source: 27, 63, 112.5  → target: 19.8, 46.2, 82.5
+       H: 25%, 60%, 85%  → source: 25, 60, 85      → target: 18.25, 43.8, 62.05
+
+       8s, 12 frames
+       f0-f3:  Source with guides, then capture flash at f2
+       f4-f5:  Arrow appears
+       f6-f9:  Target guides appear
+       f10-f11: gap
+  -->
+  <rect width="380" height="260" rx="8" fill="#141417" stroke="#222228" stroke-width="1"/>
+
+  <!-- Source doc: 150×100 -->
+  <g transform="translate(20,72)">
+    <text x="75" y="-6" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#8b8b97">Source (1200 × 800)</text>
+    <rect width="150" height="100" fill="#1a2332" rx="2" stroke="#333" stroke-width="0.5"/>
+    <!-- Irregular guides -->
+    <line x1="27" y1="0" x2="27" y2="100" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <line x1="63" y1="0" x2="63" y2="100" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <line x1="112.5" y1="0" x2="112.5" y2="100" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <line x1="0" y1="25" x2="150" y2="25" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <line x1="0" y1="60" x2="150" y2="60" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <line x1="0" y1="85" x2="150" y2="85" stroke="#00caff" stroke-width="0.5" opacity="0.7"/>
+    <!-- Capture flash -->
+    <rect width="150" height="100" fill="#00caff" rx="2">
+      <animate attributeName="opacity" values="0;0;0.15;0;0;0;0;0;0;0;0;0" dur="8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Arrow + Apply label -->
+  <g>
+    <line x1="180" y1="122" x2="225" y2="122" stroke="#60a5fa" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0;0;0;0.9;0.9;0.9;0.9;0.9;0.9;0;0" dur="8s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="223,118 230,122 223,126" fill="#60a5fa">
+      <animate attributeName="opacity" values="0;0;0;0;0.9;0.9;0.9;0.9;0.9;0.9;0;0" dur="8s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="203" y="136" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#60a5fa" font-weight="600">
+      <animate attributeName="opacity" values="0;0;0;0;0.9;0.9;0.9;0.9;0.9;0.9;0;0" dur="8s" repeatCount="indefinite"/>
+      Apply
+    </text>
+  </g>
+
+  <!-- Target doc: 110×73 -->
+  <g transform="translate(240,85.5)">
+    <text x="55" y="-6" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#8b8b97">Target (900 × 600)</text>
+    <rect width="110" height="73" fill="#1a2332" rx="2" stroke="#333" stroke-width="0.5"/>
+    <!-- Same % guides applied to smaller size -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0.9;0.9;0.9;0.9;0.9;0" dur="8s" repeatCount="indefinite"/>
+      <line x1="19.8" y1="0" x2="19.8" y2="73" stroke="#00caff" stroke-width="0.5"/>
+      <line x1="46.2" y1="0" x2="46.2" y2="73" stroke="#00caff" stroke-width="0.5"/>
+      <line x1="82.5" y1="0" x2="82.5" y2="73" stroke="#00caff" stroke-width="0.5"/>
+      <line x1="0" y1="18.25" x2="110" y2="18.25" stroke="#00caff" stroke-width="0.5"/>
+      <line x1="0" y1="43.8" x2="110" y2="43.8" stroke="#00caff" stroke-width="0.5"/>
+      <line x1="0" y1="62.05" x2="110" y2="62.05" stroke="#00caff" stroke-width="0.5"/>
+    </g>
+    <!-- Apply flash -->
+    <rect width="110" height="73" fill="#00caff" rx="2">
+      <animate attributeName="opacity" values="0;0;0;0;0;0.15;0;0;0;0;0;0" dur="8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Labels -->
+  <g font-family="Arial,sans-serif" font-size="13.5" fill="#60a5fa" font-weight="600" text-anchor="middle">
+    <text x="190" y="248"><animate attributeName="opacity" values="1;1;1;1;1;0;0;0;0;0;0;0" dur="8s" repeatCount="indefinite"/>Capture guide layout as snapshot</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1;1;1;0" dur="8s" repeatCount="indefinite"/>Apply proportionally to any document</text>
+  </g>
+</svg>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- 18s, 18 frames × 1s
+       Show a simple 3×3 grid layout, cycle through colors and styles.
+       Guide positions: v at 100,200; h at 66.7,133.3; border at 0,0,300,200
+
+       f0-f2:   Light Blue (default), Solid — #00caff
+       f3-f5:   Light Red, Solid — #ff6464
+       f6-f8:   Green, Solid — #00ff00
+       f9-f11:  Yellow, Dashed — #ffff00
+       f12-f14: Magenta, Dashed — #ff00ff
+       f15-f17: Light Blue, Dashed — #00caff
+  -->
+  <rect width="380" height="260" rx="8" fill="#141417" stroke="#222228" stroke-width="1"/>
+  <g transform="translate(40,22)">
+    <rect width="300" height="200" fill="#1a2332" rx="2"/>
+
+    <!-- === Light Blue, Solid (f0-f2) === -->
+    <g><animate attributeName="opacity" values="0.9;0.9;0.9;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#00caff" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00caff" stroke-width="0.7"/>
+    </g>
+
+    <!-- === Light Red, Solid (f3-f5) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0.9;0.9;0.9;0;0;0;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#ff6464" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#ff6464" stroke-width="0.7"/>
+    </g>
+
+    <!-- === Green, Solid (f6-f8) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0.9;0.9;0.9;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#00ff00" stroke-width="0.7"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00ff00" stroke-width="0.7"/>
+    </g>
+
+    <!-- === Yellow, Dashed (f9-f11) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0.9;0.9;0.9;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#ffff00" stroke-width="0.7" stroke-dasharray="6 4"/>
+    </g>
+
+    <!-- === Magenta, Dashed (f12-f14) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0.9;0.9;0.9;0;0;0" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#ff00ff" stroke-width="0.7" stroke-dasharray="6 4"/>
+    </g>
+
+    <!-- === Light Blue, Dashed (f15-f17) === -->
+    <g><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0.9;0.9;0.9" dur="18s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="300" y2="0" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="66.7" x2="300" y2="66.7" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="133.3" x2="300" y2="133.3" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="200" x2="300" y2="200" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="100" y1="0" x2="100" y2="200" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="200" y1="0" x2="200" y2="200" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+      <line x1="300" y1="0" x2="300" y2="200" stroke="#00caff" stroke-width="0.7" stroke-dasharray="6 4"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <g font-family="Arial,sans-serif" font-size="13.5" fill="#60a5fa" font-weight="600" text-anchor="middle">
+    <text x="190" y="248"><animate attributeName="opacity" values="1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>Light Blue, Solid</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>Red, Solid</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1;0;0;0;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>Green, Solid</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1;0;0;0;0;0;0" dur="18s" repeatCount="indefinite"/>Yellow, Dashed</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;0" dur="18s" repeatCount="indefinite"/>Magenta, Dashed</text>
+    <text x="190" y="248"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1" dur="18s" repeatCount="indefinite"/>Light Blue, Dashed</text>
+  </g>
+</svg>
