@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="185 110 110 205" width="110" height="205">
+  <defs>
+    <style>
+      .st0 { stroke-linecap: round; stroke-width: 6.5px; fill: none; stroke: #e0e0e0; stroke-miterlimit: 5.2; }
+      .st1 { fill: none; stroke: #e0e0e0; stroke-miterlimit: 5.2; stroke-width: 2.34px; }
+      .st2 { fill: none; stroke: #e0e0e0; stroke-miterlimit: 5.2; stroke-width: 3.9px; }
+      .st4 { fill: #e0e0e0; }
+      .st7 { fill: #f44; }
+    </style>
+  </defs>
+  <line class="st0" x1="240" y1="213.44" x2="240" y2="302.64"/>
+  <polygon class="st2" points="240 122.48 280.23 145.22 280.23 188.95 240 211.69 199.77 188.95 199.77 145.22 240 122.48"/>
+  <ellipse class="st1" cx="240" cy="167.08" rx="27.99" ry="12.24" transform="translate(-47.85 218.64) rotate(-45)"/>
+  <ellipse class="st1" cx="240" cy="167.08" rx="12.24" ry="27.99" transform="translate(-47.85 218.64) rotate(-45)"/>
+  <circle class="st4" cx="240" cy="167.08" r="6.12"/>
+  <circle class="st7" cx="240" cy="122.48" r="7.87"/>
+  <circle class="st7" cx="280.23" cy="145.22" r="7.87"/>
+  <circle class="st7" cx="280.23" cy="188.95" r="7.87"/>
+  <circle class="st7" cx="199.77" cy="188.95" r="7.87"/>
+  <circle class="st7" cx="199.77" cy="145.22" r="7.87"/>
+</svg>
