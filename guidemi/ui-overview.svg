@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
-  <rect width="900" height="430" fill="#09090b" rx="12"/>
+<svg viewBox="0 0 1060 390" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1060" height="390" fill="#09090b" rx="12"/>
 
-  <!-- ===== Plugin Panel (left side) ===== -->
-  <g transform="translate(40,20)">
-    <rect width="260" height="390" fill="#535353" rx="4" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- ===== Plugin Panel (center) ===== -->
+  <g transform="translate(400,20)">
+    <rect width="260" height="340" fill="#535353" rx="4" stroke="#2a2a2a" stroke-width="1"/>
 
     <!-- === Quick Actions (no title bar) === -->
     <g transform="translate(8,8)">
@@ -97,8 +97,8 @@
         <g transform="translate(154,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="1.5" stroke-opacity="0.3"/><path d="M2,12c0,0,3-4,10-4s10,4,10,4" stroke-width="1.2"/><path d="M22,12c0,0-3,4-10,4s-10-4-10-4" stroke-width="1.2" stroke-dasharray="2,2"/><line x1="3" y1="3" x2="21" y2="21" stroke-width="1.5"/></g>
         <!-- guide color (colored square swatch, default cyan) -->
         <g transform="translate(184,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" rx="2" stroke="none" fill="#00ffff"/></g>
-        <!-- guide style (vertical red solid line, default) -->
-        <g transform="translate(213,3) scale(0.88)"><line x1="12" y1="2" x2="12" y2="22" stroke-width="2.5" stroke="#ff6b6b" stroke-linecap="round"/></g>
+        <!-- guide style (vertical solid line, default, matching guide color) -->
+        <g transform="translate(213,3) scale(0.88)"><line x1="12" y1="2" x2="12" y2="22" stroke-width="2.5" stroke="#00ffff" stroke-linecap="round"/></g>
       </g>
 
       <!-- Row 4: clear all, clear H, clear V, clear outside, clear canvas, clear selection, keep, collapse -->
@@ -159,48 +159,108 @@
       <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Geek-Set-Go</text>
       <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
     </g>
+
+    <!-- === Artboard Selector (Illustrator only, not collapsible) === -->
+    <g transform="translate(8,298)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <!-- Artboard tool icon button -->
+      <g transform="translate(2,2)">
+        <rect width="26" height="26" rx="2" fill="#464646" stroke="#2a2a2a" stroke-width="0.5"/>
+        <g transform="translate(3,3) scale(0.83)" stroke="#b8b8b8" stroke-width="2" fill="none">
+          <line x1="11" y1="1" x2="11" y2="6" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="1" y1="11" x2="6" y2="11" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M9 9 L9 22 L22 22 L22 14 L17 9 Z" stroke-linejoin="round"/>
+          <polyline points="17 9 17 14 22 14" stroke-linejoin="round"/>
+        </g>
+      </g>
+      <!-- Artboard dropdown select -->
+      <rect x="32" y="5" width="176" height="20" rx="2" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="0.5"/>
+      <text x="40" y="19" font-family="Arial,sans-serif" font-size="10" fill="#e8e8e8">Artboard 1</text>
+      <!-- Dropdown arrow -->
+      <polyline points="194,12 198,16 202,12" fill="none" stroke="#b8b8b8" stroke-width="1.2"/>
+      <!-- Refresh button -->
+      <g transform="translate(216,2)">
+        <rect width="26" height="26" rx="2" fill="#464646" stroke="#2a2a2a" stroke-width="0.5"/>
+        <g transform="translate(4,4) scale(0.75)">
+          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" fill="#b8b8b8" stroke="none"/>
+        </g>
+      </g>
+    </g>
   </g>
 
-  <!-- ===== Annotations (right side) ===== -->
+  <!-- ===== Annotations (alternating left / right) ===== -->
 
-  <!-- Quick Actions -->
-  <line x1="308" y1="68" x2="370" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <circle cx="308" cy="68" r="3" fill="#3b82f6"/>
-  <g transform="translate(380,33)">
-    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Quick Actions</text>
-    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">One-click edge guides, grids, golden ratio,</text>
-    <text y="36" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">crosshair, spotlight, and appearance controls.</text>
+  <!-- Row 1: Edge Guides — LEFT -->
+  <circle cx="400" cy="46" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="46" x2="370" y2="46" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,36)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Edge Guides</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Top, bottom, left, right, center, border.</text>
   </g>
 
-  <!-- Margin-Go-Round -->
-  <line x1="308" y1="181" x2="370" y2="158" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <circle cx="308" cy="181" r="3" fill="#3b82f6"/>
-  <g transform="translate(380,142)">
-    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Margin-Go-Round</text>
-    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Margin guides with linked or independent values.</text>
+  <!-- Row 2: Grids & Ratios — RIGHT -->
+  <circle cx="660" cy="76" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="76" x2="690" y2="76" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,64)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Grids &amp; Ratios</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">2×2 – 6×6 grids, golden ratio, aspect ratio.</text>
   </g>
 
-  <!-- Grid-and-Go -->
-  <line x1="308" y1="219" x2="370" y2="210" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <circle cx="308" cy="219" r="3" fill="#3b82f6"/>
-  <g transform="translate(380,198)">
-    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Grid-and-Go</text>
-    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Custom rows, columns, gutters, shapes, and frames.</text>
+  <!-- Row 3: Tools & Appearance — LEFT -->
+  <circle cx="400" cy="106" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="106" x2="370" y2="106" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,96)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Tools &amp; Appearance</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Unit, crosshair, spotlight, lock, color, style.</text>
   </g>
 
-  <!-- Some Guides Like You -->
-  <line x1="308" y1="257" x2="370" y2="264" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <circle cx="308" cy="257" r="3" fill="#3b82f6"/>
-  <g transform="translate(380,254)">
-    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Some Guides Like You</text>
-    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Capture and reapply guide layouts across documents.</text>
+  <!-- Row 4: Smart Clear — RIGHT -->
+  <circle cx="660" cy="136" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="136" x2="690" y2="136" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,124)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Smart Clear</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Clear all, H, V, outside, canvas, or selection.</text>
   </g>
 
-  <!-- Geek-Set-Go -->
-  <line x1="308" y1="295" x2="370" y2="320" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <circle cx="308" cy="295" r="3" fill="#3b82f6"/>
-  <g transform="translate(380,310)">
-    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Geek-Set-Go</text>
-    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Unequal divisions with ratio, pixel, and wildcard modes.</text>
+  <!-- Margin-Go-Round — LEFT -->
+  <circle cx="400" cy="181" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="181" x2="370" y2="181" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,171)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Margin-Go-Round</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Linked or independent margin guides.</text>
+  </g>
+
+  <!-- Grid-and-Go — RIGHT -->
+  <circle cx="660" cy="219" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="219" x2="690" y2="219" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,207)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Grid-and-Go</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Rows, columns, gutters, frames, and shapes.</text>
+  </g>
+
+  <!-- Some Guides Like You — LEFT -->
+  <circle cx="400" cy="257" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="257" x2="370" y2="257" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,247)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Some Guides Like You</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Capture and reapply layouts across documents.</text>
+  </g>
+
+  <!-- Geek-Set-Go — RIGHT -->
+  <circle cx="660" cy="295" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="295" x2="690" y2="295" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,283)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Geek-Set-Go</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Unequal divisions with ratio, pixel, wildcards.</text>
+  </g>
+
+  <!-- Artboard Management — LEFT (AI-only) -->
+  <circle cx="400" cy="333" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="333" x2="370" y2="333" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,323)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Artboard Management</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Navigate and apply guides per artboard.</text>
+    <rect x="185" y="26" width="155" height="18" rx="9" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="0.8"/>
+    <text text-anchor="middle" x="262" y="39" font-family="Arial,sans-serif" font-size="10" fill="#f59e0b" font-weight="600">Adobe Illustrator Only</text>
   </g>
 </svg>
