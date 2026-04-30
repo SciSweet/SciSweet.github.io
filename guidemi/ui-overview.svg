@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="430" fill="#09090b" rx="12"/>
+
+  <!-- ===== Plugin Panel (left side) ===== -->
+  <g transform="translate(40,20)">
+    <rect width="260" height="390" fill="#535353" rx="4" stroke="#2a2a2a" stroke-width="1"/>
+
+    <!-- === Quick Actions (no title bar) === -->
+    <g transform="translate(8,8)">
+      <rect width="244" height="130" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+
+      <!-- Row 1: Top, Bottom, Left, Right, H-Center, V-Center, Border, Midlines -->
+      <g transform="translate(4,4)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <!-- btn bg helper -->
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Top: line at top + arrow down -->
+        <g transform="translate(4,3) scale(0.92)"><line x1="1" y1="1" x2="23" y2="1" stroke-width="2"/><polyline points="12,1 12,17"/><polyline points="8,13 12,17 16,13"/></g>
+        <!-- Bottom -->
+        <g transform="translate(34,3) scale(0.92)"><line x1="1" y1="23" x2="23" y2="23" stroke-width="2"/><polyline points="12,23 12,7"/><polyline points="8,11 12,7 16,11"/></g>
+        <!-- Left -->
+        <g transform="translate(64,3) scale(0.92)"><line x1="1" y1="1" x2="1" y2="23" stroke-width="2"/><polyline points="1,12 17,12"/><polyline points="13,8 17,12 13,16"/></g>
+        <!-- Right -->
+        <g transform="translate(94,3) scale(0.92)"><line x1="23" y1="1" x2="23" y2="23" stroke-width="2"/><polyline points="23,12 7,12"/><polyline points="11,8 7,12 11,16"/></g>
+        <!-- H-Center -->
+        <g transform="translate(124,3) scale(0.92)"><line x1="1" y1="12" x2="23" y2="12" stroke-width="2"/></g>
+        <!-- V-Center -->
+        <g transform="translate(154,3) scale(0.92)"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/></g>
+        <!-- Border -->
+        <g transform="translate(184,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/></g>
+        <!-- Midlines -->
+        <g transform="translate(213,3) scale(0.88)"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="2"/></g>
+      </g>
+
+      <!-- Row 2: 2x2, 3x3, 4x4, 5x5, 6x6, Golden, 4:3, 16:9 -->
+      <g transform="translate(4,34)" stroke="#b8b8b8" stroke-width="1" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- 2x2 -->
+        <g transform="translate(4,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="1.5"/><line x1="12" y1="1" x2="12" y2="23" stroke-width="1.5"/></g>
+        <!-- 3x3 -->
+        <g transform="translate(34,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="1" y1="8.3" x2="23" y2="8.3" stroke-width="1"/><line x1="1" y1="15.7" x2="23" y2="15.7" stroke-width="1"/><line x1="8.3" y1="1" x2="8.3" y2="23" stroke-width="1"/><line x1="15.7" y1="1" x2="15.7" y2="23" stroke-width="1"/></g>
+        <!-- 4x4 -->
+        <g transform="translate(64,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="1" y1="6.5" x2="23" y2="6.5" stroke-width="1"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="1"/><line x1="1" y1="17.5" x2="23" y2="17.5" stroke-width="1"/><line x1="6.5" y1="1" x2="6.5" y2="23" stroke-width="1"/><line x1="12" y1="1" x2="12" y2="23" stroke-width="1"/><line x1="17.5" y1="1" x2="17.5" y2="23" stroke-width="1"/></g>
+        <!-- 5x5 (simplified) -->
+        <g transform="translate(94,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="5.4" y1="1" x2="5.4" y2="23" stroke-width="0.8"/><line x1="9.8" y1="1" x2="9.8" y2="23" stroke-width="0.8"/><line x1="14.2" y1="1" x2="14.2" y2="23" stroke-width="0.8"/><line x1="18.6" y1="1" x2="18.6" y2="23" stroke-width="0.8"/><line x1="1" y1="5.4" x2="23" y2="5.4" stroke-width="0.8"/><line x1="1" y1="9.8" x2="23" y2="9.8" stroke-width="0.8"/><line x1="1" y1="14.2" x2="23" y2="14.2" stroke-width="0.8"/><line x1="1" y1="18.6" x2="23" y2="18.6" stroke-width="0.8"/></g>
+        <!-- 6x6 (simplified) -->
+        <g transform="translate(124,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="4.7" y1="1" x2="4.7" y2="23" stroke-width="0.7"/><line x1="8.3" y1="1" x2="8.3" y2="23" stroke-width="0.7"/><line x1="12" y1="1" x2="12" y2="23" stroke-width="0.7"/><line x1="15.7" y1="1" x2="15.7" y2="23" stroke-width="0.7"/><line x1="19.3" y1="1" x2="19.3" y2="23" stroke-width="0.7"/><line x1="1" y1="4.7" x2="23" y2="4.7" stroke-width="0.7"/><line x1="1" y1="8.3" x2="23" y2="8.3" stroke-width="0.7"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="0.7"/><line x1="1" y1="15.7" x2="23" y2="15.7" stroke-width="0.7"/><line x1="1" y1="19.3" x2="23" y2="19.3" stroke-width="0.7"/></g>
+        <!-- Golden Ratio -->
+        <g transform="translate(154,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/><line x1="9.4" y1="1" x2="9.4" y2="23" stroke-width="1" stroke="#DAA520"/><line x1="14.6" y1="1" x2="14.6" y2="23" stroke-width="1" stroke="#DAA520"/><line x1="1" y1="9.4" x2="23" y2="9.4" stroke-width="1" stroke="#DAA520"/><line x1="1" y1="14.6" x2="23" y2="14.6" stroke-width="1" stroke="#DAA520"/></g>
+        <!-- 4:3 -->
+        <g transform="translate(184,3) scale(0.92)"><rect x="2" y="4" width="20" height="16" stroke-width="1.5" rx="1"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#b8b8b8" stroke="none" font-family="Arial,sans-serif">4:3</text></g>
+        <!-- 16:9 -->
+        <g transform="translate(213,3) scale(0.88)"><rect x="1" y="6" width="22" height="12" stroke-width="1.5" rx="1"/><text x="12" y="15" text-anchor="middle" font-size="9" font-weight="bold" fill="#b8b8b8" stroke="none" font-family="Arial,sans-serif">16:9</text></g>
+      </g>
+
+      <!-- Row 3: px, crosshair, spotlight, lock, eye, layer edges, guide color, guide style -->
+      <g transform="translate(4,64)" stroke="#b8b8b8" stroke-width="1" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- px -->
+        <text x="14" y="19" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#b8b8b8" font-weight="700" stroke="none">px</text>
+        <!-- crosshair: red crosshair at (8,8) + cursor arrow -->
+        <g transform="translate(34,3) scale(0.92)"><line x1="8" y1="1" x2="8" y2="23" stroke-width="1.5" stroke="#ff4444"/><line x1="1" y1="8" x2="23" y2="8" stroke-width="1.5" stroke="#ff4444"/><path d="M8,8 L8,20 L11,17 L14,22 L17,20 L14,15 L18,12 Z" stroke-width="1.2"/></g>
+        <!-- spotlight: circle r=9 + crosshair tick lines -->
+        <g transform="translate(64,3) scale(0.92)"><circle cx="12" cy="12" r="9" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="6" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="18" x2="12" y2="23" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="6" y2="12" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="12" x2="23" y2="12" stroke-width="2" stroke-linecap="round"/></g>
+        <!-- lock -->
+        <g transform="translate(94,3) scale(0.92)"><rect x="5" y="10" width="14" height="11" rx="1.5" stroke-width="2"/><path d="M8,10V6a4,4,0,0,1,8,0" stroke-width="2"/></g>
+        <!-- eye/visibility (open eye + background guide lines) -->
+        <g transform="translate(124,3) scale(0.92)"><line x1="1" y1="5" x2="23" y2="5" stroke-width="1" stroke-opacity="0.8"/><line x1="1" y1="19" x2="23" y2="19" stroke-width="1" stroke-opacity="0.8"/><line x1="7" y1="1" x2="7" y2="23" stroke-width="1" stroke-opacity="0.8"/><line x1="17" y1="1" x2="17" y2="23" stroke-width="1" stroke-opacity="0.8"/><path d="M1,12s3-7,11-7,11,7,11,7-3,7-11,7-11-7-11-7z" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke-width="1.5"/></g>
+        <!-- layer edges (edgesOff default: faded box + closed eye + slash) -->
+        <g transform="translate(154,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="1.5" stroke-opacity="0.3"/><path d="M2,12c0,0,3-4,10-4s10,4,10,4" stroke-width="1.2"/><path d="M22,12c0,0-3,4-10,4s-10-4-10-4" stroke-width="1.2" stroke-dasharray="2,2"/><line x1="3" y1="3" x2="21" y2="21" stroke-width="1.5"/></g>
+        <!-- guide color (colored square swatch, default cyan) -->
+        <g transform="translate(184,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" rx="2" stroke="none" fill="#00ffff"/></g>
+        <!-- guide style (vertical red solid line, default) -->
+        <g transform="translate(213,3) scale(0.88)"><line x1="12" y1="2" x2="12" y2="22" stroke-width="2.5" stroke="#ff6b6b" stroke-linecap="round"/></g>
+      </g>
+
+      <!-- Row 4: clear all, clear H, clear V, clear outside, clear canvas, clear selection, keep, collapse -->
+      <g transform="translate(4,94)" stroke="#b8b8b8" stroke-width="1" fill="none">
+        <g fill="#5a3a3a" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2" fill="#3a5a3a"/>
+          <rect x="210" y="0" width="26" height="28" rx="2" fill="#464646"/>
+        </g>
+        <!-- Clear All: trash + 3x3 grid inside -->
+        <g transform="translate(4,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><line x1="9" y1="9" x2="9" y2="19" stroke-width="1"/><line x1="12" y1="9" x2="12" y2="19" stroke-width="1"/><line x1="15" y1="9" x2="15" y2="19" stroke-width="1"/><line x1="7" y1="11.5" x2="17" y2="11.5" stroke-width="1"/><line x1="7" y1="14" x2="17" y2="14" stroke-width="1"/><line x1="7" y1="16.5" x2="17" y2="16.5" stroke-width="1"/></g>
+        <!-- Clear H: trash + 3 horizontal lines inside -->
+        <g transform="translate(34,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><line x1="7" y1="11" x2="17" y2="11" stroke-width="1.2"/><line x1="7" y1="14" x2="17" y2="14" stroke-width="1.2"/><line x1="7" y1="17" x2="17" y2="17" stroke-width="1.2"/></g>
+        <!-- Clear V: trash + 3 vertical lines inside -->
+        <g transform="translate(64,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><line x1="9" y1="9" x2="9" y2="19" stroke-width="1.2"/><line x1="12" y1="9" x2="12" y2="19" stroke-width="1.2"/><line x1="15" y1="9" x2="15" y2="19" stroke-width="1.2"/></g>
+        <!-- Clear Outside: trash + crosshair with red square (canvas) in center -->
+        <g transform="translate(94,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><line x1="12" y1="9" x2="12" y2="19" stroke-width="1.2"/><line x1="7" y1="14" x2="17" y2="14" stroke-width="1.2"/><rect x="9.5" y="11.5" width="5" height="5" fill="#ff4444" stroke="none"/></g>
+        <!-- Clear on Canvas: trash + red square (canvas) with outside grid lines -->
+        <g transform="translate(124,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><rect x="9.5" y="11.5" width="5" height="5" fill="#ff4444" stroke="none"/><line x1="7" y1="10" x2="17" y2="10" stroke-width="1.2"/><line x1="7" y1="18" x2="17" y2="18" stroke-width="1.2"/><line x1="8" y1="9" x2="8" y2="19" stroke-width="1.2"/><line x1="16" y1="9" x2="16" y2="19" stroke-width="1.2"/></g>
+        <!-- Clear on Selection: trash + white hollow rect with crosshair -->
+        <g transform="translate(154,2) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="1.5"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/><rect x="8" y="10" width="8" height="8" fill="none" stroke="#e8e8e8" stroke-width="1.2"/><line x1="12" y1="8" x2="12" y2="20" stroke-width="1.2"/><line x1="6.5" y1="14" x2="17.5" y2="14" stroke-width="1.2"/></g>
+        <!-- keep (green checkmark) -->
+        <g transform="translate(184,3) scale(0.92)"><polyline points="20,6 9,17 4,12" stroke-width="2.5" stroke="#4caf50" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <!-- collapse -->
+        <g transform="translate(213,3) scale(0.88)"><polyline points="6,12 12,6 18,12" stroke-width="1.5"/><polyline points="6,17 12,11 18,17" stroke-width="1.5"/><polyline points="6,22 12,16 18,22" stroke-width="1.5"/></g>
+      </g>
+    </g>
+
+    <!-- === Margin-Go-Round (collapsed) === -->
+    <g transform="translate(8,146)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Margin-Go-Round</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Grid-and-Go (collapsed) === -->
+    <g transform="translate(8,184)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Grid-and-Go</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Some Guides Like You (collapsed) === -->
+    <g transform="translate(8,222)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Some Guides Like You</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Geek-Set-Go (collapsed) === -->
+    <g transform="translate(8,260)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Geek-Set-Go</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+  </g>
+
+  <!-- ===== Annotations (right side) ===== -->
+
+  <!-- Quick Actions -->
+  <line x1="308" y1="68" x2="370" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="308" cy="68" r="3" fill="#3b82f6"/>
+  <g transform="translate(380,33)">
+    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Quick Actions</text>
+    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">One-click edge guides, grids, golden ratio,</text>
+    <text y="36" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">crosshair, spotlight, and appearance controls.</text>
+  </g>
+
+  <!-- Margin-Go-Round -->
+  <line x1="308" y1="181" x2="370" y2="158" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="308" cy="181" r="3" fill="#3b82f6"/>
+  <g transform="translate(380,142)">
+    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Margin-Go-Round</text>
+    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Margin guides with linked or independent values.</text>
+  </g>
+
+  <!-- Grid-and-Go -->
+  <line x1="308" y1="219" x2="370" y2="210" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="308" cy="219" r="3" fill="#3b82f6"/>
+  <g transform="translate(380,198)">
+    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Grid-and-Go</text>
+    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Custom rows, columns, gutters, shapes, and frames.</text>
+  </g>
+
+  <!-- Some Guides Like You -->
+  <line x1="308" y1="257" x2="370" y2="264" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="308" cy="257" r="3" fill="#3b82f6"/>
+  <g transform="translate(380,254)">
+    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Some Guides Like You</text>
+    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Capture and reapply guide layouts across documents.</text>
+  </g>
+
+  <!-- Geek-Set-Go -->
+  <line x1="308" y1="295" x2="370" y2="320" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="308" cy="295" r="3" fill="#3b82f6"/>
+  <g transform="translate(380,310)">
+    <text font-family="Arial,sans-serif" font-size="15" fill="#ededf0" font-weight="600">Geek-Set-Go</text>
+    <text y="20" font-family="Arial,sans-serif" font-size="12" fill="#8b8b97">Unequal divisions with ratio, pixel, and wildcard modes.</text>
+  </g>
+</svg>
