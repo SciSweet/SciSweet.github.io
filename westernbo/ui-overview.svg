@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1060 530" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1060" height="530" fill="#09090b" rx="12"/>
+
+  <!-- ===== Plugin Panel (center) ===== -->
+  <g transform="translate(400,20)">
+    <rect width="260" height="498" fill="#535353" rx="4" stroke="#2a2a2a" stroke-width="1"/>
+
+    <!-- === Quick Actions (no title bar) === -->
+    <g transform="translate(8,8)">
+      <rect width="244" height="100" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+
+      <!-- Row 1: Merge Docs, Swap Layers, Copy to Another, Special Char, Tiling Tool, Layer Info, Distribute H, Unlink -->
+      <g transform="translate(4,4)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Merge Docs: 3 stacked layers -->
+        <g transform="translate(4,3) scale(0.92)"><path d="M1 17 L12 23 L23 17" stroke-width="2" stroke-linejoin="miter"/><path d="M1 12 L12 18 L23 12" stroke-width="2" stroke-linejoin="miter"/><path d="M1 4 L12 1 L23 4 L12 10 Z" stroke-width="2" stroke-linejoin="miter"/></g>
+        <!-- Swap Layers: circle with line and dots -->
+        <g transform="translate(34,3) scale(0.92)"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="2" y1="12" x2="22" y2="12" stroke="#ff4444" stroke-width="2"/><circle cx="12" cy="7" r="2" fill="#e8e8e8" stroke="none"/><circle cx="12" cy="17" r="2" fill="none" stroke="#e8e8e8" stroke-width="2"/></g>
+        <!-- Copy to Another: doc + doc with arrow -->
+        <g transform="translate(64,3) scale(0.92)"><rect x="2" y="3" width="9" height="12" stroke-width="1.5" rx="1"/><rect x="13" y="9" width="9" height="12" stroke-width="1.5" fill="#ff4444" rx="1"/><line x1="13" y1="9" x2="19" y2="9" stroke-width="2"/><polyline points="16 6 19 9 16 12" stroke-width="2"/></g>
+        <!-- Special Char: Omega -->
+        <g transform="translate(94,3) scale(0.92)"><text x="12" y="19" text-anchor="middle" font-size="22" fill="#b8b8b8" stroke="none" font-family="Arial,sans-serif">Ω</text></g>
+        <!-- Tiling Tool: 3x3 grid of squares -->
+        <g transform="translate(124,3) scale(0.92)"><rect x="2" y="2" width="5.5" height="5.5" fill="#ff4444" stroke="none"/><rect x="9.25" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="2" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="2" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/></g>
+        <!-- Layer Info: i in circle -->
+        <g transform="translate(154,3) scale(0.92)"><circle cx="12" cy="12" r="11" stroke-width="2"/><circle cx="12" cy="7" r="1.5" fill="#ff4444" stroke="none"/><line x1="12" y1="11" x2="12" y2="18" stroke-width="2.5" stroke-linecap="round" stroke="#ff4444"/></g>
+        <!-- Distribute H: 3 rects + vertical dashed lines -->
+        <g transform="translate(184,3) scale(0.92)"><rect x="2" y="10" width="6" height="4" stroke="#ffffff" stroke-width="1.5"/><rect x="10" y="9" width="4" height="6" stroke="#ffffff" stroke-width="1.5"/><rect x="16" y="9.5" width="6" height="5" stroke="#ffffff" stroke-width="1.5"/><line x1="5" y1="0" x2="5" y2="24" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/><line x1="12" y1="0" x2="12" y2="24" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/><line x1="19" y1="0" x2="19" y2="24" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/></g>
+        <!-- Unlink: broken chain -->
+        <g transform="translate(213,3) scale(0.88)"><path d="M11 2 A8 8 0 0 1 22 13" stroke-width="2.5" stroke-linecap="round"/><path d="M13 22 A8 8 0 0 1 2 11" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="5" x2="19" y2="19" stroke-width="2.5" stroke="#ff4444" stroke-linecap="round"/></g>
+      </g>
+
+      <!-- Row 2: Batch Merge, Copy to All, Rotate by Ruler, Measure Gap, Grid Arranger, Smart Crop, Distribute V, Super Link -->
+      <g transform="translate(4,34)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Batch Merge: folder with layers inside -->
+        <g transform="translate(4,3) scale(0.92)"><path d="M1 6 L1 21 C1 21.5 1.5 22 2 22 L22 22 C22.5 22 23 21.5 23 21 L23 8 C23 7.5 22.5 7 22 7 L11 7 L9 5 L2 5 C1.5 5 1 5.5 1 6 Z" stroke-width="1.5"/><path d="M5 18 L12 21 L19 18" stroke-width="1.5" stroke="#ff4444" stroke-linejoin="miter"/><path d="M5 15 L12 18 L19 15" stroke-width="1.5" stroke="#ff4444" stroke-linejoin="miter"/><path d="M5 11 L12 9 L19 11 L12 14 Z" stroke-width="1.5" stroke="#ff4444" stroke-linejoin="miter"/></g>
+        <!-- Copy to All: 8 white squares + 1 red center -->
+        <g transform="translate(34,3) scale(0.92)"><rect x="2" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="2" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="2" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="16.5" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="9.25" width="5.5" height="5.5" fill="#ff4444" stroke="none"/></g>
+        <!-- Rotate by Ruler: arc + arrow + tilted rect -->
+        <g transform="translate(64,3) scale(0.92)"><path d="M8 20 A10 10 0 0 1 6 5" stroke-width="2"/><path d="M1 4 L9 3 L7 11 Z" fill="#e8e8e8" stroke="none"/><rect x="11" y="8" width="9" height="9" stroke-width="2"/></g>
+        <!-- Measure Gap: two blocks + double arrow -->
+        <g transform="translate(94,3) scale(0.92)"><rect x="2" y="4" width="6" height="16" fill="#ffffff" stroke="none"/><rect x="16" y="4" width="6" height="16" fill="#ffffff" stroke="none"/><path d="M10 12 L14 12" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/><path d="M11 10 L9 12 L11 14" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 10 L15 12 L13 14" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <!-- Grid Arranger: scattered squares -->
+        <g transform="translate(124,3) scale(0.92)"><rect x="1" y="1" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="11" y="0" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="17" y="3" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="0" y="11" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="8" y="8" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="18" y="10" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="3" y="18" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="10" y="15" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="15" y="17" width="5.5" height="5.5" fill="#ffffff" stroke="none"/></g>
+        <!-- Smart Crop: dashed frame + scissors -->
+        <g transform="translate(154,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,6"/><polygon points="10,14 19,4 14,11" fill="#e8e8e8"/><polygon points="14,14 5,4 10,11" fill="#e8e8e8"/><circle cx="6" cy="20" r="2.5" stroke-width="1.5"/><line x1="7.5" y1="18" x2="11" y2="13" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="20" r="2.5" stroke-width="1.5"/><line x1="16.5" y1="18" x2="13" y2="13" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="#e8e8e8" stroke="none"/></g>
+        <!-- Distribute V: 3 rects + horizontal dashed lines -->
+        <g transform="translate(184,3) scale(0.92)"><rect x="10" y="2" width="4" height="6" stroke="#ffffff" stroke-width="1.5"/><rect x="9" y="10" width="6" height="4" stroke="#ffffff" stroke-width="1.5"/><rect x="9.5" y="16" width="5" height="6" stroke="#ffffff" stroke-width="1.5"/><line x1="0" y1="5" x2="24" y2="5" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/><line x1="0" y1="12" x2="24" y2="12" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/><line x1="0" y1="19" x2="24" y2="19" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="2,2"/></g>
+        <!-- Super Link: chain link -->
+        <g transform="translate(213,3) scale(0.88)"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke-width="2.5" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke-width="2.5" stroke-linecap="round"/></g>
+      </g>
+
+      <!-- Row 3: Border, Midlines, Clear, Collapse Groups, Realign, Delete Empty, Delete Hidden, Collapse All -->
+      <g transform="translate(4,64)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2" fill="#5a3a3a"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Border: rectangle -->
+        <g transform="translate(4,3) scale(0.92)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/></g>
+        <!-- Midlines: crosshair -->
+        <g transform="translate(34,3) scale(0.92)"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="2"/></g>
+        <!-- Clear: trash can with grid lines -->
+        <g transform="translate(64,3) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1 16,1.5 L16,3" stroke-width="2" stroke-linecap="round"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/><line x1="9" y1="9" x2="9" y2="19" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="9" x2="12" y2="19" stroke-width="1.5" stroke-linecap="round"/><line x1="15" y1="9" x2="15" y2="19" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="17" y2="11.5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="14" x2="17" y2="14" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16.5" x2="17" y2="16.5" stroke-width="1.5" stroke-linecap="round"/></g>
+        <!-- Collapse Groups: 3 rows of circle + bar -->
+        <g transform="translate(94,3) scale(0.92)"><circle cx="4" cy="4.5" r="2" fill="#b8b8b8" stroke="none"/><rect x="9" y="2.5" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/><circle cx="4" cy="12" r="2" fill="#b8b8b8" stroke="none"/><rect x="9" y="10" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/><circle cx="4" cy="19.5" r="2" fill="#b8b8b8" stroke="none"/><rect x="9" y="17.5" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/></g>
+        <!-- Realign Grid: 5 white + 4 red squares -->
+        <g transform="translate(124,3) scale(0.92)"><rect x="2" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="16.5" y="2" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="2" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="9.25" y="9.25" width="5.5" height="5.5" fill="#ffffff" stroke="none"/><rect x="18" y="8" width="5.5" height="5.5" fill="#ff4444" stroke="none"/><rect x="0" y="18" width="5.5" height="5.5" fill="#ff4444" stroke="none"/><rect x="8" y="18" width="5.5" height="5.5" fill="#ff4444" stroke="none"/><rect x="18" y="17" width="5.5" height="5.5" fill="#ff4444" stroke="none"/></g>
+        <!-- Delete Empty: trash + dashed rect -->
+        <g transform="translate(154,3) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1 16,1.5 L16,3" stroke-width="2" stroke-linecap="round"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/><rect x="8" y="11" width="8" height="6" stroke-width="1.5" stroke-dasharray="2,1" stroke="#ff4444"/></g>
+        <!-- Delete Hidden: trash + closed eye -->
+        <g transform="translate(184,3) scale(0.92)"><path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1 16,1.5 L16,3" stroke-width="2" stroke-linecap="round"/><rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/><rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/><ellipse cx="12" cy="14" rx="5" ry="3" stroke-width="1.5" stroke="#ff4444"/><line x1="7" y1="11" x2="17" y2="17" stroke-width="1.5" stroke="#ff4444" stroke-linecap="round"/></g>
+        <!-- Collapse All: chevrons up -->
+        <g transform="translate(213,3) scale(0.88)"><polyline points="6,12 12,6 18,12" stroke-width="1.5"/><polyline points="6,17 12,11 18,17" stroke-width="1.5"/><polyline points="6,22 12,16 18,22" stroke-width="1.5"/></g>
+      </g>
+    </g>
+
+    <!-- === Collapsible Sections (all collapsed) === -->
+    <!-- Phrase Bank -->
+    <g transform="translate(8,116)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Phrase Bank</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Band Resizer -->
+    <g transform="translate(8,154)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Band Resizer</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Stroke Border -->
+    <g transform="translate(8,192)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Stroke Border</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Line Marker -->
+    <g transform="translate(8,230)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Line Marker</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Adv Line Marker -->
+    <g transform="translate(8,268)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Adv Line Marker</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- MinusPlus Matrix -->
+    <g transform="translate(8,306)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">MinusPlus Matrix</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- LeftRight Label -->
+    <g transform="translate(8,344)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">LeftRight Label</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Lane Number -->
+    <g transform="translate(8,382)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Lane Number</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Molecular Weight Marker -->
+    <g transform="translate(8,420)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Molecular Weight Marker</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- Add Text -->
+    <g transform="translate(8,458)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Add Text</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+  </g>
+
+  <!-- ===== Annotations (alternating left / right) ===== -->
+
+  <!-- Quick Actions: Merge & Transfer — LEFT top -->
+  <circle cx="400" cy="42" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="42" x2="370" y2="42" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,32)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Merge &amp; Transfer</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Merge docs, swap, copy layers, special characters.</text>
+  </g>
+
+  <!-- Quick Actions: Borders & Cleanup — LEFT bottom -->
+  <circle cx="400" cy="90" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="90" x2="370" y2="90" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,80)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Borders &amp; Cleanup</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Border, midlines, clear guides, delete layers.</text>
+  </g>
+
+  <!-- Quick Actions: Layout & Arrange — RIGHT top -->
+  <circle cx="660" cy="42" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="42" x2="690" y2="42" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,32)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Layout &amp; Arrange</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Tiling, grid arrange, distribute, realign layers.</text>
+  </g>
+
+  <!-- Quick Actions: Measure & Crop — RIGHT bottom -->
+  <circle cx="660" cy="90" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="90" x2="690" y2="90" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,80)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Measure &amp; Crop</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Layer info, measure gap, rotate, smart crop.</text>
+  </g>
+
+  <!-- Phrase Bank — RIGHT -->
+  <circle cx="660" cy="151" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="151" x2="690" y2="151" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,139)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Phrase Bank</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Store and reuse frequently used text labels.</text>
+  </g>
+
+  <!-- Band Resizer — LEFT -->
+  <circle cx="400" cy="189" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="189" x2="370" y2="189" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,179)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Band Resizer</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Resize blot bands to uniform width or height.</text>
+  </g>
+
+  <!-- Stroke Border — RIGHT -->
+  <circle cx="660" cy="227" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="227" x2="690" y2="227" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,215)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Stroke Border</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add borders via vector, direct, or layer style.</text>
+  </g>
+
+  <!-- Line Marker — LEFT -->
+  <circle cx="400" cy="265" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="265" x2="370" y2="265" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,255)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Line Marker</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Create annotation lines around layers/selections.</text>
+  </g>
+
+  <!-- Adv Line Marker — RIGHT -->
+  <circle cx="660" cy="303" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="303" x2="690" y2="303" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,291)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Adv Line Marker</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Spreadsheet-style grid with per-cell overrides.</text>
+  </g>
+
+  <!-- MinusPlus Matrix — LEFT -->
+  <circle cx="400" cy="341" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="341" x2="370" y2="341" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,331)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">MinusPlus Matrix</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Generate +/− treatment grids for experiments.</text>
+  </g>
+
+  <!-- LeftRight Label — RIGHT -->
+  <circle cx="660" cy="379" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="379" x2="690" y2="379" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,367)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">LeftRight Label</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add protein name and MW labels on both sides.</text>
+  </g>
+
+  <!-- Lane Number — LEFT -->
+  <circle cx="400" cy="417" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="417" x2="370" y2="417" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,407)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Lane Number</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add numbered lane labels for gel electrophoresis.</text>
+  </g>
+
+  <!-- Molecular Weight Marker — RIGHT -->
+  <circle cx="660" cy="455" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="455" x2="690" y2="455" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,443)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Molecular Weight Marker</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Place MW ladder labels with auto-spacing.</text>
+  </g>
+
+  <!-- Add Text — LEFT -->
+  <circle cx="400" cy="493" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="493" x2="370" y2="493" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,483)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Add Text</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add positioned text with font, size, and rotation.</text>
+  </g>
+</svg>
