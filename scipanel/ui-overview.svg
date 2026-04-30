@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1060 530" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1060" height="530" fill="#09090b" rx="12"/>
+
+  <!-- ===== Plugin Panel (center) ===== -->
+  <g transform="translate(400,20)">
+    <rect width="260" height="490" fill="#535353" rx="4" stroke="#2a2a2a" stroke-width="1"/>
+
+    <!-- === Quick Actions (no title bar) === -->
+    <g transform="translate(8,8)">
+      <rect width="244" height="130" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+
+      <!-- Row 1: Swap, MoveToSel, QuickMove, RemovePrefix, Crop, LayerInfo, Uppercase, ExportPanels -->
+      <g transform="translate(4,4)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Swap: circle with line and two dots -->
+        <g transform="translate(4,3) scale(0.92)">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#ff4444" stroke-width="1.8"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="#ff4444" stroke-width="1.8"/>
+          <circle cx="12" cy="7" r="1.8" fill="#ff4444" stroke="none"/>
+          <circle cx="12" cy="17" r="1.8" fill="none" stroke="#ff4444" stroke-width="1.5"/>
+        </g>
+        <!-- MoveToSel: dashed rect + folder -->
+        <g transform="translate(34,3) scale(0.92)">
+          <rect x="1" y="1" width="22" height="22" fill="none" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M3 10 L3 18 C3 18.5 3.5 19 4 19 L20 19 C20.5 19 21 18.5 21 18 L21 11.5 C21 11 20.5 10.5 20 10.5 L12.5 10.5 L10.5 8.5 L4 8.5 C3.5 8.5 3 9 3 9.5 Z" stroke-width="1.5" fill="none"/>
+          <path d="M3 9 L3 7.5 C3 7 3.5 6.5 4 6.5 L9.5 6.5 L11.5 8.5 L20 8.5 C20.5 8.5 21 9 21 9.5" stroke-width="1.5" fill="none"/>
+        </g>
+        <!-- QuickMove: dashed rect + arrow -->
+        <g transform="translate(64,3) scale(0.92)">
+          <rect x="2" y="2" width="20" height="20" fill="none" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <path d="M16 16 L6 6 M6 12 L6 6 L12 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <!-- RemovePrefix: trash + A -->
+        <g transform="translate(94,3) scale(0.92)">
+          <path d="M8 3 L8 1.5 C8 1 9 1 10 1 L14 1 C15 1 16 1 16 1.5 L16 3" stroke-width="1.5"/>
+          <rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="1.5"/>
+          <rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="1.5"/>
+          <text x="12" y="18" font-family="Arial" font-size="11" font-weight="bold" fill="#ff4444" text-anchor="middle" stroke="none">A</text>
+        </g>
+        <!-- Crop: scissors (handles point left) -->
+        <g transform="translate(124,3) scale(0.92)">
+          <polygon points="12,11 22,4 15,11" fill="#b8b8b8"/>
+          <polygon points="12,13 22,20 15,13" fill="#b8b8b8"/>
+          <circle cx="4" cy="6" r="2.5" stroke-width="1.5" fill="none"/>
+          <line x1="6" y1="7.5" x2="12" y2="11" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="4" cy="18" r="2.5" stroke-width="1.5" fill="none"/>
+          <line x1="6" y1="16.5" x2="12" y2="13" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="1.5" fill="#b8b8b8" stroke="none"/>
+        </g>
+        <!-- LayerInfo: circle + i -->
+        <g transform="translate(154,3) scale(0.92)">
+          <circle cx="12" cy="12" r="11" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="7" r="1.5" fill="#ff4444" stroke="none"/>
+          <line x1="12" y1="11" x2="12" y2="18" stroke-width="2.5" stroke-linecap="round" stroke="#ff4444"/>
+        </g>
+        <!-- Uppercase: A -->
+        <g transform="translate(184,3) scale(0.92)">
+          <text x="12" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#b8b8b8" stroke="none">A</text>
+        </g>
+        <!-- ExportPanels: image frame + export arrow -->
+        <g transform="translate(213,3) scale(0.88)">
+          <rect x="2" y="4" width="16" height="13" rx="1.5" stroke-width="1.8" fill="none"/>
+          <circle cx="7" cy="8.5" r="2" stroke-width="1.5" fill="none"/>
+          <path d="M2 15 L6.5 10 L10 13 L14 8.5 L18 15" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          <circle cx="18" cy="18" r="5.5" fill="#3d3d3d" stroke="#b8b8b8" stroke-width="1.8"/>
+          <polyline points="18 21 18 15.5" stroke="#b8b8b8" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="15.5 17.5 18 15 20.5 17.5" stroke="#b8b8b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+
+      <!-- Row 2: Comment, Arrange, Collapse, RenameSort, BatchCrop, MeasureGap, Lowercase, BatchExport -->
+      <g transform="translate(4,34)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Comment: speech bubble + dots -->
+        <g transform="translate(4,3) scale(0.92)">
+          <path d="M2 3 L20 3 C21 3 22 4 22 5 L22 14 C22 15 21 16 20 16 L7 16 L2 21 L2 5 C2 4 3 3 4 3 Z" fill="none" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="8" cy="10" r="1.2" fill="#b8b8b8" stroke="none"/>
+          <circle cx="12.5" cy="10" r="1.2" fill="#b8b8b8" stroke="none"/>
+          <circle cx="17" cy="10" r="1.2" fill="#b8b8b8" stroke="none"/>
+        </g>
+        <!-- Arrange: dashed rect + red folder -->
+        <g transform="translate(34,3) scale(0.92)">
+          <rect x="1" y="1" width="22" height="22" fill="none" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M3 10 L3 18 C3 18.5 3.5 19 4 19 L20 19 C20.5 19 21 18.5 21 18 L21 11.5 C21 11 20.5 10.5 20 10.5 L12.5 10.5 L10.5 8.5 L4 8.5 C3.5 8.5 3 9 3 9.5 Z" stroke="#ff4444" stroke-width="1.5" fill="none"/>
+          <path d="M3 9 L3 7.5 C3 7 3.5 6.5 4 6.5 L9.5 6.5 L11.5 8.5 L20 8.5 C20.5 8.5 21 9 21 9.5" stroke="#ff4444" stroke-width="1.5" fill="none"/>
+        </g>
+        <!-- Collapse: 3 dot-bar pairs -->
+        <g transform="translate(64,3) scale(0.92)">
+          <circle cx="4" cy="4.5" r="2" fill="#b8b8b8" stroke="none"/>
+          <rect x="9" y="2.5" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/>
+          <circle cx="4" cy="12" r="2" fill="#b8b8b8" stroke="none"/>
+          <rect x="9" y="10" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/>
+          <circle cx="4" cy="19.5" r="2" fill="#b8b8b8" stroke="none"/>
+          <rect x="9" y="17.5" width="13" height="4" rx="2" fill="#b8b8b8" stroke="none"/>
+        </g>
+        <!-- RenameSort: Z over A -->
+        <g transform="translate(94,3) scale(0.92)">
+          <text x="12" y="11" font-family="Arial" font-size="11" font-weight="bold" fill="#b8b8b8" text-anchor="middle" stroke="none">Z</text>
+          <text x="12" y="22" font-family="Arial" font-size="11" font-weight="bold" fill="#b8b8b8" text-anchor="middle" stroke="none">A</text>
+        </g>
+        <!-- BatchCrop: folder + scissors -->
+        <g transform="translate(124,3) scale(0.92)">
+          <path d="M1 6 L1 20 C1 20.5 1.5 21 2 21 L22 21 C22.5 21 23 20.5 23 20 L23 8 C23 7.5 22.5 7 22 7 L11 7 L9 5 L2 5 C1.5 5 1 5.5 1 6 Z" fill="none" stroke-width="1.5"/>
+          <path d="M1 5 L1 3.5 C1 3 1.5 2.5 2 2.5 L8 2.5 L10 4.5 L22 4.5 C22.5 4.5 23 5 23 5.5" fill="none" stroke-width="1.5"/>
+          <polygon points="11,12 18,9 13,11" fill="#b8b8b8"/>
+          <polygon points="11,14 18,17 13,15" fill="#b8b8b8"/>
+          <circle cx="5" cy="10" r="1.5" stroke-width="1.2" fill="none"/>
+          <line x1="6.2" y1="11" x2="11" y2="12" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="5" cy="17" r="1.5" stroke-width="1.2" fill="none"/>
+          <line x1="6.2" y1="16" x2="11" y2="14" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="11" cy="13" r="1" fill="#b8b8b8" stroke="none"/>
+        </g>
+        <!-- MeasureGap: two rects + red arrow -->
+        <g transform="translate(154,3) scale(0.92)">
+          <rect x="2" y="4" width="6" height="16" fill="#b8b8b8" stroke="none"/>
+          <rect x="16" y="4" width="6" height="16" fill="#b8b8b8" stroke="none"/>
+          <path d="M10 12 L14 12" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M11 10 L9 12 L11 14" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 10 L15 12 L13 14" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <!-- Lowercase: a -->
+        <g transform="translate(184,3) scale(0.92)">
+          <text x="12" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#b8b8b8" stroke="none">a</text>
+        </g>
+        <!-- BatchExport: folder + image + red export arrow -->
+        <g transform="translate(213,3) scale(0.88)">
+          <path d="M1 6 L1 21 C1 21.5 1.5 22 2 22 L22 22 C22.5 22 23 21.5 23 21 L23 8 C23 7.5 22.5 7 22 7 L11 7 L9 5 L2 5 C1.5 5 1 5.5 1 6 Z" fill="none" stroke-width="1.5"/>
+          <path d="M1 5 L1 3.5 C1 3 1.5 2.5 2 2.5 L8 2.5 L10 4.5 L22 4.5 C22.5 4.5 23 5 23 5.5" fill="none" stroke-width="1.5"/>
+          <rect x="4" y="9" width="10" height="8" rx="1" stroke-width="1.2" fill="none" stroke="#ff4444"/>
+          <circle cx="7" cy="11.5" r="1.2" stroke-width="1" fill="none" stroke="#ff4444"/>
+          <path d="M4 15.5 L7 12.5 L9 14 L12 11 L14 15.5" stroke-width="1" fill="none" stroke="#ff4444" stroke-linejoin="round"/>
+          <circle cx="16.5" cy="16" r="3.5" fill="#3d3d3d" stroke="#ff4444" stroke-width="1.2"/>
+          <polyline points="16.5 18 16.5 14.5" stroke="#ff4444" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <polyline points="14.8 16 16.5 14.2 18.2 16" stroke="#ff4444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+
+      <!-- Row 3: H-Center, V-Center, Midlines, RenameSortZA, DeleteEmpty, DeleteHidden, Capitalization, Border -->
+      <g transform="translate(4,64)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- H-Center: horizontal line -->
+        <g transform="translate(4,3) scale(0.92)"><line x1="1" y1="12" x2="23" y2="12" stroke-width="2"/></g>
+        <!-- V-Center: vertical line -->
+        <g transform="translate(34,3) scale(0.92)"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/></g>
+        <!-- Midlines: cross -->
+        <g transform="translate(64,3) scale(0.92)"><line x1="12" y1="1" x2="12" y2="23" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke-width="2"/></g>
+        <!-- RenameSortZA: A over Z -->
+        <g transform="translate(94,3) scale(0.92)">
+          <text x="12" y="11" font-family="Arial" font-size="11" font-weight="bold" fill="#b8b8b8" text-anchor="middle" stroke="none">A</text>
+          <text x="12" y="22" font-family="Arial" font-size="11" font-weight="bold" fill="#b8b8b8" text-anchor="middle" stroke="none">Z</text>
+        </g>
+        <!-- DeleteEmpty: trash + red rect -->
+        <g transform="translate(124,3) scale(0.92)">
+          <path d="M8 3 L8 1.5 C8 1 9 1 10 1 L14 1 C15 1 16 1 16 1.5 L16 3" stroke-width="2" stroke-linecap="round"/>
+          <rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/>
+          <rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/>
+          <rect x="8" y="10.5" width="8" height="7" rx="1" fill="none" stroke="#ff4444" stroke-width="1.5"/>
+        </g>
+        <!-- DeleteHidden: trash + closed eye -->
+        <g transform="translate(154,3) scale(0.92)">
+          <path d="M8 3 L8 1.5 C8 1 9 1 10 1 L14 1 C15 1 16 1 16 1.5 L16 3" stroke-width="2" stroke-linecap="round"/>
+          <rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/>
+          <rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/>
+          <ellipse cx="12" cy="14" rx="5" ry="3" stroke-width="1.5" fill="none" stroke="#ff4444"/>
+          <line x1="7" y1="11" x2="17" y2="17" stroke-width="1.5" stroke="#ff4444" stroke-linecap="round"/>
+        </g>
+        <!-- Capitalization: Aa -->
+        <g transform="translate(184,3) scale(0.92)">
+          <text x="12" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#b8b8b8" stroke="none">Aa</text>
+        </g>
+        <!-- Border: rectangle -->
+        <g transform="translate(213,3) scale(0.88)"><rect x="1" y="1" width="22" height="22" stroke-width="2"/></g>
+      </g>
+
+      <!-- Row 4: Top, Bottom, Top+Bottom, Left, Right, Left+Right, ClearGuides, Compact -->
+      <g transform="translate(4,94)" stroke="#b8b8b8" stroke-width="1.2" fill="none">
+        <g fill="#464646" stroke="#2a2a2a" stroke-width="0.5">
+          <rect x="0" y="0" width="28" height="28" rx="2"/>
+          <rect x="30" y="0" width="28" height="28" rx="2"/>
+          <rect x="60" y="0" width="28" height="28" rx="2"/>
+          <rect x="90" y="0" width="28" height="28" rx="2"/>
+          <rect x="120" y="0" width="28" height="28" rx="2"/>
+          <rect x="150" y="0" width="28" height="28" rx="2"/>
+          <rect x="180" y="0" width="28" height="28" rx="2" fill="#5a3a3a"/>
+          <rect x="210" y="0" width="26" height="28" rx="2"/>
+        </g>
+        <!-- Top guide: line at top + arrow down -->
+        <g transform="translate(4,3) scale(0.92)"><line x1="1" y1="1" x2="23" y2="1" stroke-width="2"/><polyline points="12,1 12,17"/><polyline points="8,13 12,17 16,13"/></g>
+        <!-- Bottom guide: line at bottom + arrow up -->
+        <g transform="translate(34,3) scale(0.92)"><line x1="1" y1="23" x2="23" y2="23" stroke-width="2"/><polyline points="12,23 12,7"/><polyline points="8,11 12,7 16,11"/></g>
+        <!-- Top+Bottom: two h-lines + arrows -->
+        <g transform="translate(64,3) scale(0.92)">
+          <line x1="1" y1="1" x2="23" y2="1" stroke-width="2"/>
+          <line x1="1" y1="23" x2="23" y2="23" stroke-width="2"/>
+          <polyline points="8,7 12,3 16,7"/>
+          <polyline points="8,17 12,21 16,17"/>
+          <line x1="12" y1="3" x2="12" y2="21"/>
+        </g>
+        <!-- Left guide: line at left + arrow right -->
+        <g transform="translate(94,3) scale(0.92)"><line x1="1" y1="1" x2="1" y2="23" stroke-width="2"/><polyline points="1,12 17,12"/><polyline points="13,8 17,12 13,16"/></g>
+        <!-- Right guide: line at right + arrow left -->
+        <g transform="translate(124,3) scale(0.92)"><line x1="23" y1="1" x2="23" y2="23" stroke-width="2"/><polyline points="23,12 7,12"/><polyline points="11,8 7,12 11,16"/></g>
+        <!-- Left+Right: two v-lines + arrows -->
+        <g transform="translate(154,3) scale(0.92)">
+          <line x1="1" y1="1" x2="1" y2="23" stroke-width="2"/>
+          <line x1="23" y1="1" x2="23" y2="23" stroke-width="2"/>
+          <polyline points="7,8 3,12 7,16"/>
+          <polyline points="17,8 21,12 17,16"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+        </g>
+        <!-- ClearGuides: trash + grid (full state) -->
+        <g transform="translate(184,2) scale(0.92)">
+          <path d="M8,3 L8,1.5 C8,1 9,1 10,1 L14,1 C15,1 16,1.5 16,1.5 L16,3" stroke-width="2" stroke-linecap="round"/>
+          <rect x="4" y="3" width="16" height="2.5" rx="1" stroke-width="2"/>
+          <rect x="5" y="5.5" width="14" height="17" rx="1" stroke-width="2"/>
+          <line x1="9" y1="9" x2="9" y2="19" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="12" y1="9" x2="12" y2="19" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="15" y1="9" x2="15" y2="19" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="7" y1="11.5" x2="17" y2="11.5" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="7" y1="14" x2="17" y2="14" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="7" y1="16.5" x2="17" y2="16.5" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
+        <!-- Compact: triple chevron up -->
+        <g transform="translate(213,3) scale(0.88)">
+          <polyline points="6,12 12,6 18,12" stroke-width="2"/>
+          <polyline points="6,17 12,11 18,17" stroke-width="2"/>
+          <polyline points="6,22 12,16 18,22" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- === Better Resize (collapsed) === -->
+    <g transform="translate(8,146)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Resize</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Better Alignment (collapsed) === -->
+    <g transform="translate(8,184)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Alignment</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Better Distribution (collapsed) === -->
+    <g transform="translate(8,222)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Distribution</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Better Move (collapsed) === -->
+    <g transform="translate(8,260)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Move</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Better Rotate & Flip (collapsed) === -->
+    <g transform="translate(8,298)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Rotate &amp; Flip</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Better Renamer (collapsed) === -->
+    <g transform="translate(8,336)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Better Renamer</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === ABC Label (collapsed) === -->
+    <g transform="translate(8,374)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">ABC Label</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Figure Label (collapsed) === -->
+    <g transform="translate(8,412)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Figure Label</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+
+    <!-- === Dimension Marker (collapsed) === -->
+    <g transform="translate(8,450)">
+      <rect width="244" height="30" fill="#3d3d3d" rx="3" stroke="#2a2a2a" stroke-width="0.5"/>
+      <text x="10" y="20" font-family="Arial,sans-serif" font-size="10.5" fill="#e8e8e8" font-weight="500">Dimension Marker</text>
+      <polyline points="230,11 234,16 238,11" fill="none" stroke="#b8b8b8" stroke-width="1.5" transform="rotate(-90,234,14)"/>
+    </g>
+  </g>
+
+  <!-- ===== Annotations (alternating left / right) ===== -->
+
+  <!-- Quick Actions Row 1 — LEFT: Layer & Panel Operations -->
+  <circle cx="400" cy="46" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="46" x2="370" y2="46" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,36)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Layer &amp; Panel Operations</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Swap, move, crop, get info, export panels.</text>
+  </g>
+
+  <!-- Quick Actions Row 2 — RIGHT: Batch &amp; Text Tools -->
+  <circle cx="660" cy="76" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="76" x2="690" y2="76" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,64)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Batch &amp; Text Tools</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Comments, arrange, batch crop/export, case convert.</text>
+  </g>
+
+  <!-- Quick Actions Row 3 — LEFT: Guides &amp; Cleanup -->
+  <circle cx="400" cy="106" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="106" x2="370" y2="106" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,96)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Guides &amp; Cleanup</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Center guides, delete empty/hidden layers, rename sort.</text>
+  </g>
+
+  <!-- Quick Actions Row 4 — RIGHT: Directional Guides -->
+  <circle cx="660" cy="136" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="136" x2="690" y2="136" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,124)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Directional Guides</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Top, bottom, left, right, border, clear all.</text>
+  </g>
+
+  <!-- Better Resize — RIGHT -->
+  <circle cx="660" cy="181" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="181" x2="690" y2="181" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,169)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Resize</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Snap layer edges to nearest guide. Match size.</text>
+  </g>
+
+  <!-- Better Alignment — LEFT -->
+  <circle cx="400" cy="219" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="219" x2="370" y2="219" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,209)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Alignment</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Linked layers, anchor-based, canvas alignment.</text>
+  </g>
+
+  <!-- Better Distribution — RIGHT -->
+  <circle cx="660" cy="257" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="257" x2="690" y2="257" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,245)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Distribution</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Edge &amp; center distribution with custom spacing.</text>
+  </g>
+
+  <!-- Better Move — LEFT -->
+  <circle cx="400" cy="295" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="295" x2="370" y2="295" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,285)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Move</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Move to selection, arrange in grid, swap layers.</text>
+  </g>
+
+  <!-- Better Rotate & Flip — RIGHT -->
+  <circle cx="660" cy="333" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="333" x2="690" y2="333" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,321)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Rotate &amp; Flip</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Rotate, flip, and auto-rotate to fit selection.</text>
+  </g>
+
+  <!-- Better Renamer — LEFT -->
+  <circle cx="400" cy="371" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="371" x2="370" y2="371" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,361)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Better Renamer</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Batch rename with templates, find &amp; replace.</text>
+  </g>
+
+  <!-- ABC Label — RIGHT -->
+  <circle cx="660" cy="409" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="409" x2="690" y2="409" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,397)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">ABC Label</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add sequential panel labels (A, B, C…) to figures.</text>
+  </g>
+
+  <!-- Figure Label — LEFT -->
+  <circle cx="400" cy="447" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="447" x2="370" y2="447" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,437)">
+    <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Figure Label</text>
+    <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Customizable figure/table labels with presets.</text>
+  </g>
+
+  <!-- Dimension Marker — RIGHT -->
+  <circle cx="660" cy="485" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="485" x2="690" y2="485" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,473)">
+    <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Dimension Marker</text>
+    <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Draw width/height markers with auto-calculated size.</text>
+  </g>
+</svg>
