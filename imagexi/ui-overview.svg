@@ -237,81 +237,81 @@
   </g>
 
   <!-- Phrase Bank — LEFT -->
-  <circle cx="400" cy="161" r="2.5" fill="#3b82f6"/>
-  <line x1="400" y1="161" x2="370" y2="161" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(30,151)">
+  <circle cx="400" cy="181" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="181" x2="370" y2="181" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,171)">
     <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Phrase Bank</text>
     <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Quick-insert saved text snippets to layers.</text>
   </g>
 
   <!-- Resize Layers — RIGHT -->
-  <circle cx="660" cy="199" r="2.5" fill="#3b82f6"/>
-  <line x1="660" y1="199" x2="690" y2="199" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(698,187)">
+  <circle cx="660" cy="219" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="219" x2="690" y2="219" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,207)">
     <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Resize Layers</text>
     <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Resize by width, height, percentage, or DPI.</text>
   </g>
 
   <!-- Add Text — LEFT -->
-  <circle cx="400" cy="237" r="2.5" fill="#3b82f6"/>
-  <line x1="400" y1="237" x2="370" y2="237" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(30,227)">
+  <circle cx="400" cy="257" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="257" x2="370" y2="257" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,247)">
     <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Add Text</text>
     <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add styled text with font, size, color control.</text>
   </g>
 
   <!-- Adv Line Marker — RIGHT -->
-  <circle cx="660" cy="275" r="2.5" fill="#3b82f6"/>
-  <line x1="660" y1="275" x2="690" y2="275" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(698,263)">
+  <circle cx="660" cy="295" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="295" x2="690" y2="295" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,283)">
     <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Adv Line Marker</text>
     <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Draw lines, arrows, brackets with grid presets.</text>
   </g>
 
   <!-- Scale Bar — LEFT -->
-  <circle cx="400" cy="313" r="2.5" fill="#3b82f6"/>
-  <line x1="400" y1="313" x2="370" y2="313" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(30,303)">
+  <circle cx="400" cy="333" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="333" x2="370" y2="333" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,323)">
     <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Scale Bar</text>
     <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Add calibrated scale bars with labels and units.</text>
   </g>
 
   <!-- Inset — RIGHT -->
-  <circle cx="660" cy="351" r="2.5" fill="#3b82f6"/>
-  <line x1="660" y1="351" x2="690" y2="351" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(698,339)">
+  <circle cx="660" cy="371" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="371" x2="690" y2="371" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,359)">
     <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Inset</text>
     <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Create magnified inset panels from selections.</text>
   </g>
 
   <!-- Scale Bar (Inset) — LEFT -->
-  <circle cx="400" cy="389" r="2.5" fill="#3b82f6"/>
-  <line x1="400" y1="389" x2="370" y2="389" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(30,379)">
+  <circle cx="400" cy="409" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="409" x2="370" y2="409" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,399)">
     <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Scale Bar (Inset)</text>
     <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Auto-scaled bars for inset magnification.</text>
   </g>
 
   <!-- Add Label — RIGHT -->
-  <circle cx="660" cy="427" r="2.5" fill="#3b82f6"/>
-  <line x1="660" y1="427" x2="690" y2="427" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(698,415)">
+  <circle cx="660" cy="447" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="447" x2="690" y2="447" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,435)">
     <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Add Label</text>
     <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Auto-label panels A, B, C… with grid layout.</text>
   </g>
 
   <!-- Edit Text — LEFT -->
-  <circle cx="400" cy="465" r="2.5" fill="#3b82f6"/>
-  <line x1="400" y1="465" x2="370" y2="465" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(30,455)">
+  <circle cx="400" cy="485" r="2.5" fill="#3b82f6"/>
+  <line x1="400" y1="485" x2="370" y2="485" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(30,475)">
     <text text-anchor="end" x="340" font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Edit Text</text>
     <text text-anchor="end" x="340" y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Batch edit font, size, color of text layers.</text>
   </g>
 
   <!-- Add Line — RIGHT -->
-  <circle cx="660" cy="503" r="2.5" fill="#3b82f6"/>
-  <line x1="660" y1="503" x2="690" y2="503" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
-  <g transform="translate(698,491)">
+  <circle cx="660" cy="523" r="2.5" fill="#3b82f6"/>
+  <line x1="660" y1="523" x2="690" y2="523" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+  <g transform="translate(698,511)">
     <text font-family="Arial,sans-serif" font-size="14" fill="#ededf0" font-weight="600">Add Line</text>
     <text y="18" font-family="Arial,sans-serif" font-size="11.5" fill="#8b8b97">Draw lines and arrows with custom styling.</text>
   </g>
