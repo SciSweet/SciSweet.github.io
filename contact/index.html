@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>Contact — SciSuite</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+
+    <style>
+        :root {
+            --c-bg: #09090b;
+            --c-bg-elevated: #111113;
+            --c-bg-card: #141417;
+            --c-bg-card-hover: #1a1a1e;
+            --c-border: #222228;
+            --c-border-subtle: #18181c;
+            --c-text: #ededf0;
+            --c-text-secondary: #8b8b97;
+            --c-text-muted: #55555f;
+            --c-accent: #3b82f6;
+            --c-accent-glow: rgba(59, 130, 246, 0.10);
+            --c-accent-light: #60a5fa;
+            --c-accent-2: #10b981;
+            --c-accent-2-glow: rgba(16, 185, 129, 0.10);
+            --c-ps: #31a8ff;
+            --c-ai: #ff9a00;
+            --c-tag-bg: #1a1a20;
+            --font-display: Arial, Helvetica, sans-serif;
+            --font-body: Arial, Helvetica, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+            --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+            --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            touch-action: manipulation;
+        }
+        a { color: inherit; text-decoration: none; }
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999;
+        }
+
+        /* ===== Nav ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            padding: 0 clamp(20px, 5vw, 48px);
+            background: rgba(9,9,11,0.82);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border-bottom: 1px solid var(--c-border-subtle);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 6px; }
+        .nav-brand .brand-logo { height: 28px; width: auto; }
+        .nav-brand .brand-text { height: 16px; width: auto; }
+        .nav-mid { display: flex; gap: 28px; list-style: none; }
+        .nav-mid a { font-size: 13.5px; color: var(--c-text-secondary); transition: color var(--ease); }
+        .nav-mid a:hover { color: var(--c-text); }
+        .nav-mid a.active { color: var(--c-text); font-weight: 600; }
+        @media (max-width: 768px) { .nav-mid { display: none; } }
+
+        /* ===== Contact Section ===== */
+        .contact-hero {
+            position: relative; min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 100px clamp(20px, 5vw, 48px) 60px;
+            overflow: hidden;
+        }
+        .contact-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 35%, black 10%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 35%, black 10%, transparent 70%);
+        }
+        .contact-glow {
+            position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 520px; border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(59,130,246,0.08), rgba(16,185,129,0.04) 50%, transparent 70%);
+            pointer-events: none; animation: gp 6s ease-in-out infinite alternate;
+        }
+        @keyframes gp { 0%{opacity:.6;transform:translateX(-50%) scale(1)} 100%{opacity:1;transform:translateX(-50%) scale(1.08)} }
+
+        .contact-container {
+            position: relative; z-index: 1;
+            max-width: 1200px; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr;
+            background: var(--c-bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+        }
+
+        /* Left: Contact Info */
+        .contact-info {
+            padding: 56px 48px;
+            display: flex; flex-direction: column;
+            border-right: 1px solid var(--c-border);
+            position: relative;
+        }
+        .contact-info::before {
+            content: ''; position: absolute; bottom: -60px; left: -60px;
+            width: 240px; height: 240px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .contact-info h1 {
+            font-family: var(--font-display);
+            font-size: 32px; font-weight: 400;
+            line-height: 1.15; letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+        .contact-info > p {
+            font-size: 14.5px; color: var(--c-text-secondary);
+            line-height: 1.7; margin-bottom: 40px;
+        }
+        .info-items { display: flex; flex-direction: column; gap: 24px; flex: 1; }
+        .info-item {
+            display: flex; align-items: flex-start; gap: 14px;
+        }
+        .info-icon {
+            flex-shrink: 0; width: 40px; height: 40px;
+            border-radius: var(--r-md);
+            display: grid; place-items: center;
+            background: var(--c-bg-elevated);
+            border: 1px solid var(--c-border);
+        }
+        .info-icon svg { width: 18px; height: 18px; }
+        .info-detail { display: flex; flex-direction: column; gap: 2px; }
+        .info-label { font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-text-muted); }
+        .info-value { font-size: 14px; color: var(--c-text-secondary); line-height: 1.5; }
+        .info-value a { color: var(--c-accent-light); transition: color var(--ease); }
+        .info-value a:hover { color: var(--c-text); }
+
+        .contact-social {
+            display: flex; gap: 10px; margin-top: 40px; padding-top: 28px;
+            border-top: 1px solid var(--c-border-subtle);
+        }
+        .social-link {
+            width: 38px; height: 38px;
+            border-radius: var(--r-sm);
+            background: var(--c-bg-elevated);
+            border: 1px solid var(--c-border);
+            display: grid; place-items: center;
+            transition: all var(--ease);
+        }
+        .social-link:hover { border-color: var(--c-text-muted); background: var(--c-bg-card-hover); }
+        .social-link svg { width: 16px; height: 16px; color: var(--c-text-secondary); }
+
+        /* Right: Form */
+        .contact-form-wrap {
+            padding: 56px 48px;
+            display: flex; flex-direction: column;
+        }
+        .contact-form-wrap h2 {
+            font-family: var(--font-display);
+            font-size: 20px; font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .contact-form-wrap > p {
+            font-size: 13px; color: var(--c-text-muted);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            display: flex; flex-direction: column; gap: 7px;
+            margin-bottom: 22px;
+        }
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        }
+        .form-label {
+            font-size: 12.5px; font-weight: 500; color: var(--c-text-secondary);
+        }
+        .form-label .req { color: #f44; margin-left: 2px; }
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 11px 14px;
+            background: var(--c-bg);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-sm);
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--c-text);
+            transition: all var(--ease);
+            outline: none;
+        }
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--c-text-muted);
+        }
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 3px var(--c-accent-glow);
+        }
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2355555f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 38px;
+            cursor: pointer;
+        }
+        .form-select option {
+            background: var(--c-bg-card);
+            color: var(--c-text);
+        }
+        .form-textarea {
+            resize: vertical; min-height: 120px;
+        }
+
+        .btn-submit {
+            display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+            padding: 13px 32px; border-radius: var(--r-md);
+            font-size: 14.5px; font-weight: 500; font-family: var(--font-body);
+            border: none; cursor: pointer; transition: all var(--ease);
+            background: var(--c-accent); color: #fff;
+            box-shadow: 0 0 0 0 var(--c-accent-glow), 0 4px 20px rgba(59,130,246,0.25);
+            width: 100%; margin-top: 6px;
+        }
+        .btn-submit:hover {
+            background: #4b8ef7;
+            box-shadow: 0 0 0 4px var(--c-accent-glow), 0 8px 28px rgba(59,130,246,0.35);
+            transform: translateY(-2px);
+        }
+        .btn-submit svg { width: 17px; height: 17px; }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                border-right: none;
+                border-bottom: 1px solid var(--c-border);
+                padding: 40px 28px 36px;
+            }
+            .contact-info > p { margin-bottom: 28px; }
+            .contact-social { margin-top: 28px; padding-top: 20px; }
+            .contact-form-wrap { padding: 36px 28px 40px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        /* ===== Footer ===== */
+        .footer { padding: 32px clamp(20px, 5vw, 48px); border-top: 1px solid var(--c-border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-copy { font-size: 12.5px; color: var(--c-text-muted); }
+        .footer-links { display: flex; gap: 20px; list-style: none; }
+        .footer-links a { font-size: 12.5px; color: var(--c-text-muted); transition: color var(--ease); cursor: pointer; }
+        .footer-links a:hover { color: var(--c-text-secondary); }
+        .footer-links a.active { color: var(--c-accent-light); }
+        @media (max-width: 480px) { .footer { padding: 24px 16px; } .footer-inner { flex-direction: column; text-align: center; } .footer-links { gap: 16px; } .footer-links a { font-size: 12px; } .footer-panel.open { padding: 16px 0 0; } .footer-panel p { font-size: 12px; } }
+        .footer-panel {
+            max-width: 1200px; margin: 0 auto;
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 0;
+        }
+        .footer-panel.open { max-height: 200px; padding: 20px 0 0; }
+        .footer-panel p {
+            font-size: 13px; color: var(--c-text-secondary); line-height: 1.7;
+        }
+
+        /* ===== Animation ===== */
+        @keyframes fu { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .contact-container { animation: fu 0.7s ease backwards; }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+        <svg class="brand-logo" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="64" x2="50" y2="115" stroke="#e0e0e0" stroke-width="5" stroke-linecap="round"/>
+            <polygon points="50,12 73,25 73,50 50,63 27,50 27,25" fill="none" stroke="#e0e0e0" stroke-width="3"/>
+            <ellipse cx="50" cy="37.5" rx="16" ry="7" stroke="#e0e0e0" stroke-width="1.8" fill="none" transform="rotate(-45 50 37.5)"/>
+            <ellipse cx="50" cy="37.5" rx="16" ry="7" stroke="#e0e0e0" stroke-width="1.8" fill="none" transform="rotate(45 50 37.5)"/>
+            <circle cx="50" cy="37.5" r="3.5" fill="#e0e0e0"/>
+            <circle cx="50" cy="12" r="4.5" fill="#f44"/>
+            <circle cx="73" cy="25" r="4.5" fill="#f44"/>
+            <circle cx="73" cy="50" r="4.5" fill="#f44"/>
+            <circle cx="27" cy="50" r="4.5" fill="#f44"/>
+            <circle cx="27" cy="25" r="4.5" fill="#f44"/>
+        </svg>
+        <svg class="brand-text" viewBox="80 210 440 105" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#e0e0e0" d="M125.22,270.11c-5.6-1.67-11.07-2.96-16.2-5.35-8.62-4.03-13.52-10.69-13.58-20.24-.05-9.08,3.85-16.46,11.9-20.92,11.8-6.54,24.03-6.77,36.24-1.04,8.23,3.86,12.32,10.84,13.99,19.5.33,1.7-.26,2.54-1.99,2.75-3.17.39-6.35.74-9.48,1.38-1.93.39-2.56-.34-3.05-2.01-3.38-11.34-14.42-16.11-25.35-11.01-4.39,2.04-6.72,5.55-6.85,10.29-.13,4.4,2.53,7.07,6.29,8.93,4.12,2.04,8.57,3.04,12.94,4.26,5.22,1.46,10.47,2.8,15.41,5.11,8.94,4.19,13.82,11.17,13.83,21.04,0,9.82-4.1,17.52-12.91,22.48-11.08,6.24-33.75,6.21-44.76-3.99-5.03-4.66-7.57-10.4-8.75-16.94-.29-1.61.3-2.54,2.07-2.77,3.26-.43,6.5-1,9.75-1.52,1.5-.24,2.34.26,2.62,1.87,2.62,15.08,19.64,17.3,29.26,12.95,4.3-1.94,7.23-5.09,7.41-10.21.19-5.26-2.49-8.53-6.99-10.68-3.7-1.76-7.65-2.73-11.79-3.88Z"/>
+            <path fill="#e0e0e0" d="M276.43,219.83c10.24-2.18,19.89-1.47,28.85,3.83,7.17,4.25,10.79,10.84,12.04,18.93.23,1.52-.58,1.95-1.69,2.13-3.53.57-7.08,1.03-10.62,1.59-1.49.24-1.81-.74-2.13-1.8-3.61-11.67-13.71-16.37-24.78-11.59-4.64,2-7.39,5.56-7.44,10.5-.04,4.6,2.88,7.61,7.03,9.44,5.26,2.32,10.9,3.37,16.35,5.05,3.42,1.05,6.84,2.14,10.14,3.52,11.72,4.9,16.73,14.44,14.36,26.88-1.68,8.85-6.79,15.02-15.09,18.06-13.78,5.04-27.39,4.9-40-3.51-6.47-4.32-9.7-10.86-10.88-18.48-.26-1.66.11-2.53,1.93-2.77,3.26-.44,6.49-1.05,9.73-1.62,1.72-.3,2.47.2,2.95,2.09,3.56,14.01,21.45,19.75,32.78,10.62,5.43-4.38,5.36-12.62-.19-16.87-2.73-2.1-5.93-3.22-9.2-4.19-6.21-1.84-12.6-3.09-18.65-5.46-11.15-4.36-16.91-11.9-16.75-21.93.17-10.99,6.86-19.76,17.95-23.52,1.01-.34,2.05-.56,3.31-.91Z"/>
+            <path fill="#e0e0e0" d="M508.44,280.89c-1.53,1.14-3.12.92-4.65.92-11.43.02-22.86.01-34.28.01-1.14,0-2.28,0-3.36,0-1.1,6.89,4.65,14.41,11.7,15.51,6.89,1.07,12.76-.47,16.37-7.03.84-1.52,1.82-1.72,3.34-1.19,2.56.89,5.15,1.71,7.75,2.43,1.94.54,2.14,1.53,1.33,3.23-3.09,6.47-7.97,11.07-14.8,13.06-11.42,3.33-22.27,2.43-31.49-6.05-4.98-4.58-7.51-10.51-8.52-17.08-1.52-9.88-.6-19.42,5.6-27.65,7.25-9.64,17.32-12.74,28.86-10.68,11.2,1.99,18.09,9.04,21.07,19.95,1.28,4.7,1.89,9.48,1.08,14.58M484.92,258.1c-9.33-2.48-18.08,2.69-18.66,12.94h28.1c-.77-6.15-3.37-10.53-9.44-12.94Z"/>
+            <path fill="#e0e0e0" d="M333.37,303.7c-5.49-5.88-6.46-13.08-6.6-20.41-.19-10.84-.02-21.69-.09-32.53-.02-2.52.59-3.77,3.46-3.48,2.68.27,5.44.24,8.12-.03,2.57-.26,3.18.78,3.16,3.11-.08,10.36-.07,20.72-.05,31.08,0,1.83-.05,3.71.32,5.49,1.46,7.01,6.04,10.48,12.8,9.89,6.29-.55,11.36-5.75,11.53-12.52.26-10.64.14-21.3.18-31.95,0-.87.02-1.74.03-2.61.03-1.65.77-2.43,2.52-2.39,3.19.07,6.39.07,9.58-.05,1.77-.07,2.5.61,2.46,2.33-.04,1.84-.04,3.68-.04,5.52-.01,16.16-.02,32.33-.04,48.49,0,4.54-.06,4.56-4.49,4.57-1.94,0-3.89-.14-5.81.03-2.85.25-3.87-1.02-3.67-3.72.07-1.03.2-2.11-.54-3.56-5.34,6.96-12.52,9.22-20.79,8.36-4.54-.47-8.62-2.13-12.03-5.61Z"/>
+            <path fill="#e0e0e0" d="M168.47,292.33c-3.85-10.04-4.08-19.87.12-29.61,8.05-18.66,34.96-23.02,48.41-7.91,2.63,2.96,4.21,6.46,5.41,10.18.48,1.49,0,2.21-1.44,2.48-3.33.62-6.67,1.19-9.99,1.87-1.6.33-2.23-.44-2.79-1.78-3.11-7.54-6.4-9.71-14.1-9.41-5.92.23-10.39,3.84-12.52,10.39-2.17,6.69-1.91,13.37.69,19.89,2.2,5.53,7.49,8.98,13.15,8.85,6.29-.15,10.84-3.3,12.87-9.43.78-2.35,1.8-2.77,3.99-2.14,2.69.77,5.46,1.32,8.22,1.82,2.07.38,2.41,1.34,1.83,3.28-3.1,10.36-12.11,17.74-22.97,18.53-6.35.46-12.56-.03-18.37-3.07-5.86-3.06-9.78-7.8-12.52-13.92Z"/>
+            <path fill="#e0e0e0" d="M448.27,255.57c.15,2.43-.96,3.18-3,3.13-2.71-.07-5.42.02-8.13,0-1.58-.01-2.28.69-2.28,2.27.04,10.06-.02,20.13.13,30.19.05,3.6,2.06,5.38,5.69,5.68.77.06,1.55.05,2.32.01q5.32-.24,5.31,5.31c-.01,6.24-.23,6.49-6.46,6.66-2.22.06-4.46.08-6.68-.03-8.52-.39-14.1-6.16-14.52-14.68-.5-10.45-.28-20.9-.32-31.35-.02-4.05-.06-4.12-3.98-4.12-.68,0-1.36-.04-2.03.02-2.06.18-3.15-.61-2.94-2.8.05-.48,0-.97,0-1.45-.02-6.59-.02-6.68,6.45-7.03,2.38-.13,2.71-1.54,2.6-3.29-.21-3.39.05-6.77.16-10.15.06-1.7.51-2.69,2.29-3.07,3.12-.67,6.22-1.45,9.29-2.31,2.05-.57,2.66.34,2.66,2.15,0,4.55.1,9.1-.01,13.65-.06,2.27.75,3.14,3.04,3.01,2.7-.15,5.42.03,8.13-.07,1.63-.06,2.32.61,2.3,2.19-.03,1.94,0,3.87-.02,6.08Z"/>
+            <path fill="#e0e0e0" d="M230.61,277.81c0-9.4.07-18.5-.05-27.6-.03-2.46.88-3.3,3.21-3.17,2.7.15,5.43.29,8.13.15,2.51-.13,3.07.94,3.06,3.24-.08,16.27-.05,32.55-.06,48.82,0,2.13-.07,4.26.01,6.39.07,1.88-.76,2.61-2.59,2.57-2.9-.07-5.82-.12-8.72,0-2.29.09-3.03-.86-3.02-3.09.08-9.01.03-18.02.02-27.31Z"/>
+            <path fill="#e0e0e0" d="M405.34,255.73c0,15.68,0,31.07-.02,46.46-.01,6.74.6,5.95-6.14,6.01-1.94.02-3.87-.03-5.81,0-1.51.02-2.34-.51-2.33-2.18.04-19.16.04-38.33.07-57.49,0-.27.16-.53.38-1.21,4.03,0,8.17-.02,12.3,0,1.32,0,1.52.98,1.53,2.02.02,2.03.02,4.07.02,6.39Z"/>
+            <path fill="#f44" d="M405.36,222.46c2.73,3.64,3.08,7.31.8,11-2.34,3.8-5.91,5.08-10.25,4.37-3.51-.58-6.48-3.5-7.41-7.33-1.62-6.65,5.22-13.14,11.83-11.18,1.88.56,3.6,1.43,5.04,3.14Z"/>
+            <path fill="#f44" d="M242.58,236.89c-6.12,2.67-11.83.58-13.84-4.9-2-5.46.99-11.08,6.74-12.67,4.19-1.15,8.96,1.08,10.9,5.09,2.2,4.56.86,9.18-3.8,12.47Z"/>
+        </svg>
+    </a>
+    <ul class="nav-mid">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../guidemi/index.html">GuideMi</a></li>
+        <li><a href="../westernbo/index.html">WesternBo</a></li>
+        <li><a href="../imagexi/index.html">ImageXi</a></li>
+        <li><a href="../charter/index.html">ChartEr</a></li>
+        <li><a href="../scipanel/index.html">SciPanel</a></li>
+        <li><a href="../faqs/index.html">FAQs</a></li>
+        <li><a href="../credits/index.html">Credits</a></li>
+        <li><a href="#">Try Now</a></li>
+    </ul>
+    </div>
+</nav>
+
+<!-- Contact -->
+<section class="contact-hero">
+    <div class="contact-glow"></div>
+
+    <div class="contact-container">
+        <!-- Left: Info -->
+        <div class="contact-info">
+            <h1>Get in Touch</h1>
+            <p>Have a question, feature request, bug report, or just want to say hello? We'd love to hear from you.</p>
+
+            <div class="info-items">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="info-detail">
+                        <span class="info-label">Email</span>
+                        <span class="info-value"><a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a></span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="info-detail">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">University of Pittsburgh<br>Pittsburgh, PA, USA</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="info-detail">
+                        <span class="info-label">Response Time</span>
+                        <span class="info-value">Usually within 3 business days</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <!-- GitHub -->
+                <a href="https://github.com/scisuite" class="social-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-wrap">
+            <h2>Send a Message</h2>
+            <p>All fields marked with * are required.</p>
+
+            <form action="https://formsubmit.co/bolyu@pitt.edu" method="POST">
+                <!-- Formsubmit config -->
+                <input type="hidden" name="_subject" value="New message from SciSuite website">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://scisuite.github.io/contact/thanks.html">
+                <!-- Honeypot anti-spam -->
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Name <span class="req">*</span></label>
+                        <input type="text" name="name" class="form-input" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="req">*</span></label>
+                        <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select name="subject" class="form-select">
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Feature Request">Feature Request</option>
+                        <option value="Bug Report">Bug Report</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message <span class="req">*</span></label>
+                    <textarea name="message" class="form-textarea" placeholder="Tell us what's on your mind..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Send Message
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">&copy; 2026 Bo Lv. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a href="../contact/index.html">Contact Bo</a></li>
+            <li><a data-panel="cite">Cite Us</a></li>
+            <li><a data-panel="join">Join Us</a></li>
+            <li><a href="../terms/index.html">Terms</a></li>
+            <li><a href="../privacy/index.html">Privacy</a></li>
+        </ul>
+    </div>
+    <div class="footer-panel" id="panel-cite">
+        <p>Cite the plugins for your legends and Materials &amp; Methods sections:<br><em>Figures were prepared with SciSuite plugins (GuideMi, WesternBo, ImageXi, ChartEr, and SciPanel).</em></p>
+    </div>
+    <div class="footer-panel" id="panel-join">
+        <p>We welcome contributions of all kinds — feature ideas, bug reports, translations, or code. Please contact Bo Lv (bolyu(at)pitt.edu) if you would like to contribute to this project. Significant contributors will be credited as developers.</p>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
+    a.addEventListener('click', function(){
+        var id = 'panel-' + this.getAttribute('data-panel');
+        var panel = document.getElementById(id);
+        var isOpen = panel.classList.contains('open');
+        document.querySelectorAll('.footer-panel').forEach(function(p){ p.classList.remove('open'); });
+        document.querySelectorAll('.footer-links a').forEach(function(l){ l.classList.remove('active'); });
+        if (!isOpen) { panel.classList.add('open'); this.classList.add('active'); setTimeout(function(){
+                    var scrollBottom = window.innerHeight + window.scrollY;
+                    if (document.body.scrollHeight - scrollBottom > 50) {
+                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    }
+                }, 420); }
+    });
+});
+</script>
+
+</body>
+</html>
