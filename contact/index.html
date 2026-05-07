@@ -148,6 +148,16 @@
             border: 1px solid var(--c-border);
         }
         .info-icon svg { width: 18px; height: 18px; }
+        .info-icon.copyable { cursor: pointer; transition: all var(--ease); position: relative; }
+        .info-icon.copyable:hover { border-color: var(--c-text-muted); background: var(--c-bg-card-hover); }
+        .copy-tooltip {
+            position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            padding: 4px 10px; border-radius: 4px;
+            background: var(--c-text); color: var(--c-bg);
+            font-size: 11px; font-weight: 500; white-space: nowrap;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+        }
+        .copy-tooltip.show { opacity: 1; }
         .info-detail { display: flex; flex-direction: column; gap: 2px; }
         .info-label { font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-text-muted); }
         .info-value { font-size: 14px; color: var(--c-text-secondary); line-height: 1.5; }
@@ -348,11 +358,12 @@
 
             <div class="info-items">
                 <div class="info-item">
-                    <div class="info-icon">
+                    <div class="info-icon copyable" onclick="copyEmail(this)" title="Copy email address">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
+                        <span class="copy-tooltip">Copied!</span>
                     </div>
                     <div class="info-detail">
                         <span class="info-label">Email</span>
@@ -486,6 +497,16 @@ document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
                 }, 420); }
     });
 });
+</script>
+
+<script>
+function copyEmail(el) {
+    navigator.clipboard.writeText('bolyu@pitt.edu').then(function() {
+        var tip = el.querySelector('.copy-tooltip');
+        tip.classList.add('show');
+        setTimeout(function(){ tip.classList.remove('show'); }, 1500);
+    });
+}
 </script>
 
 </body>
