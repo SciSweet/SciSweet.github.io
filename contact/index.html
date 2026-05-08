@@ -413,15 +413,24 @@
             <h2>Send a Message</h2>
             <p>All fields marked with * are required.</p>
 
-            <form action="https://formsubmit.co/xyzg198891@outlook.com" method="POST">
-                <!-- Formsubmit config
-                     NOTE: .edu email addresses may silently block Formsubmit activation emails
-                     due to strict institutional mail filters. Use a personal email (e.g. Outlook,
-                     Gmail) instead. The activation email will likely land in Junk/Spam — check there. -->
+            <form id="contact-form" action="https://formsubmit.co/ajax/xyzg198891@outlook.com" method="POST">
+                <!-- Formsubmit config (AJAX mode)
+                     WHY AJAX INSTEAD OF TRADITIONAL POST:
+                     Traditional POST (formsubmit.co/EMAIL) redirects to Formsubmit's CAPTCHA page,
+                     which fails on some mobile browsers (especially in-app browsers like WeChat, QQ)
+                     with a "Form should POST" error. AJAX mode (formsubmit.co/ajax/EMAIL) submits
+                     via JavaScript fetch(), so the user never leaves this page — works on all devices.
+                     Trade-off: AJAX mode cannot use Formsubmit's built-in CAPTCHA, so we rely on
+                     the honeypot hidden field (_honey) for spam filtering. If spam becomes an issue,
+                     consider adding Google reCAPTCHA which works with both desktop and mobile.
+
+                     NOTE ON EMAIL:
+                     .edu email addresses may silently block Formsubmit activation emails due to
+                     strict institutional mail filters. Use a personal email (e.g. Outlook, Gmail)
+                     instead. The activation email will likely land in Junk/Spam — check there. -->
                 <input type="hidden" name="_subject" value="New message from SciSuite website">
-                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://scisweet.github.io/contact/thanks.html">
                 <!-- Honeypot anti-spam -->
                 <input type="text" name="_honey" style="display:none">
 
@@ -452,13 +461,15 @@
                     <textarea name="message" class="form-textarea" placeholder="Tell us what's on your mind..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">
+                <button type="submit" class="btn-submit" id="submit-btn">
                     Send Message
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"/>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                     </svg>
                 </button>
+
+                <div id="form-status" style="display:none; margin-top:16px; padding:14px 18px; border-radius:var(--r-md); font-size:14px; text-align:center;"></div>
             </form>
         </div>
     </div>
@@ -510,6 +521,47 @@ function copyEmail(el) {
         setTimeout(function(){ tip.classList.remove('show'); }, 1500);
     });
 }
+
+// AJAX form submission
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var btn = document.getElementById('submit-btn');
+    var status = document.getElementById('form-status');
+    btn.disabled = true;
+    btn.innerHTML = 'Sending...';
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+        return res.json();
+    }).then(function(data) {
+        if (data.success === 'true' || data.success === true) {
+            status.style.display = 'block';
+            status.style.background = 'rgba(16,185,129,0.1)';
+            status.style.border = '1px solid rgba(16,185,129,0.18)';
+            status.style.color = '#34d399';
+            status.innerHTML = '&#10003; Message sent! Bo will get back to you within 3 business days.';
+            form.reset();
+        } else {
+            status.style.display = 'block';
+            status.style.background = 'rgba(244,68,68,0.1)';
+            status.style.border = '1px solid rgba(244,68,68,0.18)';
+            status.style.color = '#f44';
+            status.innerHTML = 'Something went wrong. Please try again or email bolyu@pitt.edu directly.';
+        }
+    }).catch(function() {
+        status.style.display = 'block';
+        status.style.background = 'rgba(244,68,68,0.1)';
+        status.style.border = '1px solid rgba(244,68,68,0.18)';
+        status.style.color = '#f44';
+        status.innerHTML = 'Network error. Please try again or email bolyu@pitt.edu directly.';
+    }).finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    });
+});
 </script>
 
 </body>
