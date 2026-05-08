@@ -414,11 +414,14 @@
             <p>All fields marked with * are required.</p>
 
             <form action="https://formsubmit.co/xyzg198891@outlook.com" method="POST">
-                <!-- Formsubmit config -->
+                <!-- Formsubmit config
+                     NOTE: .edu email addresses may silently block Formsubmit activation emails
+                     due to strict institutional mail filters. Use a personal email (e.g. Outlook,
+                     Gmail) instead. The activation email will likely land in Junk/Spam — check there. -->
                 <input type="hidden" name="_subject" value="New message from SciSuite website">
                 <input type="hidden" name="_captcha" value="true">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://scisuite.github.io/contact/thanks.html">
+                <input type="hidden" name="_next" value="https://scisweet.github.io/contact/thanks.html">
                 <!-- Honeypot anti-spam -->
                 <input type="text" name="_honey" style="display:none">
 
