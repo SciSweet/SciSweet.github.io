@@ -544,6 +544,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
             status.style.color = '#34d399';
             status.innerHTML = '&#10003; Message sent! Bo will get back to you within 3 business days.';
             form.reset();
+            setTimeout(function(){ status.style.transition = 'opacity 0.5s ease'; status.style.opacity = '0'; setTimeout(function(){ status.style.display = 'none'; status.style.opacity = '1'; }, 500); }, 5000);
         } else {
             status.style.display = 'block';
             status.style.background = 'rgba(244,68,68,0.1)';
