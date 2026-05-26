@@ -238,11 +238,11 @@
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S2:</span>
-                    <p><strong>Enable developer mode for CEP extensions (one-time setup).</strong> SciSuite plugins are self-signed, so Adobe requires developer mode to be enabled before they can run.<br><br><strong>Windows (quick):</strong> Download <a href="EnableCEPDevMode.zip" download style="color:var(--c-accent-light);">EnableCEPDevMode.zip</a>, extract it, double-click the .reg file inside, and click "Yes" when prompted.<br><br><strong>Windows (manual):</strong> Press Win+R, type regedit and press Enter. Navigate to HKEY_CURRENT_USER\SOFTWARE\Adobe\CSXS.11 (create the key if it doesn't exist), create a new String Value named PlayerDebugMode and set its value to 1. Repeat for CSXS.9, CSXS.10, and CSXS.12 to cover all versions.<br><br><strong>macOS:</strong> Open Terminal (Finder &gt; Applications &gt; Utilities &gt; Terminal), paste the following command and press Enter: for v in 9 10 11 12; do defaults write com.adobe.CSXS.$v PlayerDebugMode 1; done — then log out and log back in (or restart your Mac) for the changes to take effect.</p>
+                    <p><strong>Enable developer mode for CEP extensions (one-time setup).</strong> SciSuite plugins are self-signed, so Adobe requires developer mode to be enabled before they can run.<br><br><strong>Windows (quick):</strong> Download <a href="EnableCEPDevMode.zip" download style="color:var(--c-accent-light);">EnableCEPDevMode.zip</a>, extract it, double-click the .reg file inside, and click "Yes" when prompted.<br><br><strong>Windows (manual):</strong> Press Win+R, type regedit and press Enter. Navigate to HKEY_CURRENT_USER\SOFTWARE\Adobe\CSXS.11 (create the key if it doesn't exist), create a new String Value named PlayerDebugMode and set its value to 1. Repeat for CSXS.9, CSXS.10, and CSXS.12 to cover all versions.</p>
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S3:</span>
-                    <p><strong>Download &amp; install a ZXP installer.</strong> Any of the following will work: <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">Anastasiy's Extension Manager</a> (recommended — supports drag-and-drop, managing, and uninstalling extensions), <a href="https://aescripts.com/learn/post/zxp-installer" target="_blank" rel="noopener" style="color:var(--c-accent-light);">aescripts ZXP/UXP Installer</a> (free, lightweight, supports drag-and-drop on macOS and double-click on Windows), or <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">ZXPInstaller</a> (supports drag-and-drop, but does not support managing or uninstalling extensions).</p>
+                    <p><strong>Download &amp; install a ZXP installer.</strong> Any of the following will work: <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">Anastasiy's Extension Manager</a> (recommended — supports drag-and-drop, managing, and uninstalling extensions), <a href="https://aescripts.com/learn/post/zxp-installer" target="_blank" rel="noopener" style="color:var(--c-accent-light);">aescripts ZXP/UXP Installer</a> (free, lightweight), or <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" style="color:var(--c-accent-light);">ZXPInstaller</a> (supports drag-and-drop, but does not support managing or uninstalling extensions).</p>
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S4:</span>
@@ -250,7 +250,7 @@
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S5:</span>
-                    <p><strong>Launch Photoshop or Illustrator.</strong> Open the host application. The plugin should now appear under <strong>Window &gt; Extensions</strong>. If it does not appear, try restarting your computer. On macOS, you may also need to allow the extension in <strong>System Settings &gt; Privacy &amp; Security</strong>.</p>
+                    <p><strong>Launch Photoshop or Illustrator.</strong> Open the host application. The plugin should now appear under <strong>Window &gt; Extensions</strong>. If it does not appear, try restarting your computer.</p>
                 </div>
             </div>
         </div>
@@ -273,7 +273,7 @@
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S3:</span>
-                    <p><strong>Copy the folder to the extensions directory.</strong><br><br><strong>Windows:</strong> Copy the extracted folder to either of the following paths:<br>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\ (system-level, may require administrator permission)<br>C:\Users\&lt;your username&gt;\AppData\Roaming\Adobe\CEP\extensions\ (user-level, no admin needed; create the folders if they don't exist)<br><br><strong>macOS:</strong> Copy the extracted folder to either of the following paths:<br>/Library/Application Support/Adobe/CEP/extensions/ (system-level, may require admin password)<br>~/Library/Application Support/Adobe/CEP/extensions/ (user-level, no admin needed; create the folders if they don't exist. To access ~/Library in Finder, press Shift+Command+G and paste the path)</p>
+                    <p><strong>Copy the folder to the extensions directory.</strong><br><br>Copy the extracted folder to either of the following paths:<br>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\ (system-level, may require administrator permission)<br>C:\Users\&lt;your username&gt;\AppData\Roaming\Adobe\CEP\extensions\ (user-level, no admin needed; create the folders if they don't exist)</p>
                 </div>
                 <div class="faq-a-inner">
                     <span class="faq-label">S4:</span>
