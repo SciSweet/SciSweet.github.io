@@ -23,6 +23,7 @@
     <meta name="twitter:description" content="200+ specialized tools across 5 plugins for scientific image processing and typesetting in Adobe Photoshop & Illustrator.">
     <meta name="twitter:image" content="https://scisuite.github.io/img/og-image.png">
 
+
     <style>
         :root {
             --c-bg: #09090b;
@@ -221,6 +222,23 @@
             background: rgba(255,255,255,0.25); transition: all var(--ease); padding: 0;
         }
         .hero-dot.active { background: var(--c-accent-light); width: 36px; }
+        .hero-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+            width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--c-border);
+            background: rgba(9,9,11,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            cursor: pointer; display: grid; place-items: center; transition: all var(--ease);
+            color: var(--c-text-secondary); padding: 0;
+        }
+        .hero-arrow:hover { border-color: var(--c-text-muted); background: var(--c-bg-card); color: var(--c-text); }
+        .hero-arrow svg { width: 18px; height: 18px; }
+        .hero-arrow-prev { left: 12px; }
+        .hero-arrow-next { right: 12px; }
+        @media (max-width: 600px) {
+            .hero-arrow { width: 32px; height: 32px; }
+            .hero-arrow svg { width: 14px; height: 14px; }
+            .hero-arrow-prev { left: 6px; }
+            .hero-arrow-next { right: 6px; }
+        }
         @media (max-width: 900px) {
             .hero-slide-split { flex-direction: column; gap: 32px; }
             .hero-left svg { width: 300px; }
@@ -289,6 +307,27 @@
         @media (max-width: 1100px) { .plugins-strip { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 700px) { .plugins-strip { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .plugins-strip { grid-template-columns: 1fr; } }
+
+        /* ===== Hero Intro Slide ===== */
+        .hero-slide-intro {
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+            height: 420px; text-align: center; padding: 40px clamp(20px, 4vw, 60px) 0;
+            overflow: hidden; max-width: 100%;
+        }
+        .hero-slide-intro .intro-headline {
+            font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 42px);
+            font-weight: 400; line-height: 1.25; letter-spacing: -0.02em;
+            color: var(--c-text); margin-bottom: 24px;
+        }
+        .hero-slide-intro .intro-desc {
+            font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 42px);
+            font-weight: 400; line-height: 1.35; letter-spacing: -0.02em;
+            color: var(--c-text); max-width: 100%;
+        }
+        @media (max-width: 480px) {
+            .hero-slide-intro { height: 340px; }
+            .hero-slide-intro .intro-headline, .hero-slide-intro .intro-desc { font-size: 22px; }
+        }
 
         /* ===== Showcase ===== */
         .showcase { padding: 60px clamp(20px, 5vw, 48px); }
@@ -480,7 +519,20 @@
 
     <div class="hero-carousel">
         <div class="hero-carousel-track" id="carouselTrack">
-            <!-- Slide 1: Logo + Feature Points -->
+            <!-- Slide 0: Intro — What is SciSuite? -->
+            <div class="hero-slide">
+                <div class="hero-slide-intro">
+                    <h3 class="intro-headline">Life is short, use <span style="color:#f44;">SciSuite</span>.</h3>
+                    <p class="intro-desc">A scientific image processing<br>and figure typesetting plugin suite<br>for Adobe <span style="color:var(--c-ps);">Photoshop</span> and <span style="color:var(--c-ai);">Illustrator</span>.</p>
+                </div>
+            </div>
+            <!-- Slide 1: Chinese version — 毛笔字竖排古诗 -->
+            <div class="hero-slide">
+                <div class="hero-slide-img">
+                    <img src="img/lifeisshort.png" alt="修图排版，人生几何？通宵赶稿，文章不多。何以解忧，唯有SciSuite。">
+                </div>
+            </div>
+            <!-- Slide 2: Logo + Feature Points -->
             <div class="hero-slide">
                 <div class="hero-slide-split">
                     <div class="hero-left">
@@ -528,7 +580,15 @@
             <button class="hero-dot active" data-slide="0"></button>
             <button class="hero-dot" data-slide="1"></button>
             <button class="hero-dot" data-slide="2"></button>
+            <button class="hero-dot" data-slide="3"></button>
+            <button class="hero-dot" data-slide="4"></button>
         </div>
+        <button class="hero-arrow hero-arrow-prev" id="carouselPrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="hero-arrow hero-arrow-next" id="carouselNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
     </div>
 </section>
 
@@ -835,7 +895,24 @@
             d.addEventListener('click', function(){ goTo(idx); });
         });
         if (total > 1) {
-            setInterval(function(){ goTo((current + 1) % total); }, 3000);
+            var timer;
+            function scheduleNext() {
+                var delay = (current <= 1) ? 6000 : 3000;
+                timer = setTimeout(function(){ goTo((current + 1) % total); scheduleNext(); }, delay);
+            }
+            function resetAndGo(i) { clearTimeout(timer); goTo(i); scheduleNext(); }
+            scheduleNext();
+            // Reset timer on manual dot click
+            dots.forEach(function(d, idx){
+                d.addEventListener('click', function(){ resetAndGo(idx); });
+            });
+            // Arrow buttons
+            document.getElementById('carouselPrev').addEventListener('click', function(){
+                resetAndGo((current - 1 + total) % total);
+            });
+            document.getElementById('carouselNext').addEventListener('click', function(){
+                resetAndGo((current + 1) % total);
+            });
         }
     })();
 })();
