@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302.25 207" width="302.25" height="207">
+  <defs>
+    <style>
+      .st0 { stroke-linecap: round; stroke-width: 4.5px; fill: none; stroke: currentColor; }
+      .st1 { fill: none; stroke: currentColor; stroke-width: 7px; }
+      .st3 { fill: currentColor; }
+    </style>
+  </defs>
+  <g>
+    <line class="st0" x1="2.25" y1="103.5" x2="90.25" y2="103.5"/>
+    <polygon class="st3" points="102.25 103.5 82.25 92.5 82.25 114.5 102.25 103.5"/>
+    <line class="st0" x1="202.25" y1="103.5" x2="290.25" y2="103.5"/>
+    <polygon class="st3" points="302.25 103.5 282.25 92.5 282.25 114.5 302.25 103.5"/>
+    <circle class="st1" cx="152.25" cy="103.5" r="100"/>
+  </g>
+</svg>

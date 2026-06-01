@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>Lv Lab — Resources</title>
+    <link rel="icon" type="image/svg+xml" href="img/lvlab-logo.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lv Lab — Resources">
+    <meta property="og:description" content="The Lv Lab at the University of Pittsburgh.">
+    <meta property="og:image" content="https://scisuite.github.io/lvlab/img/og-image.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lv Lab — Resources">
+    <meta name="twitter:description" content="The Lv Lab at the University of Pittsburgh.">
+    <meta name="twitter:image" content="https://scisuite.github.io/lvlab/img/og-image.png">
+    <style>
+        :root {
+            --c-bg: #09090b;
+            --c-bg-elevated: #111113;
+            --c-bg-card: #141417;
+            --c-bg-card-hover: #1a1a1e;
+            --c-border: #222228;
+            --c-border-subtle: #18181c;
+            --c-text: #ededf0;
+            --c-text-secondary: #8b8b97;
+            --c-text-muted: #55555f;
+            --c-accent: #3b82f6;
+            --c-accent-glow: rgba(59, 130, 246, 0.10);
+            --c-accent-light: #60a5fa;
+            --c-accent-2: #10b981;
+            --font-display: Arial, Helvetica, sans-serif;
+            --font-body: Arial, Helvetica, sans-serif;
+            --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+            --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            touch-action: manipulation;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            padding: 0 clamp(20px, 5vw, 48px);
+            background: rgba(9,9,11,0.82);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border-bottom: 1px solid var(--c-border-subtle);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font-display); font-size: 20px; font-weight: 700;
+            letter-spacing: -0.02em; color: var(--c-text);
+        }
+        .nav-mid { display: flex; gap: 28px; list-style: none; }
+        .nav-mid a { font-size: 13.5px; color: var(--c-text-secondary); transition: color var(--ease); }
+        .nav-mid a:hover { color: var(--c-text); }
+        .nav-mid a.active { color: var(--c-text); font-weight: 600; }
+        @media (max-width: 768px) { .nav-mid { display: none; } }
+
+        /* Page content */
+        .page-content {
+            max-width: 1200px; margin: 0 auto;
+            padding: 100px 0 60px;
+        }
+        .page-header {
+            margin-bottom: 48px;
+        }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            font-size: 16px; color: var(--c-text-secondary); line-height: 1.8;
+            max-width: 780px;
+        }
+        .page-header p a { color: var(--c-accent-light); transition: color var(--ease); }
+        .page-header p a:hover { color: #93bbfd; }
+
+        /* Resource sections — same pattern as credits */
+        .res-section {
+            margin-bottom: 48px;
+        }
+        .res-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+            margin-bottom: 20px; color: var(--c-text);
+        }
+        /* Software cards — same layout as people cards */
+        .sw-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .sw-card {
+            background: var(--c-bg-card); padding: 24px 20px;
+            display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+            transition: background var(--ease); cursor: pointer;
+        }
+        .sw-card:hover { background: var(--c-bg-card-hover); }
+        .sw-avatar {
+            flex-shrink: 0; width: 120px; height: 120px; border-radius: 50%;
+            background: var(--c-bg-card); border: 1px solid var(--c-border);
+            display: grid; place-items: center;
+            overflow: hidden;
+        }
+        .sw-avatar img { width: 80%; height: 80%; object-fit: contain; }
+        .sw-info {
+            display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1;
+        }
+        .sw-name { font-size: 16px; font-weight: 600; color: var(--c-text); }
+        .sw-role { font-size: 13px; color: var(--c-accent-light); font-weight: 500; }
+        .sw-desc { font-size: 13px; color: var(--c-text-secondary); line-height: 1.55; margin-top: 4px; }
+        @media (max-width: 900px) { .sw-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .sw-grid { grid-template-columns: 1fr; } }
+
+        /* Resource cards (kept for protocols if needed) */
+        .res-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .res-card {
+            background: var(--c-bg-card); padding: 24px 28px;
+            display: flex; align-items: flex-start; gap: 16px;
+            transition: background var(--ease);
+        }
+        .res-card:hover { background: var(--c-bg-card-hover); }
+        a.res-card { cursor: pointer; }
+        .res-icon {
+            flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--r-md);
+            display: grid; place-items: center;
+        }
+        .res-icon svg { width: 22px; height: 22px; }
+        .res-info {
+            display: flex; flex-direction: column; gap: 4px; min-width: 0;
+        }
+        .res-name {
+            font-size: 15px; font-weight: 600; color: var(--c-text);
+        }
+        .res-role {
+            font-size: 12.5px; color: var(--c-accent-light); font-weight: 500;
+        }
+        .res-desc {
+            font-size: 13px; color: var(--c-text-secondary); line-height: 1.55; margin-top: 2px;
+        }
+        .res-empty {
+            background: var(--c-bg-card); padding: 32px 28px;
+            border-radius: var(--r-lg); border: 1px dashed var(--c-border);
+            text-align: left;
+        }
+        .res-empty p {
+            font-size: 14px; color: var(--c-text-muted); line-height: 1.7;
+        }
+        @media (max-width: 900px) { .res-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .res-grid { grid-template-columns: 1fr; } }
+
+        /* Hyperlink collapsible categories — same as publications year blocks */
+        .link-list {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .link-cat {
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
+            transition: background var(--ease);
+        }
+        .link-cat:hover { background: var(--c-bg-card-hover); }
+        .link-cat-q {
+            display: flex; align-items: center; gap: 12px;
+            padding: 18px 28px; cursor: pointer; user-select: none;
+        }
+        .link-cat-q .link-cat-label {
+            font-size: 15px; font-weight: 700; color: var(--c-accent-light); line-height: 1.5;
+        }
+        .link-cat-q .link-arrow {
+            flex-shrink: 0; width: 20px; height: 20px; color: var(--c-text-muted);
+            transition: transform var(--ease), color var(--ease); margin-left: auto;
+        }
+        .link-cat.open .link-cat-q .link-arrow { transform: rotate(180deg); color: var(--c-accent-light); }
+        .link-cat-a {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 28px;
+        }
+        .link-cat.open .link-cat-a {
+            max-height: 5000px;
+            padding: 0 28px 20px;
+        }
+        .link-cat-a-inner {
+            display: flex; flex-direction: column; gap: 0;
+        }
+        .link-entry {
+            padding: 12px 0;
+            border-top: 1px solid var(--c-border-subtle);
+            display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+        }
+        .link-entry:first-child { border-top: none; padding-top: 0; }
+        .link-entry a {
+            font-size: 14px; font-weight: 600; color: var(--c-text);
+            transition: color var(--ease);
+        }
+        .link-entry a:hover { color: var(--c-accent-light); }
+        .link-entry .link-desc {
+            font-size: 13px; color: var(--c-text-muted);
+        }
+        @media (max-width: 480px) {
+            .link-cat-q { padding: 16px 18px; }
+            .link-cat-a { padding-left: 18px; padding-right: 18px; }
+            .link-cat.open .link-cat-a { padding: 0 18px 16px; }
+            .link-entry { flex-direction: column; gap: 2px; }
+        }
+
+        /* Footer */
+        .footer { padding: 32px clamp(20px, 5vw, 48px); border-top: 1px solid var(--c-border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-copy { font-size: 12.5px; color: var(--c-text-muted); }
+        .footer-links { display: flex; gap: 20px; list-style: none; }
+        .footer-links a { font-size: 12.5px; color: var(--c-text-muted); transition: color var(--ease); cursor: pointer; }
+        .footer-links a:hover { color: var(--c-text-secondary); }
+        @media (max-width: 480px) {
+            .footer { padding: 24px 16px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="home.html" class="nav-brand">
+            <svg class="brand-logo" viewBox="0 0 302.25 207" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;color:var(--c-text);">
+                <line x1="2.25" y1="103.5" x2="90.25" y2="103.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                <polygon points="102.25 103.5 82.25 92.5 82.25 114.5" fill="currentColor"/>
+                <line x1="202.25" y1="103.5" x2="290.25" y2="103.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                <polygon points="302.25 103.5 282.25 92.5 282.25 114.5" fill="currentColor"/>
+                <circle cx="152.25" cy="103.5" r="100" stroke="currentColor" stroke-width="7" fill="none"/>
+            </svg>
+            Lv Lab
+        </a>
+        <ul class="nav-mid">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
+            <li><a href="joinus.html">Join Us</a></li>
+            <li><a href="../index.html">SciSuite</a></li>
+        </ul>
+        </div>
+</nav>
+
+<main style="padding: 0 clamp(20px, 5vw, 48px);"><div class="page-content">
+
+    <!-- Software -->
+    <div class="res-section">
+        <h2 class="res-section-title">Software</h2>
+        <div class="sw-grid">
+            <a href="../index.html" class="sw-card">
+                <div class="sw-avatar"><img src="img/scisuite-logo.png" alt="SciSuite"></div>
+                <div class="sw-info">
+                    <span class="sw-name">SciSuite</span>
+                    <span class="sw-role">Adobe Photoshop &amp; Illustrator Plugins</span>
+                    <span class="sw-desc">200+ specialized tools across 5 plugins for scientific image processing and figure typesetting in Adobe Photoshop &amp; Illustrator.</span>
+                </div>
+            </a>
+            <a href="https://github.com/scisuite" class="sw-card" target="_blank" rel="noopener">
+                <div class="sw-avatar" style="background: var(--c-bg-elevated);"><svg viewBox="0 0 24 24" fill="#8b8b97" style="width:60%;height:60%;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></div>
+                <div class="sw-info">
+                    <span class="sw-name">GitHub Repositories</span>
+                    <span class="sw-role">Source Code &amp; Documentation</span>
+                    <span class="sw-desc">Source code, documentation, and issue tracking for all our open-source projects.</span>
+                </div>
+            </a>
+            <!-- Add more software by copying the block below:
+            <a href="#" class="sw-card" target="_blank" rel="noopener">
+                <div class="sw-avatar"><img src="img/tool-logo.png" alt="Tool Name"></div>
+                <div class="sw-info">
+                    <span class="sw-name">Tool Name</span>
+                    <span class="sw-role">Category</span>
+                    <span class="sw-desc">Brief description.</span>
+                </div>
+            </a>
+            -->
+        </div>
+    </div>
+
+    <!-- Protocols -->
+    <div class="res-section">
+        <h2 class="res-section-title">Protocols</h2>
+        <div class="res-empty">
+            <p>Lab protocols will be shared here as they become available.</p>
+        </div>
+        <!-- When you have protocols, replace the empty block above with:
+        <div class="res-grid">
+            <a href="#" class="res-card" target="_blank" rel="noopener">
+                <div class="res-icon" style="background: rgba(16,185,129,0.10);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <div class="res-info">
+                    <span class="res-name">Protocol Name</span>
+                    <span class="res-role">Category</span>
+                    <span class="res-desc">Brief description of the protocol.</span>
+                </div>
+            </a>
+        </div>
+        -->
+    </div>
+
+    <!-- Hyperlinks -->
+    <div class="res-section">
+        <h2 class="res-section-title">Hyperlinks</h2>
+
+        <div class="link-list">
+
+            <!-- ============ DNA ============ -->
+            <div class="link-cat open">
+                <div class="link-cat-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="link-cat-label">DNA</span>
+                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="link-cat-a">
+                    <div class="link-cat-a-inner">
+                        <div class="link-entry">
+                            <a href="https://www.ncbi.nlm.nih.gov/nuccore/" target="_blank" rel="noopener">NCBI GenBank</a>
+                            <span class="link-desc">DNA sequence database</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://www.ensembl.org/" target="_blank" rel="noopener">Ensembl</a>
+                            <span class="link-desc">Genome browser and annotation</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://genome.ucsc.edu/" target="_blank" rel="noopener">UCSC Genome Browser</a>
+                            <span class="link-desc">Interactive genome visualization</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://www.snapgene.com/free-software/snapgene-viewer" target="_blank" rel="noopener">SnapGene Viewer</a>
+                            <span class="link-desc">Free DNA sequence viewer and map editor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ RNA ============ -->
+            <div class="link-cat open">
+                <div class="link-cat-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="link-cat-label">RNA</span>
+                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="link-cat-a">
+                    <div class="link-cat-a-inner">
+                        <div class="link-entry">
+                            <a href="https://www.ncbi.nlm.nih.gov/geo/" target="_blank" rel="noopener">GEO</a>
+                            <span class="link-desc">Gene Expression Omnibus — transcriptomics data repository</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://www.proteinatlas.org/" target="_blank" rel="noopener">Human Protein Atlas</a>
+                            <span class="link-desc">RNA and protein expression across tissues and cell types</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ Protein ============ -->
+            <div class="link-cat open">
+                <div class="link-cat-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="link-cat-label">Protein</span>
+                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="link-cat-a">
+                    <div class="link-cat-a-inner">
+                        <div class="link-entry">
+                            <a href="https://www.uniprot.org/" target="_blank" rel="noopener">UniProt</a>
+                            <span class="link-desc">Protein sequence and functional information</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://www.rcsb.org/" target="_blank" rel="noopener">PDB (RCSB)</a>
+                            <span class="link-desc">Protein 3D structure database</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">AlphaFold DB</a>
+                            <span class="link-desc">AI-predicted protein structures</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://string-db.org/" target="_blank" rel="noopener">STRING</a>
+                            <span class="link-desc">Protein–protein interaction networks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ General ============ -->
+            <div class="link-cat open">
+                <div class="link-cat-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="link-cat-label">General</span>
+                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="link-cat-a">
+                    <div class="link-cat-a-inner">
+                        <div class="link-entry">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>
+                            <span class="link-desc">Biomedical literature search</span>
+                        </div>
+                        <div class="link-entry">
+                            <a href="https://www.biorender.com/" target="_blank" rel="noopener">BioRender</a>
+                            <span class="link-desc">Scientific figure illustration tool</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ To add a new category, copy this block: ============ -->
+            <!--
+            <div class="link-cat open">
+                <div class="link-cat-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="link-cat-label">Category Name</span>
+                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="link-cat-a">
+                    <div class="link-cat-a-inner">
+                        <div class="link-entry">
+                            <a href="#" target="_blank" rel="noopener">Link Name</a>
+                            <span class="link-desc">Brief description</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+</div></main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">&copy; 2026 Bo Lv. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a href="../contact/index.html">Contact</a></li>
+            <li><a href="../index.html">SciSuite</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>Lv Lab — People</title>
+    <link rel="icon" type="image/svg+xml" href="img/lvlab-logo.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lv Lab — People">
+    <meta property="og:description" content="The Lv Lab at the University of Pittsburgh.">
+    <meta property="og:image" content="https://scisuite.github.io/lvlab/img/og-image.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lv Lab — People">
+    <meta name="twitter:description" content="The Lv Lab at the University of Pittsburgh.">
+    <meta name="twitter:image" content="https://scisuite.github.io/lvlab/img/og-image.png">
+    <style>
+        :root {
+            --c-bg: #09090b;
+            --c-bg-elevated: #111113;
+            --c-bg-card: #141417;
+            --c-bg-card-hover: #1a1a1e;
+            --c-border: #222228;
+            --c-border-subtle: #18181c;
+            --c-text: #ededf0;
+            --c-text-secondary: #8b8b97;
+            --c-text-muted: #55555f;
+            --c-accent: #3b82f6;
+            --c-accent-glow: rgba(59, 130, 246, 0.10);
+            --c-accent-light: #60a5fa;
+            --c-accent-2: #10b981;
+            --font-display: Arial, Helvetica, sans-serif;
+            --font-body: Arial, Helvetica, sans-serif;
+            --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+            --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            touch-action: manipulation;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 60px; display: flex; align-items: center; justify-content: center;
+            padding: 0 clamp(20px, 5vw, 48px);
+            background: rgba(9,9,11,0.82);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border-bottom: 1px solid var(--c-border-subtle);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font-display); font-size: 20px; font-weight: 700;
+            letter-spacing: -0.02em; color: var(--c-text);
+        }
+        .nav-mid { display: flex; gap: 28px; list-style: none; }
+        .nav-mid a { font-size: 13.5px; color: var(--c-text-secondary); transition: color var(--ease); }
+        .nav-mid a:hover { color: var(--c-text); }
+        .nav-mid a.active { color: var(--c-text); font-weight: 600; }
+        @media (max-width: 768px) { .nav-mid { display: none; } }
+
+        /* Page content */
+        .page-content {
+            max-width: 1200px; margin: 0 auto;
+            padding: 100px 0 60px;
+        }
+        .page-header {
+            margin-bottom: 48px;
+        }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            font-size: 16px; color: var(--c-text-secondary); line-height: 1.8;
+            max-width: 780px;
+        }
+        .page-header p a { color: var(--c-accent-light); transition: color var(--ease); }
+        .page-header p a:hover { color: #93bbfd; }
+
+        /* People sections */
+        .people-section {
+            margin-bottom: 48px;
+        }
+        .people-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 400; letter-spacing: -0.01em;
+            margin-bottom: 20px; color: var(--c-text);
+        }
+
+        /* Current members — single column cards */
+        .people-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .person-card {
+            background: var(--c-bg-card); padding: 24px 20px;
+            display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+            transition: background var(--ease);
+        }
+        .person-card:hover { background: var(--c-bg-card-hover); }
+        .person-avatar {
+            flex-shrink: 0; width: 120px; height: 120px; border-radius: 50%;
+            background: var(--c-bg-elevated); border: 1px solid var(--c-border);
+            display: grid; place-items: center;
+            font-size: 20px; font-weight: 700; color: var(--c-text-muted);
+            overflow: hidden;
+        }
+        .person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .person-info {
+            display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1;
+        }
+        .person-name {
+            font-size: 16px; font-weight: 600; color: var(--c-text);
+        }
+        .person-role {
+            font-size: 13px; color: var(--c-accent-light); font-weight: 500;
+        }
+        .person-desc {
+            font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.65; margin-top: 4px;
+        }
+        .person-links {
+            display: flex; gap: 14px; margin-top: 6px; justify-content: center;
+        }
+        .person-links a {
+            font-size: 12px; color: var(--c-text-muted); transition: color var(--ease);
+        }
+        .person-links a:hover { color: var(--c-accent-light); }
+
+        /* Alumni — borderless table */
+        .alumni-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .alumni-table thead th {
+            text-align: left;
+            font-size: 12px; font-weight: 600; color: var(--c-text-muted);
+            text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 12px 16px 12px 0;
+            border-bottom: 1px solid var(--c-border);
+        }
+        .alumni-table tbody tr {
+            transition: background var(--ease);
+        }
+        .alumni-table tbody tr:hover {
+            background: var(--c-bg-card);
+        }
+        .alumni-table tbody td {
+            font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.5;
+            padding: 14px 16px 14px 0;
+            vertical-align: top;
+        }
+        .alumni-table tbody td:first-child {
+            color: var(--c-text); font-weight: 500;
+        }
+        .alumni-table tbody td a {
+            color: var(--c-accent-light); transition: color var(--ease);
+        }
+        .alumni-table tbody td a:hover { color: #93bbfd; }
+        @media (max-width: 900px) { .people-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 700px) {
+            .alumni-table { font-size: 12px; }
+            .alumni-table thead th, .alumni-table tbody td { padding: 10px 10px 10px 0; }
+            .alumni-table thead th:nth-child(4),
+            .alumni-table tbody td:nth-child(4) { display: none; }
+        }
+        @media (max-width: 480px) {
+            .people-grid { grid-template-columns: 1fr; }
+            .alumni-table thead th:nth-child(3),
+            .alumni-table tbody td:nth-child(3) { display: none; }
+        }
+
+        /* Footer */
+        .footer { padding: 32px clamp(20px, 5vw, 48px); border-top: 1px solid var(--c-border); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-copy { font-size: 12.5px; color: var(--c-text-muted); }
+        .footer-links { display: flex; gap: 20px; list-style: none; }
+        .footer-links a { font-size: 12.5px; color: var(--c-text-muted); transition: color var(--ease); cursor: pointer; }
+        .footer-links a:hover { color: var(--c-text-secondary); }
+        @media (max-width: 480px) {
+            .footer { padding: 24px 16px; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="home.html" class="nav-brand">
+            <svg class="brand-logo" viewBox="0 0 302.25 207" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;color:var(--c-text);">
+                <line x1="2.25" y1="103.5" x2="90.25" y2="103.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                <polygon points="102.25 103.5 82.25 92.5 82.25 114.5" fill="currentColor"/>
+                <line x1="202.25" y1="103.5" x2="290.25" y2="103.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                <polygon points="302.25 103.5 282.25 92.5 282.25 114.5" fill="currentColor"/>
+                <circle cx="152.25" cy="103.5" r="100" stroke="currentColor" stroke-width="7" fill="none"/>
+            </svg>
+            Lv Lab
+        </a>
+        <ul class="nav-mid">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="people.html" class="active">People</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="joinus.html">Join Us</a></li>
+            <li><a href="../index.html">SciSuite</a></li>
+        </ul>
+        </div>
+</nav>
+
+<main style="padding: 0 clamp(20px, 5vw, 48px);"><div class="page-content">
+    <div class="page-header">
+        <h1>People</h1>
+        <p>Meet the team. Interested in joining? See <a href="joinus.html">open positions</a>.</p>
+    </div>
+
+    <!-- Current Members -->
+    <div class="people-section">
+        <h2 class="people-section-title">Current Members</h2>
+        <div class="people-grid">
+            <div class="person-card">
+                <div class="person-avatar"><img src="img/placeholder-avatar.png" alt="Bo Lv"></div>
+                <div class="person-info">
+                    <span class="person-name">Bo Lv</span>
+                    <span class="person-role">Principal Investigator</span>
+                    <span class="person-desc">Coming soon.</span>
+                    <div class="person-links">
+                        <a href="mailto:bolyu@pitt.edu">Email</a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=Nrd7IXsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="person-card">
+                <div class="person-avatar"><img src="img/placeholder-avatar.png" alt="Anna Apetrei-Pandrea"></div>
+                <div class="person-info">
+                    <span class="person-name">Anna Apetrei-Pandrea</span>
+                    <span class="person-role">Undergraduate Researcher</span>
+                    <span class="person-desc">Coming soon.</span>
+                    <div class="person-links">
+                        <a href="mailto:ASA342@pitt.edu">ASA342(at)pitt.edu</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more current members by copying the block below:
+            <div class="person-card">
+                <div class="person-avatar"><img src="img/name.jpg" alt="Name"></div>
+                <div class="person-info">
+                    <span class="person-name">Name</span>
+                    <span class="person-role">Role (e.g. PhD Student, Postdoc)</span>
+                    <span class="person-desc">Research interests and brief description go here. This can be multiple sentences since each card takes the full width.</span>
+                    <div class="person-links">
+                        <a href="mailto:">Email</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- Alumni -->
+    <div class="people-section">
+        <h2 class="people-section-title">Alumni</h2>
+        <table class="alumni-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Time</th>
+                    <th>Recent Position</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anuj K. Peri</td>
+                    <td>Undergraduate Researcher</td>
+                    <td>Fall 2024</td>
+                    <td>Undergraduate, University of Pittsburgh</td>
+                    <td><a href="mailto:akp105@pitt.edu">akp105(at)pitt.edu</a></td>
+                </tr>
+                <tr>
+                    <td>Anna Apetrei-Pandrea</td>
+                    <td>Summer Student</td>
+                    <td>Summer 2024</td>
+                    <td>High school student, Shady Side Academy</td>
+                    <td><a href="mailto:25apetreipandreaa@shadysideacademy.org">25apetreipandreaa(at)shadysideacademy.org</a></td>
+                </tr>
+                <tr>
+                    <td>Lauren Weaver</td>
+                    <td>Summer Student</td>
+                    <td>Summer 2023</td>
+                    <td>Undergraduate (Sophomore), University of Pittsburgh</td>
+                    <td><a href="mailto:laureweave@gmail.com">laureweave(at)gmail.com</a></td>
+                </tr>
+                <!-- Add more alumni by copying the block below:
+                <tr>
+                    <td>Name</td>
+                    <td>Position</td>
+                    <td>Time period</td>
+                    <td>Current position</td>
+                    <td><a href="mailto:email@example.com">email@example.com</a></td>
+                </tr>
+                -->
+            </tbody>
+        </table>
+    </div>
+
+</div></main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">&copy; 2026 Bo Lv. All rights reserved.</span>
+        <ul class="footer-links">
+            <li><a href="../contact/index.html">Contact</a></li>
+            <li><a href="../index.html">SciSuite</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
