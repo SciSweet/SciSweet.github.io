@@ -368,7 +368,7 @@
                     </div>
                     <div class="info-detail">
                         <span class="info-label">Email</span>
-                        <span class="info-value"><a href="mailto:bolyu@pitt.edu">bolyu@pitt.edu</a></span>
+                        <span class="info-value"><a href="mailto:contact@scisuite.cc">contact@scisuite.cc</a></span>
                     </div>
                 </div>
 
@@ -492,7 +492,7 @@
         <p>Cite the plugins for your legends and Materials &amp; Methods sections:<br><em>Figures were prepared with SciSuite plugins (GuideMi, WesternBo, ImageXi, ChartEr, and SciPanel).</em></p>
     </div>
     <div class="footer-panel" id="panel-join">
-        <p>We welcome contributions of all kinds — feature ideas, bug reports, translations, or code. Please contact Bo Lv (bolyu(at)pitt.edu) if you would like to contribute to this project. Significant contributors will be credited as developers.</p>
+        <p>We welcome contributions of all kinds — feature ideas, bug reports, translations, or code. Please contact Bo Lv (contact@scisuite.cc) if you would like to contribute to this project. Significant contributors will be credited as developers.</p>
     </div>
 </footer>
 
@@ -516,7 +516,7 @@ document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
 
 <script>
 function copyEmail(el) {
-    navigator.clipboard.writeText('bolyu@pitt.edu').then(function() {
+    navigator.clipboard.writeText('contact@scisuite.cc').then(function() {
         var tip = el.querySelector('.copy-tooltip');
         tip.classList.add('show');
         setTimeout(function(){ tip.classList.remove('show'); }, 1500);
@@ -551,14 +551,14 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
             status.style.background = 'rgba(244,68,68,0.1)';
             status.style.border = '1px solid rgba(244,68,68,0.18)';
             status.style.color = '#f44';
-            status.innerHTML = 'Something went wrong. Please try again or email bolyu@pitt.edu directly.';
+            status.innerHTML = 'Something went wrong. Please try again or email contact@scisuite.cc directly.';
         }
     }).catch(function() {
         status.style.display = 'block';
         status.style.background = 'rgba(244,68,68,0.1)';
         status.style.border = '1px solid rgba(244,68,68,0.18)';
         status.style.color = '#f44';
-        status.innerHTML = 'Network error. Please try again or email bolyu@pitt.edu directly.';
+        status.innerHTML = 'Network error. Please try again or email contact@scisuite.cc directly.';
     }).finally(function() {
         btn.disabled = false;
         btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
