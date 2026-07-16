@@ -423,8 +423,8 @@
         .dl-card .wi svg { width: 22px; height: 22px; }
         .dl-card h3 { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; }
         .dl-card p { font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; margin-bottom: 18px; flex: 1; }
-        .dl-card-names { display: flex; justify-content: space-between; font-size: 13px; color: var(--c-text-secondary); margin-bottom: 18px; flex: 1; }
-        .dl-card-names span { text-align: center; width: 40px; }
+        .dl-card-names { display: flex; font-size: 13px; color: var(--c-text-secondary); margin-bottom: 18px; flex: 1; }
+        .dl-card-names span { flex: 1; text-align: center; }
         .coming-soon-badge {
             display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
             padding: 8px 16px; border-radius: var(--r-sm);
@@ -432,12 +432,12 @@
             font-size: 12.5px; font-weight: 500; color: var(--c-text-muted);
         }
         .coming-soon-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--c-accent); animation: dp 2s ease-in-out infinite; }
-        .dl-icons { display: flex; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--c-border-subtle); }
+        .dl-icons { display: flex; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--c-border-subtle); }
         .dl-icon-link {
-            position: relative;
-            display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--r-sm);
+            position: relative; flex: 1;
+            display: grid; place-items: center; height: 40px; border-radius: var(--r-sm);
             border: 1px solid var(--c-border); background: var(--c-bg-elevated);
-            transition: all var(--ease); cursor: pointer;
+            transition: all var(--ease); cursor: pointer; margin: 0 4px;
         }
         .dl-icon-link:hover { border-color: var(--c-text-muted); background: var(--c-bg-card-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .dl-icon-link img { width: 24px; height: 24px; }
