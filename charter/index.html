@@ -110,6 +110,19 @@
         .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; }
         .p-plat.ps { background: var(--c-ps-glow); color: var(--c-ps); border: 1px solid rgba(49,168,255,0.12); }
         .p-plat.ai { background: var(--c-ai-glow); color: var(--c-ai); border: 1px solid rgba(255,154,0,0.12); }
+        a.p-plat {
+            position: relative; cursor: pointer; transition: all var(--ease); text-decoration: none;
+        }
+        a.p-plat:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        a.p-plat.ps:hover { background: rgba(49,168,255,0.18); border-color: rgba(49,168,255,0.3); }
+        a.p-plat.ai:hover { background: rgba(255,154,0,0.18); border-color: rgba(255,154,0,0.3); }
+        a.p-plat::after {
+            content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            padding: 5px 10px; border-radius: 4px; background: var(--c-text); color: var(--c-bg);
+            font-size: 11.5px; font-weight: 500; white-space: nowrap;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+        }
+        a.p-plat:hover::after { opacity: 1; }
         .plugin-overview {
             font-size: 16px; color: var(--c-text-secondary); line-height: 1.8;
             max-width: 780px;
@@ -239,7 +252,7 @@
         <li><a href="../scipanel/index.html">SciPanel</a></li>
         <li><a href="../faqs/index.html">FAQs</a></li>
         <li><a href="../credits/index.html">Credits</a></li>
-        <li><a href="#">Try Now</a></li>
+        <li><a href="#" id="tryNowBtn">Try Now</a></li>
     </ul>
     </div>
 </nav>
@@ -248,7 +261,7 @@
     <div class="plugin-header">
         <h1>ChartEr</h1>
         <div class="plugin-tagline">Chart Annotation &amp; Tables</div>
-        <div class="plugin-platforms"><span class="p-plat ps" style="font-size:12px;padding:5px 10px;">Ps</span><span class="p-plat ai" style="font-size:12px;padding:5px 10px;">Ai</span></div>
+        <div class="plugin-platforms"><a href="../download/ChartEr_PS_v1.0.0.zxp" class="p-plat ps" style="font-size:12px;padding:5px 10px;" data-tip="Download for Photoshop" download>Ps</a><a href="../download/ChartEr_AI_v1.0.0.zxp" class="p-plat ai" style="font-size:12px;padding:5px 10px;" data-tip="Download for Illustrator" download>Ai</a></div>
         <p class="plugin-overview">ChartEr is a Photoshop/Illustrator CEP plugin optimized for chart annotation and scientific publication figure preparation. It helps researchers quickly complete chart labeling, table drawing, and statistical marking. All graphic elements are created using vector shape layers.</p>
     </div>
 
@@ -372,6 +385,16 @@ document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
                     }
                 }, 420); }
     });
+});
+// Try Now — download both PS and AI versions
+document.getElementById('tryNowBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    var a1 = document.createElement('a');
+    a1.href = '../download/ChartEr_PS_v1.0.0.zxp'; a1.download = ''; document.body.appendChild(a1); a1.click(); document.body.removeChild(a1);
+    setTimeout(function(){
+        var a2 = document.createElement('a');
+        a2.href = '../download/ChartEr_AI_v1.0.0.zxp'; a2.download = ''; document.body.appendChild(a2); a2.click(); document.body.removeChild(a2);
+    }, 300);
 });
 </script>
 </body>
