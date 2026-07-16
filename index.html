@@ -423,6 +423,8 @@
         .dl-card .wi svg { width: 22px; height: 22px; }
         .dl-card h3 { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; }
         .dl-card p { font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; margin-bottom: 18px; flex: 1; }
+        .dl-card-names { display: flex; justify-content: space-between; font-size: 13px; color: var(--c-text-secondary); margin-bottom: 18px; flex: 1; }
+        .dl-card-names span { text-align: center; width: 40px; }
         .coming-soon-badge {
             display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
             padding: 8px 16px; border-radius: var(--r-sm);
@@ -430,6 +432,22 @@
             font-size: 12.5px; font-weight: 500; color: var(--c-text-muted);
         }
         .coming-soon-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--c-accent); animation: dp 2s ease-in-out infinite; }
+        .dl-icons { display: flex; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--c-border-subtle); }
+        .dl-icon-link {
+            position: relative;
+            display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--r-sm);
+            border: 1px solid var(--c-border); background: var(--c-bg-elevated);
+            transition: all var(--ease); cursor: pointer;
+        }
+        .dl-icon-link:hover { border-color: var(--c-text-muted); background: var(--c-bg-card-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .dl-icon-link img { width: 24px; height: 24px; }
+        .dl-icon-link::after {
+            content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            padding: 5px 10px; border-radius: 4px; background: var(--c-text); color: var(--c-bg);
+            font-size: 11.5px; font-weight: 500; white-space: nowrap;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+        }
+        .dl-icon-link:hover::after { opacity: 1; }
         @media (max-width: 700px) { .download-grid { grid-template-columns: 1fr; } }
 
         /* ===== Testimonials ===== */
@@ -755,8 +773,14 @@
                 </svg>
             </div>
             <h3>Photoshop Plugins</h3>
-            <p>GuideMi · WesternBo · ImageXi · ChartEr · SciPanel</p>
-            <div class="coming-soon-badge"><span class="pulse"></span> Coming Soon</div>
+            <div class="dl-card-names"><span>GuideMi</span><span>WesternBo</span><span>ImageXi</span><span>ChartEr</span><span>SciPanel</span></div>
+            <div class="dl-icons">
+                <a href="download/GuideMi_PS_v1_0_0.zxp" class="dl-icon-link" data-tip="GuideMi" download><img src="img/guidemi-icon.png" alt="GuideMi"></a>
+                <a href="download/WesternBo_PS_v1_0_0.zxp" class="dl-icon-link" data-tip="WesternBo" download><img src="img/westernbo-icon.png" alt="WesternBo"></a>
+                <a href="download/ImageXi_PS_v1_0_0.zxp" class="dl-icon-link" data-tip="ImageXi" download><img src="img/imagexi-icon.png" alt="ImageXi"></a>
+                <a href="download/ChartEr_PS_v1_0_0.zxp" class="dl-icon-link" data-tip="ChartEr" download><img src="img/charter-icon.png" alt="ChartEr"></a>
+                <a href="download/SciPanel_PS_v1_0_0.zxp" class="dl-icon-link" data-tip="SciPanel" download><img src="img/scipanel-icon.png" alt="SciPanel"></a>
+            </div>
         </div>
         <div class="dl-card">
             <div class="wi" style="background: rgba(255,154,0,0.10);">
@@ -767,8 +791,14 @@
                 </svg>
             </div>
             <h3>Illustrator Plugins</h3>
-            <p>GuideMi · WesternBo · ImageXi · ChartEr · SciPanel</p>
-            <div class="coming-soon-badge"><span class="pulse"></span> Coming Soon</div>
+            <div class="dl-card-names"><span>GuideMi</span><span>WesternBo</span><span>ImageXi</span><span>ChartEr</span><span>SciPanel</span></div>
+            <div class="dl-icons">
+                <a href="download/GuideMi_AI_v1_0_0.zxp" class="dl-icon-link" data-tip="GuideMi" download><img src="img/guidemi-icon.png" alt="GuideMi"></a>
+                <a href="download/WesternBo_AI_v1_0_0.zxp" class="dl-icon-link" data-tip="WesternBo" download><img src="img/westernbo-icon.png" alt="WesternBo"></a>
+                <a href="download/ImageXi_AI_v1_0_0.zxp" class="dl-icon-link" data-tip="ImageXi" download><img src="img/imagexi-icon.png" alt="ImageXi"></a>
+                <a href="download/ChartEr_AI_v1_0_0.zxp" class="dl-icon-link" data-tip="ChartEr" download><img src="img/charter-icon.png" alt="ChartEr"></a>
+                <a href="download/SciPanel_AI_v1_0_0.zxp" class="dl-icon-link" data-tip="SciPanel" download><img src="img/scipanel-icon.png" alt="SciPanel"></a>
+            </div>
         </div>
         <a href="install/index.html" class="dl-card" style="cursor:pointer;">
             <div class="wi" style="background: rgba(16,185,129,0.10);">
