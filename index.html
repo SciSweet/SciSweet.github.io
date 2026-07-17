@@ -448,6 +448,28 @@
             opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
         }
         .dl-icon-link:hover::after { opacity: 1; }
+
+        /* Pricing Overview */
+        .pricing-overview { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .po-table {
+            width: 100%; border-collapse: collapse; font-size: 14px;
+            background: var(--c-bg-card); border-radius: var(--r-lg); overflow: hidden;
+        }
+        .po-table thead th {
+            padding: 16px 20px; text-align: left; font-size: 12px; font-weight: 600;
+            letter-spacing: 0.02em; color: var(--c-text-muted);
+            border-bottom: 1px solid var(--c-border);
+        }
+        .po-table tbody td {
+            padding: 14px 20px; text-align: left; border-bottom: 1px solid var(--c-border-subtle);
+            color: var(--c-text-secondary);
+        }
+        .po-table tbody td:first-child { text-align: left; display: flex; align-items: center; gap: 10px; }
+        .po-table tbody td:first-child a { color: var(--c-text); text-decoration: none; font-weight: 500; }
+        .po-table tbody td:first-child a:hover { color: var(--c-accent); }
+        .po-table tbody tr:hover td { background: var(--c-bg-card-hover); }
+        .po-table tbody tr:last-child td { border-bottom: none; }
+        .po-icon { width: 22px; height: 22px; }
         @media (max-width: 700px) { .download-grid { grid-template-columns: 1fr; } }
 
         /* ===== Testimonials ===== */
@@ -812,6 +834,35 @@
             <span class="p-card-link" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--c-border-subtle);">View Guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
     </div>
+  </div>
+</section>
+
+<!-- Testimonials (hidden for payment platform review compliance) -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <h2 class="sec-title reveal">Pricing<sup style="font-size:14px; color:var(--c-text-muted); font-weight:400;">1,2,3</sup></h2>
+    <div class="pricing-overview reveal">
+      <table class="po-table">
+        <thead>
+          <tr>
+            <th>Plugin</th>
+            <th>Platform</th>
+            <th>Future Ph.D.</th>
+            <th>Ph.D.</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><img src="img/guidemi-icon.png" class="po-icon"><a href="guidemi/index.html">GuideMi</a></td><td><span class="p-plat ps">Ps</span> <span class="p-plat ai">Ai</span></td><td>$9.9</td><td>$19.9</td><td>$49.9</td></tr>
+          <tr><td><img src="img/westernbo-icon.png" class="po-icon"><a href="westernbo/index.html">WesternBo</a></td><td><span class="p-plat ps">Ps</span> <span class="p-plat ai">Ai</span></td><td>$24.9</td><td>$34.9</td><td>$89.9</td></tr>
+          <tr><td><img src="img/imagexi-icon.png" class="po-icon"><a href="imagexi/index.html">ImageXi</a></td><td><span class="p-plat ps">Ps</span></td><td>$25.9</td><td>$35.9</td><td>$99.9</td></tr>
+          <tr><td><img src="img/imagexi-icon.png" class="po-icon"><a href="imagexi/index.html">ImageXi</a></td><td><span class="p-plat ai">Ai</span></td><td>$15.9</td><td>$25.9</td><td>$69.9</td></tr>
+          <tr><td><img src="img/charter-icon.png" class="po-icon"><a href="charter/index.html">ChartEr</a></td><td><span class="p-plat ps">Ps</span> <span class="p-plat ai">Ai</span></td><td>$14.9</td><td>$24.9</td><td>$69.9</td></tr>
+          <tr><td><img src="img/scipanel-icon.png" class="po-icon"><a href="scipanel/index.html">SciPanel</a></td><td><span class="p-plat ps">Ps</span> <span class="p-plat ai">Ai</span></td><td>$28.9</td><td>$38.9</td><td>$99.9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="reveal" style="color:var(--c-text-muted); font-size:13px; margin-top:16px;"><sup>1</sup> All licenses are one-time purchases with lifetime access. Prices in USD.<br><sup>2</sup> All plugins include a 30-day fully functional free trial.<br><sup>3</sup> Photoshop and Illustrator versions are sold separately.</p>
   </div>
 </section>
 
