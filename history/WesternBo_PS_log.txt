@@ -20,4 +20,5 @@ v2.0.0 08/28/2026 Adeed Custom Scripts.
 v2.1.2 08/31/2026 Added Clone Number section. Added Normalize Minus Only option for the Toggle Sign function. Add missing translation for key.
 v2.2.4 09/02/2026 Added NS (Non-Specific) Band Marker; Added more unit options for LeftRight Label and MW Marker; Added hyphen, minus, and em dash indicator types; Fix some minor bugs.
 v2.2.5 09/02/2026 LeftRight Label now supports entering names or weights only by leaving either side of the semicolon empty.
-v2.2.6 09/04/2026 Fixed tooltip not updating promptly when switching languages.    
+v2.2.6 09/04/2026 Fixed tooltip not updating promptly when switching languages.
+v2.2.7 09/09/2026 Fixed merge functions failing with "dimensions do not match" when documents have identical pixel sizes but different DPI.    
