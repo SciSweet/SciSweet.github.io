@@ -22,3 +22,4 @@ v2.0.0 08/28/2026 Adeed Custom Scripts and fixed a bug that paid users incorrect
 v2.0.1 08/29/2026 Fixed a bug where the nag screen could appear for activated users during use.
 v2.0.2 08/31/2026 Add missing translation for key.
 v2.0.3 09/04/2026 Fixed tooltip not updating promptly when switching languages.
+v2.0.4 09/09/2026 Added long press to reset Scale Bar Style button to default.
