@@ -20,6 +20,7 @@ v1.7.0 08/20/2026 Fixed an issue where the plugin panel could become unresponsiv
 v1.7.1 08/21/2026 Added Rasterize toggle to Pseudo Color and Colorize Selection right-click menus (default on). Fixed Screen blend mode not working in Merge Objects and Batch Merge Objects when Flatten is off.
 v2.0.0 08/28/2026 Adeed Custom Scripts and fixed a bug that paid users incorrectly seeing nag screen due to race condition on window focus.
 v2.0.1 08/29/2026 Fixed a bug where the nag screen could appear for activated users during use.
-v2.0.2 08/31/2026 Add missing translation for key.
+v2.0.2 08/31/2026 Add missing translations for key.
 v2.0.3 09/04/2026 Fixed tooltip not updating promptly when switching languages.
 v2.0.4 09/09/2026 Added long press to reset Scale Bar Style button to default.
+v2.0.5 09/10/2026 Added "Draw Angled Line" in the "Add Line" section.

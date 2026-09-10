@@ -8,3 +8,4 @@ v1.2.5 08/20/2026 Fixed an issue where the plugin panel could become unresponsiv
 v2.0.0 08/28/2026 Adeed Custom Scripts and fixed a bug that paid users incorrectly seeing nag screen due to race condition on window focus.
 v2.0.1 08/31/2026 Add missing translation for key.
 v2.0.2 09/04/2026 Fixed tooltip not updating promptly when switching languages.
+v2.0.3 09/10/2026 Fixed some translations.
