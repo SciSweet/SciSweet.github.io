@@ -22,7 +22,7 @@
     var css = document.createElement('style');
     css.textContent =
         '.i18n-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:28px;' +
-        'display:flex;align-items:center;justify-content:space-between;' +
+        'display:flex;align-items:center;justify-content:flex-end;' +
         'padding:0 clamp(20px,5vw,48px);' +
         'background:var(--c-bg-elevated,#111113);border-bottom:1px solid var(--c-border-subtle,#18181c);}' +
         '.i18n-bar .lang-sw{display:inline-flex;align-items:center;' +
@@ -34,7 +34,7 @@
         '.i18n-bar .lang-sw button.active{background:var(--c-bg-card,#141417);color:var(--c-text,#ededf0);}' +
         '.i18n-bar .lang-sep{width:1px;height:12px;background:var(--c-border,#222228);flex-shrink:0;}' +
         /* hamburger button */
-        '.ham-btn{display:none;background:none;border:none;cursor:pointer;padding:2px 4px;line-height:1;}' +
+        '.ham-btn{display:none;background:none;border:none;cursor:pointer;padding:2px 4px;line-height:1;margin-right:auto;}' +
         '.ham-btn svg{width:16px;height:16px;stroke:var(--c-text-muted,#55555f);stroke-width:2;stroke-linecap:round;}' +
         '.ham-btn:hover svg{stroke:var(--c-text,#ededf0);}' +
         '@media(max-width:768px){.ham-btn{display:flex;align-items:center;}}' +
