@@ -24,3 +24,4 @@ v2.0.2 08/31/2026 Add missing translations for key.
 v2.0.3 09/04/2026 Fixed tooltip not updating promptly when switching languages.
 v2.0.4 09/09/2026 Added long press to reset Scale Bar Style button to default.
 v2.0.5 09/10/2026 Added "Draw Angled Line" in the "Add Line" section.
+v2.0.6 09/12/2026 Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles.

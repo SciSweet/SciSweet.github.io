@@ -20,3 +20,4 @@ v2.2.4 09/02/2026 Added NS (Non-Specific) Band Marker; Added more unit options f
 v2.2.5 09/02/2026 Added "Rasterize" option to Smart Crop.
 v2.2.6 09/02/2026 LeftRight Label now supports entering names or weights only by leaving either side of the semicolon empty.
 v2.2.7 09/04/2026 Fixed tooltip not updating promptly when switching languages.
+v2.2.8 09/12/2026 Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles.

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.7",
+    "latestVersion": "2.2.8",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Fixed tooltip not updating promptly when switching languages."
+    "releaseNotes": "Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles."
 }

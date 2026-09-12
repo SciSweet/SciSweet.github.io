@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.0.5",
+    "latestVersion": "2.0.6",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Added \"Draw Angled Line\" in the \"Add Line\" section."
+    "releaseNotes": "Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles."
 }
