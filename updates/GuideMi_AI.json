@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.0.2",
+    "latestVersion": "2.1.4",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles."
+    "releaseNotes": "Improved light theme support. Added progress bar to all sections."
 }

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.0.4",
+    "latestVersion": "2.1.6",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles."
+    "releaseNotes": "Improved light theme support. Added some popular functions from WesternBo and ImageXi."
 }

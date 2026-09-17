@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.8",
+    "latestVersion": "2.3.9",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Improved light theme support by replacing hardcoded dark-theme colors with CSS variables across overlays, shadows, and inline styles."
+    "releaseNotes": "Improved light theme support. Merge function can export to tif format now."
 }
