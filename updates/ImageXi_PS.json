@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.0.5",
+    "latestVersion": "2.1.5",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Added \"Draw Line on Ruler\" in the \"Add Line\" section."
+    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time."
 }

@@ -6,3 +6,4 @@ v1.2.3 08/16/2026 Detect updates automatically. Fix bugs in preset system and tr
 v2.0.0 08/28/2026 Adeed Custom Scripts.
 v2.0.1 08/31/2026 Add missing translation for key.
 v2.0.2 09/04/2026 Fixed tooltip not updating promptly when switching languages.
+v2.1.4 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Added "Copy to Another Doc" and "Copy to All" functions.

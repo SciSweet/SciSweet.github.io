@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.0.1",
+    "latestVersion": "2.1.4",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Fixed tooltip not updating promptly when switching languages."
+    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Added progress bar to all sections."
 }

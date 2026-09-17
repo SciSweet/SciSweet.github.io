@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.7",
+    "latestVersion": "2.3.9",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Fixed merge functions failing with \"dimensions do not match\" when documents have identical pixel sizes but different DPI."
+    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Fixed the bug of rotation in \"Clone Number\" section."
 }
