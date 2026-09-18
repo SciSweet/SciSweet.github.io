@@ -28,3 +28,4 @@ v2.0.3 09/09/2026 Fixed merge functions failing with "dimensions do not match" w
 v2.0.4 09/09/2026 Added long press to reset Scale Bar Style button to default.
 v2.0.5 09/10/2026 Added "Draw Line on Ruler" in the "Add Line" section.
 v2.1.5 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time.
+v2.1.6 09/17/2026 Rename "Copy to All" function.

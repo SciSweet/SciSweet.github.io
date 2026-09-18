@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.6",
+    "latestVersion": "2.1.7",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Improved light theme support. Added some popular functions from WesternBo and ImageXi."
+    "releaseNotes": "Rename \"Copy to All\" function."
 }

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.9",
+    "latestVersion": "2.4.0",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Fixed the bug of rotation in \"Clone Number\" section."
+    "releaseNotes": "Rename \"Copy to All\" function."
 }

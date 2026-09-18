@@ -22,4 +22,5 @@ v2.2.4 09/02/2026 Added NS (Non-Specific) Band Marker; Added more unit options f
 v2.2.5 09/02/2026 LeftRight Label now supports entering names or weights only by leaving either side of the semicolon empty.
 v2.2.6 09/04/2026 Fixed tooltip not updating promptly when switching languages.
 v2.2.7 09/09/2026 Fixed merge functions failing with "dimensions do not match" when documents have identical pixel sizes but different DPI. 
-v2.3.9 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Fixed the bug of rotation in "Clone Number" section.   
+v2.3.9 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Fixed the bug of rotation in "Clone Number" section.
+v2.4.0 09/17/2026 Rename "Copy to All" function.   

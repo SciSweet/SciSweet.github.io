@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.9",
+    "latestVersion": "2.4.0",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Improved light theme support. Merge function can export to tif format now."
+    "releaseNotes": "Rename \"Copy to All\" function."
 }

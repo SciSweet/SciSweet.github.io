@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.8",
+    "latestVersion": "2.1.9",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Improved light theme support. Merge function can export to tif format now."
+    "releaseNotes": "Rename \"Copy to All\" function."
 }

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.4",
+    "latestVersion": "2.1.5",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Added \"Copy to Another Doc\" and \"Copy to All\" functions."
+    "releaseNotes": "Rename \"Copy to All\" function."
 }
