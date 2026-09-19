@@ -148,23 +148,54 @@
             margin-bottom: 28px;
         }
         .feat-grid {
-            display: flex; flex-direction: column; gap: 1px;
-            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+            columns: 3; column-gap: 16px;
         }
-        .feat-item {
-            display: flex; align-items: flex-start;
-            padding: 22px 28px; background: var(--c-bg-card);
-            transition: background var(--ease);
+        .feat-card {
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
+            overflow: hidden; transition: background var(--ease);
+            break-inside: avoid; margin-bottom: 16px;
         }
-        .feat-item:hover { background: var(--c-bg-card-hover); }
-        .feat-content {
-            display: flex; flex-direction: column; gap: 4px;
+        .feat-card:hover { background: var(--c-bg-card-hover); }
+        .feat-card-title {
+            padding: 12px 16px; font-size: 13.5px; font-weight: 600; color: var(--c-text);
         }
-        .feat-content strong {
-            font-size: 15px; color: var(--c-text); font-weight: 600;
+        .feat-card-desc {
+            padding: 10px 16px 14px; font-size: 12.5px; color: var(--c-text-secondary); line-height: 1.55;
         }
-        .feat-content span {
-            font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.6;
+        .feat-card video,
+        .feat-card img {
+            width: 100%; height: auto; display: block;
+        }
+        .feat-card .video-wrap {
+            position: relative; cursor: pointer;
+        }
+        .feat-card .video-wrap .play-btn {
+            position: absolute; inset: 0; display: grid; place-items: center;
+            background: rgba(0,0,0,0.35); transition: opacity 0.3s ease;
+        }
+        .feat-card .video-wrap .play-btn svg {
+            width: 48px; height: 48px; fill: #fff; opacity: 0.9;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+        }
+        .feat-card .video-wrap.playing .play-btn {
+            opacity: 0; pointer-events: none;
+        }
+        .feat-card .video-wrap:hover .play-btn {
+            background: rgba(0,0,0,0.25);
+        }
+        .feat-card .video-wrap.playing:hover .play-btn {
+            opacity: 0.7; pointer-events: auto;
+        }
+        .feat-card .feat-placeholder {
+            width: 100%; aspect-ratio: 4/3; display: grid; place-items: center;
+            background: var(--c-bg-elevated); border-bottom: 1px solid var(--c-border-subtle);
+            color: var(--c-text-muted); font-size: 12px; font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .feat-grid { columns: 2; }
+        }
+        @media (max-width: 480px) {
+            .feat-grid { columns: 1; }
         }
 
         /* Pricing */
@@ -280,47 +311,15 @@
     <div class="features-section">
         <h2 class="features-title"><span data-i18n="sec-features">Key Features</span></h2>
         <div class="feat-grid">
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-1-title">Better Resize</strong>
-                        <span data-i18n="feat-1-desc">Resize layers to nearest guides, match size to a target layer, or resize to exact pixel dimensions.</span>
+                <div class="feat-card">
+                    <div class="feat-card-title" data-i18n="feat-1-title">Resize to Guide</div>
+                    <div class="video-wrap" onclick="toggleVideo(this)">
+                        <video muted loop playsinline preload="metadata">
+                            <source src="resize-to-guide.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
                     </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-2-title">Better Alignment</strong>
-                        <span data-i18n="feat-2-desc">Advanced alignment tools with linked layer group alignment and anchor layer alignment.</span>
-                    </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-3-title">Better Distribution</strong>
-                        <span data-i18n="feat-3-desc">Edge, center, top/left, and bottom/right distribution tools.</span>
-                    </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-4-title">Better Move</strong>
-                        <span data-i18n="feat-4-desc">8-direction movement, gap mode, guide snapping, and row/column spreading/shrinking.</span>
-                    </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-5-title">ABC Label</strong>
-                        <span data-i18n="feat-5-desc">Batch-add labels to layer groups with automatic layout detection and preset support.</span>
-                    </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-6-title">Figure Label</strong>
-                        <span data-i18n="feat-6-desc">Add figure labels (e.g. "Figure 1", "Fig. S2") with configurable position and font.</span>
-                    </div>
-                </div>
-                <div class="feat-item">
-                    <div class="feat-content">
-                        <strong data-i18n="feat-7-title">Export Panels</strong>
-                        <span data-i18n="feat-7-desc">Export each top-level layer group as PNG, TIFF, JPEG, PSD, or PDF.</span>
-                    </div>
+                    <div class="feat-card-desc" data-i18n="feat-1-desc">Resize layers to nearest guides.</div>
                 </div>
         </div>
     </div>
@@ -384,6 +383,23 @@
     </div>
 </footer>
 
+<script>
+function toggleVideo(wrap) {
+    var video = wrap.querySelector('video');
+    var btn = wrap.querySelector('.play-btn');
+    var playSvg = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+    var pauseSvg = '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>';
+    if (video.paused) {
+        video.play();
+        wrap.classList.add('playing');
+        btn.innerHTML = pauseSvg;
+    } else {
+        video.pause();
+        wrap.classList.remove('playing');
+        btn.innerHTML = playSvg;
+    }
+}
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 document.querySelectorAll('.footer-links a[data-panel]').forEach(function(a){
