@@ -348,6 +348,21 @@
         </div>
 
         <!-- Add more FAQ items here by copying the block below -->
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span class="faq-label" data-i18n="q9-label">Q9:</span>
+                <span class="faq-text"><span data-i18n="q9">Why does Photoshop or Illustrator crash after installing a plugin?</span></span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a">
+                <div class="faq-a-inner">
+                    <span class="faq-label" data-i18n="a9-label">A9:</span>
+                    <p data-i18n="a9">This is usually caused by insufficient memory. CEP plugins add to the host application's memory footprint, and on machines with limited RAM the extra load can trigger a crash on startup. Try using an older version of the host application, which typically has lower memory requirements, and see if the issue goes away.</p>
+                </div>
+            </div>
+        </div>
+
         <!--
         <div class="faq-item">
             <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
