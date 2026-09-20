@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.2",
+    "latestVersion": "2.1.3",
     "downloadUrl": "https://scisuite.cc/charter",
-    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time."
+    "releaseNotes": "Improved the UI of the Special Character panel in light mode."
 }

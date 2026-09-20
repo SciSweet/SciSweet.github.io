@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.5",
+    "latestVersion": "2.1.6",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Rename \"Copy to All\" function."
+    "releaseNotes": "Added Phrase Bank, Special Character, and Batch Text Style features."
 }

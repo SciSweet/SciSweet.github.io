@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.9",
+    "latestVersion": "2.2.0",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Rename \"Copy to All\" function."
+    "releaseNotes": "Added \"Rasterize\" option to Smart Crop."
 }

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.4",
+    "latestVersion": "2.1.5",
     "downloadUrl": "https://scisuite.cc/charter",
-    "releaseNotes": "Improved light theme support."
+    "releaseNotes": "Improved the UI of the Special Character panel in light mode."
 }
