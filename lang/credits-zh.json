@@ -27,6 +27,7 @@
     "contrib-au-desc": "发现标签标注中减号字符错误的问题。",
     "contrib-cta": "这个位置可以是你！我们欢迎各种形式的贡献——功能建议、Bug 报告、翻译或代码。",
     "contrib-cta-link": "通过<a href='../contact/index.html' style='color:var(--c-accent-light);'>联系我们</a>开始参与。",
+    "contrib-cta-paper": "我们计划发表一篇关于 SciSuite 的文章，所有实名贡献者都将成为共同作者。",
     "sec-sponsors": "赞助商",
     "sponsors-desc": "SciSuite 定价亲民，因为我们理解研究人员预算通常有限——而且无限期免费试用意味着许多用户从不需要付费。因此，仅靠收入无法覆盖持续的开发、测试和维护成本。",
     "sponsors-offer": "我们也为赞助商提供产品集成权益。例如，WesternBo 的分子量标记功能内置了多种 Ladder 预设——赞助企业可以将自家的 Ladder 产品加入默认选项，让全球科研用户在标注 Blot 时直接看到并使用。如果贵公司对这种嵌入式的精准推广感兴趣，<a href='../contact/index.html' style='color:var(--c-accent-light);'>欢迎联系我们</a>。",
