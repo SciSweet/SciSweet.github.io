@@ -9,3 +9,4 @@ v2.0.2 09/04/2026 Fixed tooltip not updating promptly when switching languages.
 v2.1.4 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Added "Copy to Another Doc" and "Copy to All" functions.
 v2.1.5 09/17/2026 Rename "Copy to All" function.
 v2.1.6 09/20/2026 Added Phrase Bank, Special Character, and Batch Text Style features.
+v2.1.7 09/21/2026 Added Select Text and Select Non-text functions.

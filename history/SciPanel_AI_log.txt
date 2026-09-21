@@ -13,3 +13,4 @@ v2.0.4 09/12/2026 Improved light theme support by replacing hardcoded dark-theme
 v2.1.6 09/17/2026 Improved light theme support. Added some popular functions from WesternBo and ImageXi.
 v2.1.7 09/17/2026 Rename "Copy to All" function.
 v2.1.8 09/20/2026 Added Phrase Bank, Special Character, and Batch Text Style features.
+v2.1.9 09/21/2026 Added Select Text and Select Non-text functions.

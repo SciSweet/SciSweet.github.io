@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.8",
+    "latestVersion": "2.1.9",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Added Phrase Bank, Special Character, and Batch Text Style features."
+    "releaseNotes": "Added Select Text and Select Non-text functions."
 }
