@@ -523,8 +523,29 @@
         .showcase-card {
             background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
             overflow: hidden; transition: background var(--ease);
+            display: flex; flex-direction: column;
         }
         .showcase-card:hover { background: var(--c-bg-card-hover); }
+        .showcase-card .video-wrap { flex: 1; display: flex; align-items: center; cursor: pointer; }
+
+        /* ===== Video modal ===== */
+        .video-modal {
+            display: none; position: fixed; inset: 0; z-index: 9999;
+            background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+        }
+        .video-modal.active { display: flex; }
+        .video-modal video {
+            max-width: 90vw; max-height: 85vh; border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+        .video-modal-close {
+            position: absolute; top: 20px; right: 24px;
+            width: 36px; height: 36px; border: none; border-radius: 50%;
+            background: rgba(255,255,255,0.15); color: #fff; font-size: 20px;
+            cursor: pointer; display: grid; place-items: center;
+            transition: background 0.2s;
+        }
+        .video-modal-close:hover { background: rgba(255,255,255,0.3); }
         .showcase-card-title {
             padding: 12px 16px 0; font-size: 13.5px; font-weight: 600; color: var(--c-text);
             display: flex; align-items: center; justify-content: space-between;
@@ -537,6 +558,7 @@
         .showcase-card-title .sc-plugin:hover { color: var(--c-accent-light); border-color: var(--c-accent); }
         .showcase-card-desc {
             padding: 10px 16px 14px; font-size: 12.5px; color: var(--c-text-secondary); line-height: 1.55;
+            margin-top: auto;
         }
         .showcase-card .video-wrap {
             position: relative; overflow: hidden; cursor: pointer;
@@ -722,7 +744,7 @@
                 <span data-i18n="sc-1-title">MinusPlus Matrix + Line Marker</span>
                 <a href="westernbo/index.html" class="sc-plugin">WesternBo</a>
             </div>
-            <div class="video-wrap" onclick="loadAndPlay(this)">
+            <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="westernbo/minusplus-linemarker.mp4">
                 </video>
                 <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -734,7 +756,7 @@
                 <span data-i18n="sc-2-title">Inset</span>
                 <a href="imagexi/index.html" class="sc-plugin">ImageXi</a>
             </div>
-            <div class="video-wrap" onclick="loadAndPlay(this)">
+            <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="imagexi/inset.mp4">
                 </video>
                 <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -746,7 +768,7 @@
                 <span data-i18n="sc-3-title">Significance Mark (Multi)</span>
                 <a href="charter/index.html" class="sc-plugin">ChartEr</a>
             </div>
-            <div class="video-wrap" onclick="loadAndPlay(this)">
+            <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="charter/sig-mark-multi.mp4">
                 </video>
                 <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
@@ -1230,6 +1252,10 @@ function downloadAll(btn, platform) {
 })();
 </script>
 <script src="lang/i18n.js" data-json="lang/index-zh.json"></script>
+<div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+    <button class="video-modal-close" onclick="closeVideoModal(event)">&times;</button>
+    <video id="modalVideo" muted loop playsinline></video>
+</div>
 <script>
 // Showcase videos: desktop auto-load+play, mobile tap-to-play
 function loadVideo(video) {
@@ -1238,12 +1264,45 @@ function loadVideo(video) {
         video.load();
     }
 }
-function loadAndPlay(wrap) {
+function openVideoModal(wrap) {
     var video = wrap.querySelector('video');
-    loadVideo(video);
-    video.play();
-    wrap.classList.add('playing');
+    var src = video.src || video.dataset.src;
+    // Mobile: just play inline
+    if (window.innerWidth <= 900) {
+        loadVideo(video);
+        video.play();
+        wrap.classList.add('playing');
+        return;
+    }
+    // Desktop: open modal
+    var modal = document.getElementById('videoModal');
+    var modalVideo = document.getElementById('modalVideo');
+    modalVideo.src = src;
+    modalVideo.load();
+    modalVideo.play().catch(function(){});
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
+function closeVideoModal(e) {
+    if (e.target !== document.getElementById('videoModal') && !e.target.classList.contains('video-modal-close')) return;
+    var modal = document.getElementById('videoModal');
+    var modalVideo = document.getElementById('modalVideo');
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var modal = document.getElementById('videoModal');
+        if (modal.classList.contains('active')) {
+            document.getElementById('modalVideo').pause();
+            document.getElementById('modalVideo').removeAttribute('src');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+});
 (function(){
     var isMobile = window.innerWidth <= 900;
     if (!isMobile) {
