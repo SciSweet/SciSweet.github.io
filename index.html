@@ -211,6 +211,7 @@
             max-height: 320px; width: auto; display: block;
             border-radius: 0; border: 1px solid var(--c-border);
         }
+        .hero-slide-sparkript { height: 420px; }
         /* Dots */
         .hero-carousel { position: relative; }
         .hero-dots {
@@ -247,6 +248,9 @@
                 gap: 18px; width: 100%;
             }
             .hero-right .fp { text-align: left; }
+            .hero-slide-img { height: auto; }
+            .hero-slide-img img { max-height: none; max-width: 100%; height: auto; }
+            .hero-slide-sparkript { height: auto !important; flex-direction: column; gap: 24px; margin-top: 0 !important; padding-bottom: 20px; }
         }
         @media (max-width: 480px) {
             .hero-left svg { width: 240px; }
@@ -539,12 +543,20 @@
             padding: 10px 16px 14px; font-size: 12.5px; color: var(--c-text-secondary); line-height: 1.55;
         }
         .showcase-card .video-wrap {
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; cursor: pointer;
             background: #000;
         }
         .showcase-card .video-wrap video {
             width: 100%; height: auto; display: block;
         }
+        .showcase-card .video-wrap .play-btn {
+            position: absolute; inset: 0; display: grid; place-items: center;
+            background: rgba(0,0,0,0.35); transition: opacity 0.3s ease;
+        }
+        .showcase-card .video-wrap .play-btn svg {
+            width: 44px; height: 44px; fill: rgba(255,255,255,0.85); filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+        }
+        .showcase-card .video-wrap.playing .play-btn { display: none; }
         @media (max-width: 900px) { .showcase-grid { grid-template-columns: 1fr; } }
 
         /* ===== Scroll reveal ===== */
@@ -675,7 +687,7 @@
             </div>
             <!-- Slide 4: Sparkript -->
             <div class="hero-slide">
-                <div style="display:flex; align-items:center; justify-content:center; gap:60px; width:100%; height:420px; padding:0 clamp(20px,4vw,60px); margin-top:-40px;">
+                <div class="hero-slide-sparkript" style="display:flex; align-items:center; justify-content:center; gap:60px; width:100%; padding:0 clamp(20px,4vw,60px); margin-top:-40px;">
                     <div style="flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:16px;">
                         <img src="img/sparkript-logo-white.svg" alt="Sparkript" style="width:140px; height:auto; opacity:0.95;">
                         <span style="font-family:var(--font-display); font-size:24px; font-weight:600; color:var(--c-text); letter-spacing:0.02em;" data-i18n="slide-spark-name">Sparkript</span>
@@ -714,10 +726,10 @@
                 <span data-i18n="sc-1-title">MinusPlus Matrix + Line Marker</span>
                 <a href="westernbo/index.html" class="sc-plugin">WesternBo</a>
             </div>
-            <div class="video-wrap">
-                <video muted loop playsinline autoplay preload="auto">
-                    <source src="westernbo/minusplus-linemarker.mp4" type="video/mp4">
+            <div class="video-wrap" onclick="loadAndPlay(this)">
+                <video muted loop playsinline preload="none" data-src="westernbo/minusplus-linemarker.mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
             <div class="showcase-card-desc" data-i18n="sc-1-desc">Add line markers, plus/minus matrices, and lane labels above blot images.</div>
         </div>
@@ -726,10 +738,10 @@
                 <span data-i18n="sc-2-title">Inset</span>
                 <a href="imagexi/index.html" class="sc-plugin">ImageXi</a>
             </div>
-            <div class="video-wrap">
-                <video muted loop playsinline autoplay preload="auto">
-                    <source src="imagexi/inset.mp4" type="video/mp4">
+            <div class="video-wrap" onclick="loadAndPlay(this)">
+                <video muted loop playsinline preload="none" data-src="imagexi/inset.mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
             <div class="showcase-card-desc" data-i18n="sc-2-desc">Create magnified insets from selected regions with optional strokes and connector lines.</div>
         </div>
@@ -738,10 +750,10 @@
                 <span data-i18n="sc-3-title">Significance Mark (Multi)</span>
                 <a href="charter/index.html" class="sc-plugin">ChartEr</a>
             </div>
-            <div class="video-wrap">
-                <video muted loop playsinline autoplay preload="auto">
-                    <source src="charter/sig-mark-multi.mp4" type="video/mp4">
+            <div class="video-wrap" onclick="loadAndPlay(this)">
+                <video muted loop playsinline preload="none" data-src="charter/sig-mark-multi.mp4">
                 </video>
+                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
             <div class="showcase-card-desc" data-i18n="sc-3-desc">Batch-add significance marks for all group combinations using guides as anchor positions.</div>
         </div>
@@ -1223,6 +1235,30 @@ function downloadAll(btn, platform) {
 </script>
 <script src="lang/i18n.js" data-json="lang/index-zh.json"></script>
 <script>
+// Showcase videos: desktop auto-load+play, mobile tap-to-play
+function loadVideo(video) {
+    if (!video.src && video.dataset.src) {
+        video.src = video.dataset.src;
+        video.load();
+    }
+}
+function loadAndPlay(wrap) {
+    var video = wrap.querySelector('video');
+    loadVideo(video);
+    video.play();
+    wrap.classList.add('playing');
+}
+(function(){
+    var isMobile = window.innerWidth <= 900;
+    if (!isMobile) {
+        document.querySelectorAll('.showcase-card video[data-src]').forEach(function(video){
+            loadVideo(video);
+            video.autoplay = true;
+            video.play().catch(function(){});
+            video.closest('.video-wrap').classList.add('playing');
+        });
+    }
+})();
 function toggleVideo(wrap) {
     var video = wrap.querySelector('video');
     var btn = wrap.querySelector('.play-btn');
