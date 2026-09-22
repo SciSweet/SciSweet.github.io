@@ -57,6 +57,8 @@
     "slide-spark-desc": "每个 SciSuite 插件都内置 Custom Scripts 区域，提供可自定义的按钮插槽。绑定任意脚本，用颜色和图标个性化，单击即可运行。与社区一起，分享你的脚本。",
     "slide-spark-name": "星火脚本",
     "sec-showcase": "功能演示",
+    "sec-course": "教学许可",
+    "course-desc": "使用 SciSuite 进行教学？我们为教师提供优惠价格。<a href='contact/index.html' style='color:var(--c-accent-light);'>联系我们</a>了解详情。",
     "sc-1-title": "加减号矩阵 + 线条标记",
     "sc-1-desc": "在免疫印迹图像上方添加线条标记、加减号矩阵和泳道标签。",
     "sc-2-title": "局部放大图",
