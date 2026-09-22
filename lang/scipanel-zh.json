@@ -10,10 +10,10 @@
     "th-phd": "博士",
     "th-enterprise": "企业版",
     "pricing-note": "所有许可证均为一次性购买，包含免费小版本更新。Ps 和 Ai 版本分开销售。每个许可证绑定一台计算机。",
-    "feat-1-title": "Better Resize",
-    "feat-1-desc": "将图层缩放到最近的参考线、匹配目标图层大小或缩放到精确像素尺寸。",
-    "feat-2-title": "Better Alignment",
-    "feat-2-desc": "高级对齐工具，支持链接图层组对齐和锚定图层对齐。",
+    "feat-1-title": "缩放到参考线",
+    "feat-1-desc": "将图层缩放到最近的参考线。",
+    "feat-2-title": "匹配大小",
+    "feat-2-desc": "将选中图层的大小匹配到目标图层。",
     "feat-3-title": "Better Distribution",
     "feat-3-desc": "边缘、中心、上/左和下/右分布工具。",
     "feat-4-title": "Better Move",
@@ -38,6 +38,8 @@
     "footer-join-text": "我们欢迎各种形式的贡献——功能建议、Bug 报告、翻译或代码。如果你希望参与本项目，请联系我们 (contact@scisuite.cc)。重要贡献者将被列为开发者。",
     "dl-tip-ps": "下载 Photoshop 版",
     "dl-tip-ai": "下载 Illustrator 版",
+    "feat-resize-exact-title": "精确缩放",
+    "feat-resize-exact-desc": "将图层缩放到精确的像素尺寸。",
     "nav-install": "安装",
     "nav-sparkript": "星火脚本"
 }
