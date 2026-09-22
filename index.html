@@ -539,20 +539,11 @@
             padding: 10px 16px 14px; font-size: 12.5px; color: var(--c-text-secondary); line-height: 1.55;
         }
         .showcase-card .video-wrap {
-            position: relative; cursor: pointer; overflow: hidden;
+            position: relative; overflow: hidden;
             background: #000;
         }
         .showcase-card .video-wrap video {
             width: 100%; height: auto; display: block;
-        }
-        .showcase-card .video-wrap .play-btn {
-            position: absolute; inset: 0; display: grid; place-items: center;
-            background: rgba(0,0,0,0.35); transition: opacity 0.3s ease;
-        }
-        .showcase-card .video-wrap.playing .play-btn { opacity: 0; }
-        .showcase-card .video-wrap:hover .play-btn { opacity: 1; }
-        .showcase-card .video-wrap .play-btn svg {
-            width: 44px; height: 44px; fill: rgba(255,255,255,0.85); filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
         }
         @media (max-width: 900px) { .showcase-grid { grid-template-columns: 1fr; } }
 
@@ -713,6 +704,51 @@
     </div>
 </section>
 
+<!-- Popular Features Showcase -->
+<section class="section" id="showcase">
+  <div class="section-inner">
+    <h2 class="sec-title reveal"><span data-i18n="sec-showcase">See It in Action</span></h2>
+    <div class="showcase-grid reveal">
+        <div class="showcase-card">
+            <div class="showcase-card-title">
+                <span data-i18n="sc-1-title">MinusPlus Matrix + Line Marker</span>
+                <a href="westernbo/index.html" class="sc-plugin">WesternBo</a>
+            </div>
+            <div class="video-wrap">
+                <video muted loop playsinline autoplay preload="auto">
+                    <source src="westernbo/minusplus-linemarker.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="showcase-card-desc" data-i18n="sc-1-desc">Add line markers, plus/minus matrices, and lane labels above blot images.</div>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-card-title">
+                <span data-i18n="sc-2-title">Inset</span>
+                <a href="imagexi/index.html" class="sc-plugin">ImageXi</a>
+            </div>
+            <div class="video-wrap">
+                <video muted loop playsinline autoplay preload="auto">
+                    <source src="imagexi/inset.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="showcase-card-desc" data-i18n="sc-2-desc">Create magnified insets from selected regions with optional strokes and connector lines.</div>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-card-title">
+                <span data-i18n="sc-3-title">Significance Mark (Multi)</span>
+                <a href="charter/index.html" class="sc-plugin">ChartEr</a>
+            </div>
+            <div class="video-wrap">
+                <video muted loop playsinline autoplay preload="auto">
+                    <source src="charter/sig-mark-multi.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="showcase-card-desc" data-i18n="sc-3-desc">Batch-add significance marks for all group combinations using guides as anchor positions.</div>
+        </div>
+    </div>
+  </div>
+</section>
+
 <!-- Plugins — 5-column strip -->
 <section class="section" id="plugins">
   <div class="section-inner">
@@ -773,54 +809,6 @@
                 <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
                 <a href="scipanel/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-
-<!-- Popular Features Showcase -->
-<section class="section" id="showcase">
-  <div class="section-inner">
-    <h2 class="sec-title reveal"><span data-i18n="sec-showcase">See It in Action</span></h2>
-    <div class="showcase-grid reveal">
-        <div class="showcase-card">
-            <div class="showcase-card-title">
-                <span data-i18n="sc-1-title">MinusPlus Matrix + Line Marker</span>
-                <a href="westernbo/index.html" class="sc-plugin">WesternBo</a>
-            </div>
-            <div class="video-wrap" onclick="toggleVideo(this)">
-                <video muted loop playsinline preload="metadata">
-                    <source src="westernbo/minusplus-linemarker.mp4" type="video/mp4">
-                </video>
-                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-            </div>
-            <div class="showcase-card-desc" data-i18n="sc-1-desc">Add line markers, plus/minus matrices, and lane labels above blot images.</div>
-        </div>
-        <div class="showcase-card">
-            <div class="showcase-card-title">
-                <span data-i18n="sc-2-title">Inset</span>
-                <a href="imagexi/index.html" class="sc-plugin">ImageXi</a>
-            </div>
-            <div class="video-wrap" onclick="toggleVideo(this)">
-                <video muted loop playsinline preload="metadata">
-                    <source src="imagexi/inset.mp4" type="video/mp4">
-                </video>
-                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-            </div>
-            <div class="showcase-card-desc" data-i18n="sc-2-desc">Create magnified insets from selected regions with optional strokes and connector lines.</div>
-        </div>
-        <div class="showcase-card">
-            <div class="showcase-card-title">
-                <span data-i18n="sc-3-title">Significance Mark (Multi)</span>
-                <a href="charter/index.html" class="sc-plugin">ChartEr</a>
-            </div>
-            <div class="video-wrap" onclick="toggleVideo(this)">
-                <video muted loop playsinline preload="metadata">
-                    <source src="charter/sig-mark-multi.mp4" type="video/mp4">
-                </video>
-                <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-            </div>
-            <div class="showcase-card-desc" data-i18n="sc-3-desc">Batch-add significance marks for all group combinations using guides as anchor positions.</div>
         </div>
     </div>
   </div>
