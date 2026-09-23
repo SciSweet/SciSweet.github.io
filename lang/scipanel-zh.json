@@ -43,5 +43,7 @@
     "feat-resize-exact-title": "精确缩放",
     "feat-resize-exact-desc": "将图层缩放到精确的像素尺寸。",
     "nav-install": "安装",
-    "nav-sparkript": "星火脚本"
+    "nav-sparkript": "星火脚本",
+    "feat-align-anchor-title": "对齐到锚点对象",
+    "feat-align-anchor-desc": "将选中图层对齐到锚点对象，类似于 Illustrator 的"对齐到关键对象"功能。"
 }
