@@ -284,11 +284,39 @@
         /* ===== Plugin Cards — Astute Graphics inspired 5-col strip ===== */
         .plugins-strip {
             display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
-            background: var(--c-border); border-radius: var(--r-lg); overflow: hidden;
+            background: var(--c-border); border-radius: var(--r-lg); overflow: visible;
+        }
+        .plugins-strip::before {
+            content: ''; position: absolute; inset: 0; border-radius: var(--r-lg); pointer-events: none;
         }
         .p-card {
             background: var(--c-bg-card); padding: 32px 24px; display: flex; flex-direction: column;
-            transition: background var(--ease); position: relative;
+            transition: background var(--ease); position: relative; overflow: visible;
+        }
+        .plugins-strip .p-card:first-child { border-radius: var(--r-lg) 0 0 var(--r-lg); }
+        .plugins-strip .p-card:last-child { border-radius: 0 var(--r-lg) var(--r-lg) 0; }
+        @media (max-width: 1100px) {
+            .plugins-strip { grid-template-columns: repeat(3, 1fr); }
+            .plugins-strip .p-card:first-child { border-radius: var(--r-lg) 0 0 0; }
+            .plugins-strip .p-card:last-child { border-radius: 0 0 var(--r-lg) 0; }
+            .plugins-strip .p-card:nth-child(3) { border-radius: 0 var(--r-lg) 0 0; }
+            .plugins-strip .p-card:nth-child(4) { border-radius: 0 0 0 var(--r-lg); }
+            .plugins-strip .p-card:nth-child(5) { border-radius: 0; }
+        }
+        @media (max-width: 700px) {
+            .plugins-strip { grid-template-columns: repeat(2, 1fr); }
+            .plugins-strip .p-card { border-radius: 0; }
+            .plugins-strip .p-card:first-child { border-radius: var(--r-lg) 0 0 0; }
+            .plugins-strip .p-card:nth-child(2) { border-radius: 0 var(--r-lg) 0 0; }
+            .plugins-strip .p-card:nth-child(4) { border-radius: 0 0 0 var(--r-lg); }
+            .plugins-strip .p-card:last-child { border-radius: 0 0 var(--r-lg) 0; }
+            .plugins-strip .p-card:nth-child(3) { border-radius: 0; }
+        }
+        @media (max-width: 480px) {
+            .plugins-strip { grid-template-columns: 1fr; }
+            .plugins-strip .p-card { border-radius: 0; }
+            .plugins-strip .p-card:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+            .plugins-strip .p-card:last-child { border-radius: 0 0 var(--r-lg) var(--r-lg); }
         }
         .p-card:hover { background: var(--c-bg-card-hover); }
         .p-card-icon { font-size: 28px; margin-bottom: 18px; width: 52px; height: 52px; border-radius: var(--r-md); display: grid; place-items: center; }
@@ -301,12 +329,20 @@
         .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; }
         .p-plat.ps { background: var(--c-ps-glow); color: var(--c-ps); border: 1px solid rgba(49,168,255,0.12); }
         .p-plat.ai { background: var(--c-ai-glow); color: var(--c-ai); border: 1px solid rgba(255,154,0,0.12); }
+        a.p-plat { position: relative; cursor: pointer; transition: all var(--ease); text-decoration: none; }
+        a.p-plat:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        a.p-plat.ps:hover { background: rgba(49,168,255,0.18); border-color: rgba(49,168,255,0.3); }
+        a.p-plat.ai:hover { background: rgba(255,154,0,0.18); border-color: rgba(255,154,0,0.3); }
+        a.p-plat::after {
+            content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            padding: 5px 10px; border-radius: 4px; background: var(--c-text); color: var(--c-bg);
+            font-size: 11.5px; font-weight: 500; white-space: nowrap;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+        }
+        a.p-plat:hover::after { opacity: 1; }
         .p-card-link { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: var(--c-accent-light); transition: gap var(--ease); }
         .p-card-link:hover { gap: 9px; }
         .p-card-link svg { width: 13px; height: 13px; }
-        @media (max-width: 1100px) { .plugins-strip { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 700px) { .plugins-strip { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .plugins-strip { grid-template-columns: 1fr; } }
 
         /* ===== Hero Intro Slide ===== */
         .hero-slide-intro {
@@ -792,7 +828,7 @@
             <div class="p-card-tagline"><span data-i18n="pc-guidemi-tagline">Guide &amp; Layout Management</span></div>
             <p data-i18n="pc-guidemi-desc">Margins, grids, golden ratio, unequal divisions, and guide layout snapshots with smart boundary detection and live preview.</p>
             <div class="p-card-foot">
-                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <div class="p-card-platforms"><a href="#" data-plugin="GuideMi" data-platform="PS" class="p-plat ps" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="GuideMi" data-platform="AI" class="p-plat ai" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
                 <a href="guidemi/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
@@ -803,7 +839,7 @@
             <div class="p-card-tagline"><span data-i18n="pc-westernbo-tagline">Western Blot &amp; Gel Tools</span></div>
             <p data-i18n="pc-westernbo-desc">Lane labeling, molecular weight markers, band resizing, stroke borders, line markers, and plus/minus matrices for blot figures.</p>
             <div class="p-card-foot">
-                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <div class="p-card-platforms"><a href="#" data-plugin="WesternBo" data-platform="PS" class="p-plat ps" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="WesternBo" data-platform="AI" class="p-plat ai" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
                 <a href="westernbo/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
@@ -814,7 +850,7 @@
             <div class="p-card-tagline"><span data-i18n="pc-imagexi-tagline">Microscopy Image Processing</span></div>
             <p data-i18n="pc-imagexi-desc">Scale bars, channel split/merge, pseudo-color LUTs, magnified insets, sequential labeling, and batch layer resizing for microscopy figures.</p>
             <div class="p-card-foot">
-                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <div class="p-card-platforms"><a href="#" data-plugin="ImageXi" data-platform="PS" class="p-plat ps" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="ImageXi" data-platform="AI" class="p-plat ai" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
                 <a href="imagexi/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
@@ -825,7 +861,7 @@
             <div class="p-card-tagline"><span data-i18n="pc-charter-tagline">Chart Annotation &amp; Tables</span></div>
             <p data-i18n="pc-charter-desc">Significance marks, bar resizing, advanced line markers, table drawing, and phrase bank for annotating charts and graphs.</p>
             <div class="p-card-foot">
-                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <div class="p-card-platforms"><a href="#" data-plugin="ChartEr" data-platform="PS" class="p-plat ps" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="ChartEr" data-platform="AI" class="p-plat ai" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
                 <a href="charter/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
@@ -836,7 +872,7 @@
             <div class="p-card-tagline"><span data-i18n="pc-scipanel-tagline">Figure Panel Assembly</span></div>
             <p data-i18n="pc-scipanel-desc">Multi-panel layout with smart resize, alignment, distribution, ABC labeling, figure labels, dimension markers, and batch export to PNG/TIFF/PDF.</p>
             <div class="p-card-foot">
-                <div class="p-card-platforms"><span class="p-plat ps">Ps</span><span class="p-plat ai">Ai</span></div>
+                <div class="p-card-platforms"><a href="#" data-plugin="SciPanel" data-platform="PS" class="p-plat ps" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="SciPanel" data-platform="AI" class="p-plat ai" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
                 <a href="scipanel/index.html" class="p-card-link"><span data-i18n="pc-details">Details</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
