@@ -583,15 +583,17 @@
         }
         .video-modal-close:hover { background: rgba(255,255,255,0.3); }
         .showcase-card-title {
-            padding: 12px 16px 0; font-size: 13.5px; font-weight: 600; color: var(--c-text);
+            padding: 12px 16px; font-size: 13.5px; font-weight: 600; color: var(--c-text);
             display: flex; align-items: center; justify-content: space-between;
         }
         .showcase-card-title .sc-plugin {
-            font-size: 11px; font-weight: 500; color: var(--c-text-muted);
-            padding: 2px 8px; border: 1px solid var(--c-border); border-radius: 20px;
-            text-decoration: none; transition: all var(--ease);
+            display: flex; align-items: center; text-decoration: none; transition: opacity var(--ease);
+            opacity: 0.7;
         }
-        .showcase-card-title .sc-plugin:hover { color: var(--c-accent-light); border-color: var(--c-accent); }
+        .showcase-card-title .sc-plugin:hover { opacity: 1; }
+        .showcase-card-title .sc-plugin img {
+            width: 22px; height: 22px;
+        }
         .showcase-card-desc {
             padding: 10px 16px 14px; font-size: 12.5px; color: var(--c-text-secondary); line-height: 1.55;
             margin-top: auto;
@@ -778,7 +780,7 @@
         <div class="showcase-card">
             <div class="showcase-card-title">
                 <span data-i18n="sc-1-title">MinusPlus Matrix + Line Marker</span>
-                <a href="westernbo/index.html" class="sc-plugin">WesternBo</a>
+                <a href="westernbo/index.html" class="sc-plugin" title="WesternBo"><img src="img/westernbo-icon.png" alt="WesternBo"></a>
             </div>
             <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="westernbo/minusplus-linemarker.mp4">
@@ -790,7 +792,7 @@
         <div class="showcase-card">
             <div class="showcase-card-title">
                 <span data-i18n="sc-2-title">Inset</span>
-                <a href="imagexi/index.html" class="sc-plugin">ImageXi</a>
+                <a href="imagexi/index.html" class="sc-plugin" title="ImageXi"><img src="img/imagexi-icon.png" alt="ImageXi"></a>
             </div>
             <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="imagexi/inset.mp4">
@@ -802,7 +804,7 @@
         <div class="showcase-card">
             <div class="showcase-card-title">
                 <span data-i18n="sc-3-title">Significance Mark (Multi)</span>
-                <a href="charter/index.html" class="sc-plugin">ChartEr</a>
+                <a href="charter/index.html" class="sc-plugin" title="ChartEr"><img src="img/charter-icon.png" alt="ChartEr"></a>
             </div>
             <div class="video-wrap" onclick="openVideoModal(this)">
                 <video muted loop playsinline preload="none" data-src="charter/sig-mark-multi.mp4">
