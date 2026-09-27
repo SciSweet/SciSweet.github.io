@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.4",
+    "latestVersion": "2.2.5",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Added automatic dark/light theme support that follows Photoshop's interface brightness in real time. Added progress bar to all sections."
+    "releaseNotes": "Added Text Frames option for the Grid and Go section. Updated the Custom Scripts section and fixed some minors."
 }

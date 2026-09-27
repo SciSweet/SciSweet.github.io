@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.4",
+    "latestVersion": "2.2.5",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Improved light theme support. Added progress bar to all sections."
+    "releaseNotes": "Added Text Frames option for the Grid and Go section. Updated the Custom Scripts section and fixed some minors."
 }

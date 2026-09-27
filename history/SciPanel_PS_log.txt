@@ -10,3 +10,4 @@ v2.1.4 09/17/2026 Added automatic dark/light theme support that follows Photosho
 v2.1.5 09/17/2026 Rename "Copy to All" function.
 v2.1.6 09/20/2026 Added Phrase Bank, Special Character, and Batch Text Style features.
 v2.1.7 09/21/2026 Added Select Text and Select Non-text functions.
+v2.2.8 09/27/2026 Added Select Text and Select Non-text function. Updated the Custom Scripts section and fixed some minors. 

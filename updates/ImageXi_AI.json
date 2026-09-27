@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.0",
+    "latestVersion": "2.2.1",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Added \"Rasterize\" option to Smart Crop."
+    "releaseNotes": "Updated the Custom Scripts section and fixed some minors."
 }
