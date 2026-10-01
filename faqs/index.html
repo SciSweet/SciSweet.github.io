@@ -373,7 +373,7 @@
             <div class="faq-a">
                 <div class="faq-a-inner">
                     <span class="faq-label" data-i18n="a10-label">A10:</span>
-                    <p data-i18n="a10">This is usually caused by insufficient memory. CEP plugins add to the host application's memory footprint, and on machines with limited RAM the extra load can trigger a crash on startup. Try using an older version of the host application, which typically has lower memory requirements, and see if the issue goes away.</p>
+                    <p data-i18n="a10">Two common causes:<br><br><strong>1. Insufficient memory.</strong> CEP plugins add to the host application's memory footprint, and on machines with limited RAM the extra load can trigger a crash on startup. Try using an older version of the host application, which typically has lower memory requirements, and see if the issue goes away.<br><br><strong>2. Certificate trust (2025/2026+).</strong> Newer versions of Photoshop or Illustrator may refuse to load CEP extensions signed with a personal developer certificate, causing a crash on startup. To fix this, enable <strong>PlayerDebugMode</strong>, which bypasses certificate validation. See the <a href="../install/index.html" style="color:var(--c-accent-light);">Installation Guide</a> for instructions on enabling it.</p>
                 </div>
             </div>
         </div>
