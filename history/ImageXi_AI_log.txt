@@ -29,3 +29,4 @@ v2.1.8 09/17/2026 Improved light theme support. Merge function can export to tif
 v2.1.9 09/17/2026 Rename "Copy to All" function.
 v2.2.0 09/20/2026 Added "Rasterize" option to Smart Crop.
 v2.2.1 09/27/2026 Updated the Custom Scripts section and fixed some minors.
+v2.2.2 10/01/2026 Updated the Get Info function, optimized the UI, and fixed some minors.

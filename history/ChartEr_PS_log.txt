@@ -8,3 +8,4 @@ v2.0.1 09/04/2026 Fixed tooltip not updating promptly when switching languages.
 v2.1.2 09/17/2026 Added automatic dark/light theme support that follows Photoshop's interface brightness in real time.
 v2.1.3 09/20/2026 Improved the UI of the Special Character panel in light mode.
 v2.1.4 09/27/2026 Updated the Custom Scripts section and fixed some minors.
+v2.1.5 10/01/2026 Optimized the UI and fixed some minors.

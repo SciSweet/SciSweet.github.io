@@ -11,3 +11,4 @@ v2.0.2 09/12/2026 Improved light theme support by replacing hardcoded dark-theme
 v2.1.4 09/17/2026 Improved light theme support.
 v2.1.5 09/20/2026 Improved the UI of the Special Character panel in light mode.
 v2.1.6 09/27/2026 Updated the Custom Scripts section and fixed some minors.
+v2.1.7 10/01/2026 Optimized the UI and fixed some minors.

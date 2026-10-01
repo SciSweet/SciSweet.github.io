@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.1",
+    "latestVersion": "2.2.2",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Updated the Custom Scripts section and fixed some minors."
+    "releaseNotes": "Updated the Get Info function, optimized the UI, and fixed some minors."
 }

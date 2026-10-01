@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.8",
+    "latestVersion": "2.3.9",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Added Select Text and Select Non-text function. Updated the Custom Scripts section and fixed some minors."
+    "releaseNotes": "Added Scale and Homogenize Strokes functions, updated Select Text and Font Detect, updated the Get Info function, optimized the UI, and fixed some minors."
 }

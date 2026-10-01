@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.2.5",
+    "latestVersion": "2.2.6",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Added Text Frames option for the Grid and Go section. Updated the Custom Scripts section and fixed some minors."
+    "releaseNotes": "Adjusted the order of some options and fixed some minors."
 }
