@@ -1042,7 +1042,7 @@
                     <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
             </div>
-            <h3><span data-i18n="dl-ppt-title">PowerPoint Plugins</span></h3>
+            <h3><span data-i18n="dl-ppt-title">PowerPoint Plugins (Win)</span></h3>
             <div class="dl-card-names"><span class="dl-names-all">All</span><div class="dl-names-list"><span>GuideMi</span><span>WesternBo</span><span>ImageXi</span><span>ChartEr</span><span>SciPanel</span></div></div>
             <div class="dl-icons-row">
                 <button class="dl-all-btn" data-platform="PPT" data-tip="All (PPT)" onclick="downloadAll(this,'PPT')">
@@ -1170,12 +1170,14 @@ function downloadAll(btn, platform) {
             return { name: name, version: data.latestVersion, key: name + '_' + platform };
         });
     })).then(function(plugins){
-        // 2. Fetch all zxp files
+        // 2. Fetch all plugin files
         return Promise.all(plugins.map(function(p){
-            var ext = (platform === 'PPT') ? '_Setup.exe' : '.zxp';
-            var url = 'download/' + p.key + '_v' + p.version.replace(/\./g,'_') + ext;
+            var isPPT = platform === 'PPT';
+            var ext = isPPT ? '.zip' : '.zxp';
+            var filename = p.key + '_v' + p.version + ext;
+            var url = 'download/' + filename;
             return fetch(url).then(function(r){ return r.arrayBuffer(); }).then(function(buf){
-                return { filename: p.key + '_v' + p.version.replace(/\./g,'_') + ext, data: buf };
+                return { filename: filename, data: buf };
             });
         }));
     }).then(function(files){
@@ -1209,9 +1211,8 @@ function downloadAll(btn, platform) {
     var cache = {};
     function buildUrl(base, key, ver){
         var isPPT = key.indexOf('_PPT') !== -1;
-        var ext = isPPT ? '_Setup.exe' : '.zxp';
-        var v = isPPT ? ver.replace(/\./g,'_') : ver;
-        return base + key + '_v' + v + ext;
+        var ext = isPPT ? '.zip' : '.zxp';
+        return base + key + '_v' + ver + ext;
     }
     dlLinks.forEach(function(a){
         var plugin = a.getAttribute('data-plugin');

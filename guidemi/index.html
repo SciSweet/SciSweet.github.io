@@ -418,9 +418,8 @@ function resolveDownloadUrl(pluginPlatform, callback) {
         .then(function(r){ return r.json(); })
         .then(function(data){
             var isPPT = pluginPlatform.indexOf('_PPT') !== -1;
-            var ver = isPPT ? data.latestVersion.replace(/\./g,'_') : data.latestVersion;
-            var ext = isPPT ? '_Setup.exe' : '.zxp';
-            var url = '../download/' + pluginPlatform + '_v' + ver + ext;
+            var ext = isPPT ? '.zip' : '.zxp';
+            var url = '../download/' + pluginPlatform + '_v' + data.latestVersion + ext;
             versionCache[pluginPlatform] = url;
             callback(url);
         })
@@ -430,12 +429,11 @@ function resolveDownloadUrl(pluginPlatform, callback) {
 document.querySelectorAll('a[data-plugin][data-platform]').forEach(function(a){
     var key = a.getAttribute('data-plugin') + '_' + a.getAttribute('data-platform');
     resolveDownloadUrl(key, function(url){ a.href = url; });
-    // Prevent href="#" navigation if JSON hasn't loaded yet
     a.addEventListener('click', function(e){
         if (a.getAttribute('href') === '#') { e.preventDefault(); }
     });
 });
-// Try Now — pack PS + AI into one zip download
+// Try Now — pack PS + AI + PPT into one zip download
 document.getElementById('tryNowBtn').addEventListener('click', function(e){
     e.preventDefault();
     var btn = this;
@@ -448,16 +446,15 @@ document.getElementById('tryNowBtn').addEventListener('click', function(e){
         var key = pluginName + '_' + platform;
         return fetch('../updates/' + key + '.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(data){
             var isPPT = platform === 'PPT';
-            var ver = isPPT ? data.latestVersion.replace(/\./g,'_') : data.latestVersion;
-            var ext = isPPT ? '_Setup.exe' : '.zxp';
-            var filename = key + '_v' + ver + ext;
+            var ext = isPPT ? '.zip' : '.zxp';
+            var filename = key + '_v' + data.latestVersion + ext;
             return fetch('../download/' + filename).then(function(r){ return r.arrayBuffer(); }).then(function(buf){
                 return { filename: filename, data: buf };
             });
         });
     })).then(function(files){
         var zip = new JSZip();
-        files.forEach(function(f){ zip.file(f.filename, f.data); });
+        files.forEach(function(f){ zip.file(f.filename, f.data); })
         return zip.generateAsync({ type: 'blob' });
     }).then(function(blob){
         var a = document.createElement('a');
