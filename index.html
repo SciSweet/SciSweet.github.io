@@ -1172,9 +1172,10 @@ function downloadAll(btn, platform) {
     })).then(function(plugins){
         // 2. Fetch all zxp files
         return Promise.all(plugins.map(function(p){
-            var url = 'download/' + p.key + '_v' + p.version + '.zxp';
+            var ext = (platform === 'PPT') ? '_Setup.exe' : '.zxp';
+            var url = 'download/' + p.key + '_v' + p.version.replace(/\./g,'_') + ext;
             return fetch(url).then(function(r){ return r.arrayBuffer(); }).then(function(buf){
-                return { filename: p.key + '_v' + p.version + '.zxp', data: buf };
+                return { filename: p.key + '_v' + p.version.replace(/\./g,'_') + ext, data: buf };
             });
         }));
     }).then(function(files){
@@ -1206,7 +1207,12 @@ function downloadAll(btn, platform) {
     // Dynamic download links: read version from updates/*.json
     var dlLinks = document.querySelectorAll('a[data-plugin][data-platform]');
     var cache = {};
-    function buildUrl(base, key, ver){ return base + key + '_v' + ver + '.zxp'; }
+    function buildUrl(base, key, ver){
+        var isPPT = key.indexOf('_PPT') !== -1;
+        var ext = isPPT ? '_Setup.exe' : '.zxp';
+        var v = isPPT ? ver.replace(/\./g,'_') : ver;
+        return base + key + '_v' + v + ext;
+    }
     dlLinks.forEach(function(a){
         var plugin = a.getAttribute('data-plugin');
         var platform = a.getAttribute('data-platform');

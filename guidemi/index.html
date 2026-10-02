@@ -40,6 +40,8 @@
             --c-ai: #ff9a00;
             --c-ps-glow: rgba(49, 168, 255, 0.10);
             --c-ai-glow: rgba(255, 154, 0, 0.10);
+            --c-ppt: #d04423;
+            --c-ppt-glow: rgba(208, 68, 35, 0.10);
             --font-display: Arial, Helvetica, sans-serif;
             --font-body: Arial, Helvetica, sans-serif;
             --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
@@ -109,7 +111,7 @@
         .plugin-platforms {
             display: flex; gap: 8px; margin-bottom: 28px;
         }
-        .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; }
+        .p-plat { font-size: 9px; font-weight: 600; padding: 3px 6px; border-radius: 3px; letter-spacing: 0.04em; min-width: 30px; text-align: center; display: inline-block; }
         .p-plat.ps { background: var(--c-ps-glow); color: var(--c-ps); border: 1px solid rgba(49,168,255,0.12); }
         .p-plat.ai { background: var(--c-ai-glow); color: var(--c-ai); border: 1px solid rgba(255,154,0,0.12); }
         a.p-plat {
@@ -118,6 +120,8 @@
         a.p-plat:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         a.p-plat.ps:hover { background: rgba(49,168,255,0.18); border-color: rgba(49,168,255,0.3); }
         a.p-plat.ai:hover { background: rgba(255,154,0,0.18); border-color: rgba(255,154,0,0.3); }
+        .p-plat.ppt { background: var(--c-ppt-glow); color: var(--c-ppt); border: 1px solid rgba(208,68,35,0.12); }
+        a.p-plat.ppt:hover { background: rgba(208,68,35,0.18); border-color: rgba(208,68,35,0.3); }
         a.p-plat::after {
             content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
             padding: 5px 10px; border-radius: 4px; background: var(--c-text); color: var(--c-bg);
@@ -271,7 +275,7 @@
     <div class="plugin-header">
         <h1>GuideMi</h1>
         <div class="plugin-tagline"><span data-i18n="plugin-tagline">Guide & Layout Management</span></div>
-        <div class="plugin-platforms"><a href="#" data-plugin="GuideMi" data-platform="PS" class="p-plat ps" style="font-size:12px;padding:5px 10px;" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="GuideMi" data-platform="AI" class="p-plat ai" style="font-size:12px;padding:5px 10px;" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
+        <div class="plugin-platforms"><a href="#" data-plugin="GuideMi" data-platform="PS" class="p-plat ps" style="font-size:12px;padding:5px 10px;" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="GuideMi" data-platform="AI" class="p-plat ai" style="font-size:12px;padding:5px 10px;" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a><a href="#" data-plugin="GuideMi" data-platform="PPT" class="p-plat ppt" style="font-size:12px;padding:5px 10px;" data-tip="Download for PowerPoint" data-i18n-tip="dl-tip-ppt" download>P</a></div>
         <p class="plugin-overview" data-i18n="plugin-overview">Stop dragging guides one by one. GuideMi gives you one-click grids, margins, golden ratios, and fully custom layouts. Capture any guide setup as a reusable snapshot and apply it across documents in seconds. From quick symmetry checks to complex multi-column designs, GuideMi turns minutes of manual work into a single click.</p>
     </div>
 
@@ -353,6 +357,12 @@
                 <td><a href="https://www.creem.io/product/prod_4MR1anGJGXad7f9tDNihRJ" target="_blank" style="color:inherit;text-decoration:none;">$19.9</a></td>
                 <td><a href="https://www.creem.io/product/prod_428oFu4Iy07HAR5BQI9sTC" target="_blank" style="color:inherit;text-decoration:none;">$49.9</a></td>
               </tr>
+              <tr>
+                <td><span class="p-plat ppt" style="font-size:12px;">P</span></td>
+                <td><a href="https://www.creem.io/checkout/prod_3hCEsRPWsOMqIpurNf8GsZ/ch_5YA8vllqkPOxRPeDzOq6Fj" target="_blank" style="color:inherit;text-decoration:none;">$2.99</a></td>
+                <td><a href="https://www.creem.io/checkout/prod_3hCEsRPWsOMqIpurNf8GsZ/ch_5YA8vllqkPOxRPeDzOq6Fj" target="_blank" style="color:inherit;text-decoration:none;">$2.99</a></td>
+                <td><a href="https://www.creem.io/checkout/prod_3hCEsRPWsOMqIpurNf8GsZ/ch_5YA8vllqkPOxRPeDzOq6Fj" target="_blank" style="color:inherit;text-decoration:none;">$2.99</a></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -407,7 +417,10 @@ function resolveDownloadUrl(pluginPlatform, callback) {
     fetch('../updates/' + pluginPlatform + '.json?t=' + Date.now())
         .then(function(r){ return r.json(); })
         .then(function(data){
-            var url = '../download/' + pluginPlatform + '_v' + data.latestVersion + '.zxp';
+            var isPPT = pluginPlatform.indexOf('_PPT') !== -1;
+            var ver = isPPT ? data.latestVersion.replace(/\./g,'_') : data.latestVersion;
+            var ext = isPPT ? '_Setup.exe' : '.zxp';
+            var url = '../download/' + pluginPlatform + '_v' + ver + ext;
             versionCache[pluginPlatform] = url;
             callback(url);
         })
@@ -431,10 +444,13 @@ document.getElementById('tryNowBtn').addEventListener('click', function(e){
     var origText = btn.textContent;
     btn.textContent = 'Packing…';
     var pluginName = 'GuideMi';
-    Promise.all(['PS','AI'].map(function(platform){
+    Promise.all(['PS','AI','PPT'].map(function(platform){
         var key = pluginName + '_' + platform;
         return fetch('../updates/' + key + '.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(data){
-            var filename = key + '_v' + data.latestVersion + '.zxp';
+            var isPPT = platform === 'PPT';
+            var ver = isPPT ? data.latestVersion.replace(/\./g,'_') : data.latestVersion;
+            var ext = isPPT ? '_Setup.exe' : '.zxp';
+            var filename = key + '_v' + ver + ext;
             return fetch('../download/' + filename).then(function(r){ return r.arrayBuffer(); }).then(function(buf){
                 return { filename: filename, data: buf };
             });
