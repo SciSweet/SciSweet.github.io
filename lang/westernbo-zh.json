@@ -65,5 +65,11 @@
     "dl-tip-ps": "下载 Photoshop 版",
     "dl-tip-ai": "下载 Illustrator 版",
     "nav-install": "安装",
-    "nav-sparkript": "星火脚本"
+    "nav-sparkript": "星火脚本",
+    "feat-20-title": "Clone Number (Sequential)",
+    "feat-20-desc": "为条带泳道标注连续的克隆编号，用于免疫印迹筛选。",
+    "feat-21-title": "Clone Number (Non-sequential)",
+    "feat-21-desc": "为条带泳道标注非连续的克隆编号，用于免疫印迹筛选。",
+    "feat-22-title": "规范减号",
+    "feat-22-desc": "在 Toggle Sign 的右键菜单中开启「规范减号」选项，点击即可将所有短横线替换为标准数学减号（U+2212）。"
 }
