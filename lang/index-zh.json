@@ -64,5 +64,11 @@
     "sc-2-title": "局部放大图",
     "sc-2-desc": "从选定区域创建局部放大图，可选描边和连接线。",
     "sc-3-title": "显著性标记（多组）",
-    "sc-3-desc": "使用参考线作为锚定位置，批量为所有组合添加显著性标记。"
+    "sc-3-desc": "使用参考线作为锚定位置，批量为所有组合添加显著性标记。",
+    "sc-4-title": "Resize to Guide",
+    "sc-4-desc": "将图层缩放至最近的参考线——一键将面板对齐到版面网格。",
+    "sc-5-title": "Align to Anchor Object",
+    "sc-5-desc": "将选中图层对齐到锚定对象，类似于 Illustrator 的「对齐到关键对象」。",
+    "sc-6-title": "Better Distribution",
+    "sc-6-desc": "以指定间距分布对象，同时自动对齐。"
 }
