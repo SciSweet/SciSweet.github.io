@@ -1,2 +1,3 @@
 v1.0.0 10/01/2026 The first version of GuideMi_PPT.
 V1.0.1 10/03/2026 Updated the UI. Added the Crosshair function.
+v1.0.2 10/04/2026 Refactor the plugin.
