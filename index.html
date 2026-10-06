@@ -1408,9 +1408,6 @@ document.addEventListener('keydown', function(e) {
     if (!isMobile) {
         document.querySelectorAll('.showcase-card video[data-src]').forEach(function(video){
             loadVideo(video);
-            video.autoplay = true;
-            video.play().catch(function(){});
-            video.closest('.video-wrap').classList.add('playing');
         });
     }
 })();
