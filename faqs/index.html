@@ -449,6 +449,20 @@
             </div>
         </div>
 
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span class="faq-label" data-i18n="q16-label">Q16:</span>
+                <span class="faq-text"><span data-i18n="q16">(Photoshop on macOS only) I've followed all the installation steps, enabled Rosetta, PlayerDebugMode, and checked "Load Extension Panels", but the plugin still shows blank or reports a JavaScript error. What else can I try?</span></span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-a">
+                <div class="faq-a-inner">
+                    <span class="faq-label" data-i18n="a16-label">A16:</span>
+                    <p data-i18n="a16">Try clearing the plugin cache. Quit Photoshop, go to <code>~/Library/Preferences/Adobe Photoshop [version] Settings/</code> and delete the file <strong>PluginCache.psp</strong>, then relaunch Photoshop. This resolves a known cache corruption issue on Apple Silicon Macs running Photoshop in Rosetta. This does not apply to Illustrator.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div></main>
 
