@@ -71,5 +71,7 @@
     "feat-21-title": "Clone Number (Non-sequential)",
     "feat-21-desc": "为条带泳道标注非连续的克隆编号，用于免疫印迹筛选。",
     "feat-22-title": "规范减号",
-    "feat-22-desc": "在 Toggle Sign 的右键菜单中开启「规范减号」选项，点击即可将所有短横线替换为标准数学减号（U+2212）。"
+    "feat-22-desc": "在 Toggle Sign 的右键菜单中开启「规范减号」选项，点击即可将所有短横线替换为标准数学减号（U+2212）。",
+    "feat-23-title": "泳道编号（自定义范围）",
+    "feat-23-desc": "自由设定泳道编号的起止值，不再限于从 1 开始。"
 }
