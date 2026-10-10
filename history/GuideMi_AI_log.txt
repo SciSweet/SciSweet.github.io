@@ -10,3 +10,4 @@ v2.0.2 09/12/2026 Improved light theme support by replacing hardcoded dark-theme
 v2.1.4 09/17/2026 Improved light theme support.
 v2.2.5 09/27/2026 Added Text Frames option for the Grid and Go section. Updated the Custom Scripts section and fixed some minors.
 v2.2.6 10/01/2026 Adjusted the order of some options and fixed some minors.
+v2.3.7 10/10/2026 Added translation to the nag screen. Plugin now can detect the language automatically.

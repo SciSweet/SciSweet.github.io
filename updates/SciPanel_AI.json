@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.2",
+    "latestVersion": "2.4.3",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Added Scale and Homogenize Strokes functions, updated Select Text and Font Detect, updated the Get Info function, optimized the UI, and fixed some minors."
+    "releaseNotes": "Added translation to the nag screen. Added edit mode to Phrase Bank. Added Item Visibility and Duplicate Document functions. Plugin now can detect the language automatically."
 }

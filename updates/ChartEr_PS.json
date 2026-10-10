@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.1.5",
+    "latestVersion": "2.2.6",
     "downloadUrl": "https://scisuite.cc/charter",
-    "releaseNotes": "Optimized the UI and fixed some minors."
+    "releaseNotes": "Added translation to the nag screen. Added edit mode to Phrase Bank. Plugin now can detect the language automatically."
 }

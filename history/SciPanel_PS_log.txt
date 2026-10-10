@@ -12,3 +12,4 @@ v2.1.6 09/20/2026 Added Phrase Bank, Special Character, and Batch Text Style fea
 v2.1.7 09/21/2026 Added Select Text and Select Non-text functions.
 v2.2.8 09/27/2026 Added Select Text and Select Non-text function. Updated the Custom Scripts section and fixed some minors. 
 v2.3.9 10/01/2026 Added Scale and Homogenize Strokes functions, updated Select Text and Font Detect, updated the Get Info function, optimized the UI, and fixed some minors.
+v2.4.1 10/10/2026 Added translation to the nag screen. Added edit mode to Phrase Bank. Added Layer Visibility and Duplicate Document functions. Plugin now can detect the language automatically.

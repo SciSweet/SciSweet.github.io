@@ -25,3 +25,4 @@ v2.3.9 09/17/2026 Improved light theme support. Merge function can export to tif
 v2.4.0 09/17/2026 Rename "Copy to All" function.
 v2.4.1 09/27/2026 Updated the Custom Scripts section and fixed some minors.
 v2.4.2 10/01/2026 Updated the Get Info function, optimized the UI, and fixed some minors.
+v2.5.3 10/10/2026 Updated Toggle Sign and Lane Number. Added translation to the nag screen. Added edit mode to Phrase Bank. Plugin now can detect the language automatically. Updated UI and fixed some minors.

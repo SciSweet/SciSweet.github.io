@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.4.2",
+    "latestVersion": "2.5.3",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Updated the Get Info function, optimized the UI, and fixed some minors."
+    "releaseNotes": "Updated Toggle Sign and Lane Number. Added translation to the nag screen. Added edit mode to Phrase Bank. Plugin now can detect the language automatically. Updated UI and fixed some minors."
 }
