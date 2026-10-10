@@ -45,9 +45,11 @@
     "nav-install": "安装",
     "nav-sparkript": "星火脚本",
     "feat-align-anchor-title": "对齐到锚点对象",
-    "feat-align-anchor-desc": "将选中图层对齐到锚点对象，类似于 Illustrator 的"对齐到关键对象"功能。",
+    "feat-align-anchor-desc": "将选中图层对齐到锚点对象，类似于 Illustrator 的「对齐到关键对象」功能。",
     "feat-align-linked-title": "对齐（考虑链接图层）",
     "feat-align-linked-desc": "对齐图层时将链接图层作为一个整体进行处理。",
     "feat-better-dist-title": "更好的分布",
-    "feat-better-dist-desc": "按指定间距分布对象，同时自动对齐。"
+    "feat-better-dist-desc": "按指定间距分布对象，同时自动对齐。",
+    "feat-resize-preserve-text-title": "缩放并保持文本大小",
+    "feat-resize-preserve-text-desc": "缩放面板以适应版面布局，文本大小保持不变——支持参考线、百分比和指定宽高三种方式。"
 }
