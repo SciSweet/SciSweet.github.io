@@ -38,6 +38,8 @@
             --c-ai: #ff9a00;
             --c-ps-glow: rgba(49, 168, 255, 0.10);
             --c-ai-glow: rgba(255, 154, 0, 0.10);
+            --c-ppt: #d04423;
+            --c-ppt-glow: rgba(208, 68, 35, 0.10);
             --font-display: Arial, Helvetica, sans-serif;
             --font-body: Arial, Helvetica, sans-serif;
             --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
@@ -116,6 +118,8 @@
         a.p-plat:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         a.p-plat.ps:hover { background: rgba(49,168,255,0.18); border-color: rgba(49,168,255,0.3); }
         a.p-plat.ai:hover { background: rgba(255,154,0,0.18); border-color: rgba(255,154,0,0.3); }
+        .p-plat.ppt { background: var(--c-ppt-glow); color: var(--c-ppt); border: 1px solid rgba(208,68,35,0.12); }
+        a.p-plat.ppt:hover { background: rgba(208,68,35,0.18); border-color: rgba(208,68,35,0.3); }
         a.p-plat::after {
             content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
             padding: 5px 10px; border-radius: 4px; background: var(--c-text); color: var(--c-bg);
@@ -304,7 +308,7 @@
     <div class="plugin-header">
         <h1>WesternBo</h1>
         <div class="plugin-tagline"><span data-i18n="plugin-tagline">Western Blot &amp; Gel Tools</span></div>
-        <div class="plugin-platforms"><a href="#" data-plugin="WesternBo" data-platform="PS" class="p-plat ps" style="font-size:12px;padding:5px 10px;" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="WesternBo" data-platform="AI" class="p-plat ai" style="font-size:12px;padding:5px 10px;" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a></div>
+        <div class="plugin-platforms"><a href="#" data-plugin="WesternBo" data-platform="PS" class="p-plat ps" style="font-size:12px;padding:5px 10px;" data-tip="Download for Photoshop" data-i18n-tip="dl-tip-ps" download>Ps</a><a href="#" data-plugin="WesternBo" data-platform="AI" class="p-plat ai" style="font-size:12px;padding:5px 10px;" data-tip="Download for Illustrator" data-i18n-tip="dl-tip-ai" download>Ai</a><a href="#" data-plugin="WesternBo" data-platform="PPT" class="p-plat ppt" style="font-size:12px;padding:5px 10px;" data-tip="Download for PowerPoint" data-i18n-tip="dl-tip-ppt" download>P</a></div>
         <p class="plugin-overview" data-i18n="plugin-overview">WesternBo is a Photoshop/Illustrator CEP plugin specifically designed for Western Blot image processing. It helps researchers quickly and accurately annotate, layout, and beautify WB images. All graphic elements are implemented as vector shape layers, ensuring crisp rendering at any zoom level.</p>
     </div>
 
@@ -601,6 +605,12 @@
                 <td><a href="https://www.creem.io/product/prod_3xz7HQOhPHHDSByDS4vf6m" target="_blank" style="color:inherit;text-decoration:none;">$34.9</a></td>
                 <td><a href="https://www.creem.io/product/prod_4iGntYple2BLMH4LaTsYcu" target="_blank" style="color:inherit;text-decoration:none;">$89.9</a></td>
               </tr>
+              <tr>
+                <td><span class="p-plat ppt" style="font-size:12px;">P</span></td>
+                <td><a href="https://www.creem.io/payment/prod_6wMj7pYBAnvxM6gt7XPlJv" target="_blank" style="color:inherit;text-decoration:none;">$5.28</a></td>
+                <td><a href="https://www.creem.io/payment/prod_6wMj7pYBAnvxM6gt7XPlJv" target="_blank" style="color:inherit;text-decoration:none;">$5.28</a></td>
+                <td><a href="https://www.creem.io/payment/prod_6wMj7pYBAnvxM6gt7XPlJv" target="_blank" style="color:inherit;text-decoration:none;">$5.28</a></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -672,7 +682,9 @@ function resolveDownloadUrl(pluginPlatform, callback) {
     fetch('../updates/' + pluginPlatform + '.json?t=' + Date.now())
         .then(function(r){ return r.json(); })
         .then(function(data){
-            var url = '../download/' + pluginPlatform + '_v' + data.latestVersion + '.zxp';
+            var isPPT = pluginPlatform.indexOf('_PPT') !== -1;
+            var ext = isPPT ? '.zip' : '.zxp';
+            var url = '../download/' + pluginPlatform + '_v' + data.latestVersion + ext;
             versionCache[pluginPlatform] = url;
             callback(url);
         })
@@ -687,7 +699,7 @@ document.querySelectorAll('a[data-plugin][data-platform]').forEach(function(a){
         if (a.getAttribute('href') === '#') { e.preventDefault(); }
     });
 });
-// Try Now — pack PS + AI into one zip download
+// Try Now — pack PS + AI + PPT into one zip download
 document.getElementById('tryNowBtn').addEventListener('click', function(e){
     e.preventDefault();
     var btn = this;
@@ -696,10 +708,12 @@ document.getElementById('tryNowBtn').addEventListener('click', function(e){
     var origText = btn.textContent;
     btn.textContent = 'Packing…';
     var pluginName = 'WesternBo';
-    Promise.all(['PS','AI'].map(function(platform){
+    Promise.all(['PS','AI','PPT'].map(function(platform){
         var key = pluginName + '_' + platform;
         return fetch('../updates/' + key + '.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(data){
-            var filename = key + '_v' + data.latestVersion + '.zxp';
+            var isPPT = platform === 'PPT';
+            var ext = isPPT ? '.zip' : '.zxp';
+            var filename = key + '_v' + data.latestVersion + ext;
             return fetch('../download/' + filename).then(function(r){ return r.arrayBuffer(); }).then(function(buf){
                 return { filename: filename, data: buf };
             });
