@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.0.2",
+    "latestVersion": "1.0.3",
     "downloadUrl": "https://scisuite.cc",
-    "releaseNotes": "Updated the UI and some translations."
+    "releaseNotes": "Added Create Rectangle function. Added the bottom positon of Clone Number section. Updated the UI and some translations. Fixed some minors."
 }
