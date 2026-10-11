@@ -1,2 +1,3 @@
 v1.0.0 10/10/2026 The first version of WesternBo_PPT.
 v1.0.1 10/10/2026 Fixed the Crop bug in Rotate and Smart Crop functions.
+v1.0.2 10/11/2026 Updated the UI and some translations.
