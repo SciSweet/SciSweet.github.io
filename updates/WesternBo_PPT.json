@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.0.0",
+    "latestVersion": "1.0.1",
     "downloadUrl": "https://scisuite.cc",
-    "releaseNotes": "The first version of GuideMi_PPT."
+    "releaseNotes": "Fixed the Crop bug in Rotate and Smart Crop functions."
 }
