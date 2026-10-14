@@ -17,6 +17,8 @@
     "feat-2-desc": "为选中的图层添加精确的矢量边框，支持矢量、剪切蒙版、图层样式和直接模式。",
     "feat-3-title": "Molecular Weight Marker",
     "feat-3-desc": "通过手动点击或对数间距模式为 WB 图像添加分子量标尺。",
+    "feat-26-title": "分子量标记 — 参考线反馈",
+    "feat-26-desc": "点击放置分子量位置时实时显示参考线反馈，精确预览每个标记的落点位置，生成后自动清除参考线。",
     "feat-4-title": "Batch Merge & Save",
     "feat-4-desc": "批量处理整个文件夹的 PSD 文件——自动合并、拼合并保存为 TIFF。",
     "feat-5-title": "Swap Layers",
