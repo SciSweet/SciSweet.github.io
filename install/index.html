@@ -168,6 +168,48 @@
             .faq-a { padding-left: 18px; padding-right: 18px; }
             .faq-item.open .faq-a { padding: 0 18px 16px; }
         }
+
+        /* Video Walkthrough */
+        .video-section { margin-top: 72px; }
+        .video-section-title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 400; letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+        .feat-grid { columns: 3; column-gap: 16px; }
+        .feat-card {
+            break-inside: avoid; margin-bottom: 16px;
+            background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--r-md);
+            padding: 20px; transition: background var(--ease);
+        }
+        .feat-card:hover { background: var(--c-bg-card-hover); }
+        .feat-card-title {
+            font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--c-text);
+        }
+        .feat-card-desc {
+            font-size: 13px; color: var(--c-text-secondary); line-height: 1.6; margin-top: 10px;
+        }
+        .feat-card video { width: 100%; border-radius: 6px; display: block; }
+        .feat-card .video-wrap {
+            position: relative; cursor: pointer; border-radius: 6px; overflow: hidden;
+        }
+        .feat-card .video-wrap .play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 52px; height: 52px; background: rgba(0,0,0,0.55); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: opacity var(--ease);
+        }
+        .feat-card .video-wrap .play-btn svg {
+            width: 22px; height: 22px; fill: #fff; stroke: none;
+        }
+        .feat-card .video-wrap.playing .play-btn { opacity: 0; }
+        .feat-card .video-wrap:hover .play-btn { background: rgba(0,0,0,0.7); }
+        .feat-card .video-wrap.playing:hover .play-btn { opacity: 1; }
+        .feat-card .video-wrap.playing:hover .play-btn svg {
+            /* pause icon via CSS */
+        }
+        @media (max-width: 900px) { .feat-grid { columns: 2; } }
+        @media (max-width: 560px) { .feat-grid { columns: 1; } }
     </style>
     <script>
     // Earliest possible: if user previously chose zh, hide translatable text until loaded
@@ -306,7 +348,38 @@
         -->
 
     </div>
+
+    <!-- Video Walkthrough -->
+    <div class="video-section">
+        <h2 class="video-section-title" data-i18n="sec-video">Video Walkthrough</h2>
+        <div class="feat-grid">
+                <div class="feat-card">
+                    <div class="feat-card-title" data-i18n="vid-1-title">Method 1 — ZXP Installer</div>
+                    <div class="video-wrap" onclick="toggleVideo(this)">
+                        <video muted loop playsinline preload="metadata">
+                            <source src="install-zxp.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                    </div>
+                    <div class="feat-card-desc" data-i18n="vid-1-desc">Install SciSuite plugins using Anastasiy's Extension Manager: select the host application, drag in the .zxp file, and launch.</div>
+                </div>
+        </div>
+    </div>
+
 </div></main>
+
+<script>
+function toggleVideo(wrap) {
+    var video = wrap.querySelector('video');
+    if (video.paused) {
+        video.play();
+        wrap.classList.add('playing');
+    } else {
+        video.pause();
+        wrap.classList.remove('playing');
+    }
+}
+</script>
 
 <!-- Footer -->
 <footer class="footer">
