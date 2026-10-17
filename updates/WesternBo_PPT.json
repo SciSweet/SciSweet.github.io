@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.0.3",
+    "latestVersion": "1.0.4",
     "downloadUrl": "https://scisuite.cc",
-    "releaseNotes": "Added Create Rectangle function. Added the bottom positon of Clone Number section. Updated the UI and some translations. Fixed some minors."
+    "releaseNotes": "Enhanced the Rotate function. Added guide and link to the Molecular Weight Marker section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
 }

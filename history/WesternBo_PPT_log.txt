@@ -2,3 +2,4 @@ v1.0.0 10/10/2026 The first version of WesternBo_PPT.
 v1.0.1 10/10/2026 Fixed the Crop bug in Rotate and Smart Crop functions.
 v1.0.2 10/11/2026 Updated the UI and some translations.
 v1.0.3 10/11/2026 Added Create Rectangle function. Added the bottom positon of Clone Number section. Updated the UI and some translations. Fixed some minors.
+v1.0.4 10/17/2026 Enhanced the Rotate function. Added guide and link to the Molecular Weight Marker section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors.
