@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.7",
+    "latestVersion": "2.3.8",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Added translation to the nag screen. Plugin now can detect the language automatically."
+    "releaseNotes": "Updated UI and fixed some minors."
 }

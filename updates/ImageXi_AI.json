@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.3",
+    "latestVersion": "2.4.4",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Added translation to the nag screen. Added edit mode to Phrase Bank. Plugin now can detect the language automatically."
+    "releaseNotes": "Added Blend Mode and Rotate functions. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
 }
