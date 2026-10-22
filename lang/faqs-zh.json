@@ -32,7 +32,7 @@
     "a8-label": "回答 8：",
     "a9-label": "回答 9：",
     "q2": "我没有国际信用卡/借记卡（Visa、Mastercard 等）、Apple Pay 或 Google Pay。购买 SciSuite 是否有其他付款方式？",
-    "a2": "SciSuite 的支付平台（Creem）接受国际信用卡/借记卡（Visa、Mastercard 等）、Apple Pay、Google Pay 和<a href='https://global.alipay.com/' target='_blank' rel='noopener' style='color:var(--c-accent-light);'>支付宝</a>（支持单次购买）。结账页面会自动显示你所在地区可用的付款方式。<br><br>目前暂不支持微信支付和银联。如果你无法使用上述任何付款方式，请发送邮件至 <a href='mailto:contact@scisuite.cc' style='color:var(--c-accent-light);'>contact@scisuite.cc</a>，我们可以安排其他付款方式。",
+    "a2": "SciSuite 的支付平台（Creem）接受国际信用卡/借记卡（Visa、Mastercard 等）、Apple Pay、Google Pay 和<a href='https://global.alipay.com/' target='_blank' rel='noopener' style='color:var(--c-accent-light);'>支付宝</a>（支持单次购买）。结账页面会自动显示你所在地区可用的付款方式。<br><br><strong>支付宝常见问题：</strong>部分用户在使用支付宝付款时遇到"发卡行拒绝交易"的错误，这通常是因为绑定的银行卡拒绝了境外支付。解决方法：将支付宝的付款方式切换为<strong>余额宝</strong>或支付宝余额，不要使用银行卡直接扣款。<br><br>目前暂不支持微信支付和银联。如果你无法使用上述任何付款方式，请发送邮件至 <a href='mailto:contact@scisuite.cc' style='color:var(--c-accent-light);'>contact@scisuite.cc</a>，我们可以安排其他付款方式。",
     "q3": "支持哪些版本的 Photoshop 和 Illustrator？",
     "a3": "SciSuite 插件需要 Adobe Photoshop CC 2022 或更高版本以及 Adobe Illustrator CC 2022 或更高版本。Windows 和 macOS 均完全支持。在 Apple Silicon Mac（M1 及更新机型）上，Photoshop 需要以 Rosetta 模式启动才能使用 CEP 扩展；Illustrator 原生支持 Apple Silicon，无需 Rosetta。详见<a href='../install/index.html' style='color:var(--c-accent-light);'>安装指南</a>。",
     "q4": "Photoshop 是位图编辑器，SciSuite 的输出怎么能是“矢量”的？",
