@@ -39,5 +39,7 @@
     "m1-s4": "<strong>启动 Photoshop 或 Illustrator。</strong>打开宿主应用程序，插件应出现在 <strong>窗口 &gt; 扩展</strong> 中。如果未出现，请尝试重启计算机。<br><br><strong>macOS Apple Silicon（M 系列芯片）— 仅限 Photoshop：</strong>在\"应用程序\"文件夹中，右键点击 <strong>Adobe Photoshop</strong> 并选择<strong>显示简介</strong>，勾选<strong>使用 Rosetta 打开</strong>，然后重新启动该应用。Illustrator 和 Intel Mac 无需此步骤。",
     "sec-video": "视频教程",
     "vid-1-title": "方法一 — ZXP 安装器",
-    "vid-1-desc": "使用 Anastasiy's Extension Manager 安装 SciSuite 插件：选择宿主程序，拖入 .zxp 文件，启动即可。"
+    "vid-1-desc": "使用 Anastasiy's Extension Manager 安装 SciSuite 插件：选择宿主程序，拖入 .zxp 文件，启动即可。",
+    "vid-2-title": "方法二 — 手动解压安装",
+    "vid-2-desc": "通过解压方式安装：将 .zxp 文件重命名为 .zip 并解压，将文件夹放入 CEP extensions 目录，然后开启开发者模式。如果你使用的是非完整版 Adobe 软件，请使用此方法安装。"
 }
