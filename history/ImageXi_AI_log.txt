@@ -32,3 +32,4 @@ v2.2.1 09/27/2026 Updated the Custom Scripts section and fixed some minors.
 v2.2.2 10/01/2026 Updated the Get Info function, optimized the UI, and fixed some minors.
 v2.3.3 10/10/2026 Added translation to the nag screen. Added edit mode to Phrase Bank. Plugin now can detect the language automatically.
 v2.4.4 10/17/2026 Added Blend Mode and Rotate functions. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors.
+v2.4.5 10/26/2026 Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Updated Grid Arranger and Match Color. Added Rotate Step function. Updated the Rotate function. Updated UI and translation. Fixed some minors.

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.6.4",
+    "latestVersion": "2.6.5",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Enhanced the Rotate function. Added guide and link to the Molecular Weight Marker section. Added Blend Mode function. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
+    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Added Side labels for Adv Line Marker. Added Click and Match mode for MW Marker section. Updated UI and translation. Fixed some minors."
 }

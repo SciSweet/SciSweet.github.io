@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.1",
+    "latestVersion": "2.3.2",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Added Blend Mode and Rotate functions. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
+    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Updated Grid Arranger and Match Color. Added Rotate Step function. Updated the Rotate function. Updated UI and translation. Fixed some minors."
 }

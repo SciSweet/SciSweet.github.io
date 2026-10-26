@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.7",
+    "latestVersion": "2.3.8",
     "downloadUrl": "https://scisuite.cc/charter",
-    "releaseNotes": "Added Text Backdrop section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
+    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Added Side labels for Adv Line Marker. Updated UI and translation. Fixed some minors."
 }

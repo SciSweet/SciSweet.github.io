@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.5.2",
+    "latestVersion": "2.5.3",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Added more options for the Better Renamer section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors."
+    "releaseNotes": "Updated UI and translation. Fixed some minors."
 }
