@@ -40,6 +40,8 @@
     "sec-video": "视频教程",
     "vid-1-title": "方法一 — ZXP 安装器",
     "vid-1-desc": "使用 Anastasiy's Extension Manager 安装 SciSuite 插件：选择宿主程序，拖入 .zxp 文件，启动即可。",
+    "vid-4-title": "方法一 — ZXP 安装器 (macOS)",
+    "vid-4-desc": "在 macOS 上使用 Anastasiy's Extension Manager 安装 SciSuite 插件：选择宿主程序，拖入 .zxp 文件，启动即可。",
     "vid-2-title": "方法二 — 手动解压安装",
     "vid-2-desc": "通过解压方式安装：将 .zxp 文件重命名为 .zip 并解压，将文件夹放入 CEP extensions 目录，然后开启开发者模式。如果你使用的是非完整版 Adobe 软件，请使用此方法安装。",
     "vid-3-title": "疑难解答 — 载入旧版扩展",
