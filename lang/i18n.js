@@ -10,6 +10,13 @@
  *        document.documentElement.classList.add('i18n-loading');
  *    } })();
  *    </script>
+ *
+ *  ⚠ JSON quote warning:
+ *  Chinese curly double quotes "" (U+201C / U+201D) WILL BREAK JSON parsing
+ *  and silently disable the language switcher. Use「」instead.
+ *  Smart single quotes '' (U+2018 / U+2019) are safe inside values but
+ *  should be replaced with ASCII ' for consistency.
+ *  Always validate *-zh.json after editing:  python3 -c "import json; json.load(open('FILE'))"
  */
 (function () {
     var LANG_KEY = 'scisuite-lang';
