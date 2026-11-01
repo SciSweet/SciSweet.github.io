@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.6.5",
+    "latestVersion": "2.6.6",
     "downloadUrl": "https://scisuite.cc/westernbo",
-    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Added Side labels for Adv Line Marker. Added Click and Match mode for MW Marker section. Updated UI and translation. Fixed some minors."
+    "releaseNotes": "Adobe license keys now include 2 activations. Added Step Rotate and Cover Rect functions. Added indent for the Adv Line Marker section. Updated UI."
 }

@@ -19,3 +19,4 @@ v2.3.2 10/01/2026 Added Scale and Homogenize Strokes functions, updated Select T
 v2.4.3 10/10/2026 Added translation to the nag screen. Added edit mode to Phrase Bank. Added Item Visibility and Duplicate Document functions. Plugin now can detect the language automatically.
 v2.5.4 10/17/2026 Added more options for the Better Renamer section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors.
 v2.5.5 10/26/2026 Updated UI and translation. Fixed some minors.
+v2.5.6 11/01/2026 Adobe license keys now include 2 activations. Updated UI.

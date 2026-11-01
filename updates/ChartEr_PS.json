@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.8",
+    "latestVersion": "2.3.9",
     "downloadUrl": "https://scisuite.cc/charter",
-    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Added Side labels for Adv Line Marker. Updated UI and translation. Fixed some minors."
+    "releaseNotes": "Adobe license keys now include 2 activations. Updated UI."
 }

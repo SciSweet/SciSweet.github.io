@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.4.5",
+    "latestVersion": "2.4.6",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Updated Grid Arranger and Match Color. Added Rotate Step function. Updated the Rotate function. Updated UI and translation. Fixed some minors."
+    "releaseNotes": "Adobe license keys now include 2 activations. Updated UI."
 }

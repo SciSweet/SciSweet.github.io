@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.5.3",
+    "latestVersion": "2.5.4",
     "downloadUrl": "https://scisuite.cc/scipanel",
-    "releaseNotes": "Updated UI and translation. Fixed some minors."
+    "releaseNotes": "Adobe license keys now include 2 activations. Updated UI."
 }
