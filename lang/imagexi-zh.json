@@ -95,5 +95,7 @@
     "dl-tip-ps": "下载 Photoshop 版",
     "dl-tip-ai": "下载 Illustrator 版",
     "nav-install": "安装",
-    "nav-sparkript": "星火脚本"
+    "nav-sparkript": "星火脚本",
+    "feat-35-title": "匹配颜色 (H&E 明场)",
+    "feat-35-desc": "匹配颜色同样适用于明场图像。一键统一不同批次或不同扫描仪拍摄的 H&E 染色切片的色调。"
 }
