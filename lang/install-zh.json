@@ -6,7 +6,7 @@
     "nav-trynow": "立即体验",
     "header-title": "安装指南",
     "header-desc": "请选择下方的安装方式，每个部分都会逐步引导你完成安装。",
-    "m1-title": "通过 ZXP 安装器安装",
+    "m1-title": "通过 ZXP 安装器安装（若在非官方渠道安装的 Adobe 软件上安装失败请使用方法二）",
     "m1-s1": "<strong>关闭 Adobe 应用程序。</strong>如果 Photoshop 和/或 Illustrator 正在运行，请先退出。安装时宿主程序处于打开状态可能导致安装失败。",
     "m1-s2": "<strong>下载并安装 ZXP 安装器。</strong>以下任意一款均可：<a href='https://install.anastasiy.com/' target='_blank' rel='noopener' style='color:var(--c-accent-light);'>Anastasiy's Extension Manager</a>（推荐——支持拖放安装、管理和卸载扩展）、<a href='https://aescripts.com/learn/post/zxp-installer' target='_blank' rel='noopener' style='color:var(--c-accent-light);'>aescripts ZXP/UXP Installer</a>（免费、轻量）或 <a href='https://zxpinstaller.com/' target='_blank' rel='noopener' style='color:var(--c-accent-light);'>ZXPInstaller</a>（支持拖放安装，但不支持管理和卸载扩展）。",
     "m2-title": "通过手动放置文件安装（适用于任何 Adobe 安装方式）",
