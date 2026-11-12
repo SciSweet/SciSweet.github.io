@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.0.7",
+    "latestVersion": "1.0.8",
     "downloadUrl": "https://scisuite.cc",
-    "releaseNotes": "Updated UI."
+    "releaseNotes": "Added more snap guide function buttons. Optimized the Clear on Selection function. Updated the icon of Border button. Updated UI and tranlation."
 }

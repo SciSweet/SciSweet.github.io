@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.0.7",
+    "latestVersion": "1.0.8",
     "downloadUrl": "https://scisuite.cc",
-    "releaseNotes": "Added indent for the Adv Line Marker section. Updated UI."
+    "releaseNotes": "Added more unit options like bp, kbp, and kb. Updated the icon of Border button. Updated UI and tranlation."
 }

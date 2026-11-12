@@ -6,3 +6,4 @@ v1.0.4 10/11/2026 Updated the UI and some translations.
 v1.0.5 10/17/2026 Updated the UI and fixed some minors.
 v1.0.6 10/26/2026 Updated the UI and fixed some minors.
 v1.0.7 11/01/2026 Updated the UI.
+v1.0.8 11/12/2026 Added more snap guide function buttons. Optimized the Clear on Selection function. Updated the icon of Border button. Updated UI and tranlation.
