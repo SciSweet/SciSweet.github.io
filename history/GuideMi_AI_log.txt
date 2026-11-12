@@ -14,3 +14,4 @@ v2.3.7 10/10/2026 Added translation to the nag screen. Plugin now can detect the
 v2.3.8 10/17/2026 Updated UI and fixed some minors.
 v2.3.9 10/26/2026 Updated UI and fixed some minors.
 v2.4.0 11/01/2026 Adobe license keys now include 2 activations.
+v2.4.1 11/12/2026 Added IME (Input Method Editor) support. Added more snap guide function buttons. Optimized the Clear on Selection function. Updated the icon of Border button. Clicking preset preview now also loads the configuration. Updated UI and tranlation.

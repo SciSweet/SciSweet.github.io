@@ -13,3 +13,4 @@ v2.2.6 10/10/2026 Added translation to the nag screen. Added edit mode to Phrase
 v2.3.7 10/17/2026 Added Text Backdrop section. Added edit mode to Special Character function. Use real line in all related functions. Updated UI and fixed some minors.
 v2.3.8 10/26/2026 Use standard math minus sign (U+2212) instead of keyboard hyphen-minus for Adv Line Marker. Added Side labels for Adv Line Marker. Updated UI and translation. Fixed some minors.
 v2.3.9 11/01/2026 Adobe license keys now include 2 activations. Updated UI.
+v2.4.0 11/12/2026 Added IME (Input Method Editor) support. Clicking preset preview now also loads the configuration. Updated color preview button. Updated the icon of Border button. Updated UI and tranlation.

@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.3.3",
+    "latestVersion": "2.3.4",
     "downloadUrl": "https://scisuite.cc/imagexi",
-    "releaseNotes": "Adobe license keys now include 2 activations. Updated UI."
+    "releaseNotes": "Added IME (Input Method Editor) support. Fixed line weight below 1 snapping to 0.1pt instead of the correct value. Clicking preset preview now also loads the configuration. Updated color preview button. Updated the icon of Border button. Updated UI and tranlation."
 }

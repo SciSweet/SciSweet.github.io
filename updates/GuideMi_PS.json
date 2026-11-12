@@ -1,5 +1,5 @@
 {
-    "latestVersion": "2.4.1",
+    "latestVersion": "2.4.2",
     "downloadUrl": "https://scisuite.cc/guidemi",
-    "releaseNotes": "Adobe license keys now include 2 activations."
+    "releaseNotes": "Added IME (Input Method Editor) support. Added more snap guide function buttons. Optimized the Clear on Selection function. Updated the icon of Border button. Clicking preset preview now also loads the configuration. Updated UI and tranlation."
 }
